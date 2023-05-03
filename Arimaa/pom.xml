@@ -90,7 +90,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>cz.cvut.fel.sit.pjv.arimaa.arimaa/cz.cvut.fel.sit.pjv.arimaa.arimaa.HelloApplication</mainClass>
+              <mainClass>cz.cvut.fel.sit.pjv.arimaa.arimaa/cz.cvut.fel.sit.pjv.arimaa.ArimaaGame_startMenu</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

@@ -7,6 +7,8 @@ module cz.cvut.fel.sit.pjv.arimaa.arimaa {
             requires org.kordamp.ikonli.javafx;
                     requires com.almasb.fxgl.all;
     
-    opens cz.cvut.fel.sit.pjv.arimaa.arimaa to javafx.fxml;
-    exports cz.cvut.fel.sit.pjv.arimaa.arimaa;
+    opens cz.cvut.fel.sit.pjv.arimaa to javafx.fxml;
+    exports cz.cvut.fel.sit.pjv.arimaa;
+    exports cz.cvut.fel.sit.pjv.arimaa.controller;
+    opens cz.cvut.fel.sit.pjv.arimaa.controller to javafx.fxml;
 }

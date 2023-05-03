@@ -1,14 +1,14 @@
-package cz.cvut.fel.sit.pjv.arimaa.arimaa;
+package cz.cvut.fel.sit.pjv.arimaa.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class StartMenuController {
     @FXML
     private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        welcomeText.setText("Offline game started");
     }
 }
