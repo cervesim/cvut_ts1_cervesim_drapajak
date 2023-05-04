@@ -11,4 +11,6 @@ module cz.cvut.fel.sit.pjv.arimaa.arimaa {
     exports cz.cvut.fel.sit.pjv.arimaa;
     exports cz.cvut.fel.sit.pjv.arimaa.controller;
     opens cz.cvut.fel.sit.pjv.arimaa.controller to javafx.fxml;
+    exports cz.cvut.fel.sit.pjv.arimaaInterfaces.controllerInterface;
+    opens cz.cvut.fel.sit.pjv.arimaaInterfaces.controllerInterface to javafx.fxml;
 }
