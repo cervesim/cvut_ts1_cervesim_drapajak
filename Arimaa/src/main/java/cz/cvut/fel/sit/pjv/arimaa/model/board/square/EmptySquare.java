@@ -8,6 +8,11 @@ public final class EmptySquare extends Square {
     }
 
     @Override
+    public String toString() {
+        return "-";
+    }
+
+    @Override
     public boolean isSquareOccupied() {
         return false;
     }

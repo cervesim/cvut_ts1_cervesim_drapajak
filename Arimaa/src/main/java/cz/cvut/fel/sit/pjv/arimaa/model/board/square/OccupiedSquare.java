@@ -10,6 +10,11 @@ public final class OccupiedSquare extends Square{
     }
 
     @Override
+    public String toString() {
+        return getPieceOnSquare().getPieceColor().isSilver() ? getPieceOnSquare().toString().toLowerCase() : getPieceOnSquare().toString();
+    }
+
+    @Override
     public boolean isSquareOccupied() {
         return true;
     }

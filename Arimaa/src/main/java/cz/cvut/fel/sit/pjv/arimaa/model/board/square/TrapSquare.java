@@ -2,7 +2,7 @@ package cz.cvut.fel.sit.pjv.arimaa.model.board.square;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 
-public class TrapSquare extends Square{
+public class TrapSquare extends Square /*TODO */{
     private final int[] PossibleSupportingSquares = {-8, -1, 1, 8};
     private final Piece pieceOnSquare;
     TrapSquare(int squareLocation, Piece pieceOnSquare) {

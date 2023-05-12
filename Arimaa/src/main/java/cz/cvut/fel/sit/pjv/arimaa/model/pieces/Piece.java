@@ -10,6 +10,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SimpleMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class Piece {
@@ -21,7 +22,7 @@ public abstract class Piece {
         this.pieceColor = pieceColor;
 //        this.pieceWeight = getWeight(); TODO
     }
-    public List<Move> getLegalMoves (final Board board) {
+    public Collection<Move> getLegalMoves (final Board board) {
         final List<Move> legalMoves = new ArrayList<>();
 
         int[] Possible_Move_Coordinates = getPossibleMoveCoordinates();
@@ -60,18 +61,58 @@ public abstract class Piece {
         }
         return legalMoves;
     }
+
+    /**
+     * @return
+     */
     public abstract int[] getPossibleMoveCoordinates();
 
-    public Alliance getPieceColor() {
-        return pieceColor;
-    }
 //    public abstract int getWeight(); TODO
 //    public abstract boolean isFrozen(); TODO
 
+    public int getPiecePosition() {
+        return this.piecePosition;
+    }
+
+    public Alliance getPieceColor() {return this.pieceColor;}
+
+    /**
+     * @param currentPosition
+     * @param candidateOffset
+     * @return
+     */
     protected static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
         return BoardUtils.First_Column[currentPosition] && (candidateOffset == -1);
     }
+
+    /**
+     * @param currentPosition
+     * @param candidateOffset
+     * @return
+     */
     protected static boolean isEightColumnExclusion(final int currentPosition, final int candidateOffset) {
         return BoardUtils.Eight_Column[currentPosition] && (candidateOffset == 1);
+    }
+
+    /**
+     *
+     */
+    public enum PieceType{
+        ELEPHANT("E"),
+        CAMEL("M"),
+        HORSE("H"),
+        DOG("D"),
+        CAT("C"),
+        RABBIT("R");
+
+        private String pieceName;
+        PieceType(String pieceName) {
+            this.pieceName = pieceName;
+        }
+
+        @Override
+        public String toString() {
+            return this.pieceName;
+        }
     }
 }

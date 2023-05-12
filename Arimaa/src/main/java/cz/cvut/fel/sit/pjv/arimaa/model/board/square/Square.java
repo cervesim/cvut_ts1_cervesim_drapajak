@@ -1,9 +1,8 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.square;
 
+import com.google.common.collect.ImmutableMap;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardUtils;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +12,6 @@ public abstract class Square {
     Square(final int squareLocation){
         this.squareLocation = squareLocation;
     }
-
     private static Map<Integer, EmptySquare> createAllPossibleEmptySquares() {
         final  Map<Integer, EmptySquare> emptySquareMap = new HashMap<>();
 
@@ -21,8 +19,9 @@ public abstract class Square {
             emptySquareMap.put(i, new EmptySquare(i));
         }
 
-        return Collections.unmodifiableMap(emptySquareMap);
+        return ImmutableMap.copyOf(emptySquareMap);
     }
+
     public static Square createSquare(final int squareLocation, final Piece pieceOnSquare){
         return pieceOnSquare != null ? new OccupiedSquare(squareLocation, pieceOnSquare) : Empty_Squares.get(squareLocation);
     }

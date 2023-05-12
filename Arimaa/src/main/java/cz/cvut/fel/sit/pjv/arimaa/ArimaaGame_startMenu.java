@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ArimaaGame_startMenu extends Application {
+    /**
+     *
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ArimaaGame_startMenu.class.getResource("StartMenuView.fxml"));
@@ -17,6 +22,10 @@ public class ArimaaGame_startMenu extends Application {
         stage.show();
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

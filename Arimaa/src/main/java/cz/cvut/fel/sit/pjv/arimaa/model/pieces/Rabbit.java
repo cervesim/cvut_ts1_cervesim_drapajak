@@ -14,5 +14,8 @@ public class Rabbit extends Piece /* TODO maybe delete this and have just Piece 
         } else return new int[]{-1, 1, 8};
     }
 
-
+    @Override
+    public String toString() {
+        return PieceType.RABBIT.toString();
+    }
 }

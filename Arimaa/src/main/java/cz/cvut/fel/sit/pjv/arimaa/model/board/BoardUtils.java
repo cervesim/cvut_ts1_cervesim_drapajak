@@ -10,7 +10,7 @@ public class BoardUtils {
         throw new RuntimeException("Don't do this");
     }
     public static boolean isValidSquareCoordinate(int squareCoordinate) {
-        return squareCoordinate >= 0 && squareCoordinate < Num_Squares /* TODO is it really < 64 */;
+        return squareCoordinate >= 0 && squareCoordinate < Num_Squares;
     }
 
     private static boolean[] initColumn(int columnNumber) {
