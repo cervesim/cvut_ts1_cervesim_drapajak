@@ -13,15 +13,46 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class Piece {
-    protected final int piecePosition;
+public class Piece {
     protected final Alliance pieceColor;
+    protected final PieceType pieceType;
+    protected final int piecePosition;
+    protected final int pieceWeight;
 
-    public Piece(final int piecePosition, final Alliance pieceColor) {
-        this.piecePosition = piecePosition;
+    public Piece(final Alliance pieceColor, final PieceType pieceType, final int piecePosition) {
         this.pieceColor = pieceColor;
-//        this.pieceWeight = getWeight(); TODO
+        this.pieceType = pieceType;
+        this.piecePosition = piecePosition;
+        this.pieceWeight = getWeight();
     }
+    @Override
+    public String toString() {
+        switch (this.pieceType){
+            case ELEPHANT:
+                return PieceType.ELEPHANT.toString();
+            case CAMEL:
+                return PieceType.CAMEL.toString();
+            case HORSE:
+                return PieceType.HORSE.toString();
+            case DOG:
+                return PieceType.DOG.toString();
+            case CAT:
+                return PieceType.CAT.toString();
+            default:
+                return PieceType.RABBIT.toString();
+        }
+    }
+    /**
+     * nejdříve metoda zjistí všechny možný směry jakými se může pohybovat (getPossibleMoveCoordinates),
+     * poté pro každý směr určí podle své polohy na jake políčko by se moha figurka pohnout. (possibleDestinationCoordinate)
+     * pokud políčko není mimo hrací pole (isValidSquareCoordinate) a pokud není jednou z vyjímek (is...ColumnExclusion) pak pokračuje v určovaní jaký pohyb může provést.
+     * zjistí co je na políčku v možné destinaci (possibleDestinationSquare)
+     * podle barvy firgurky se přidají typy poybů do listu of legal moves.
+     * @param board
+     * @return list všech možných tahů pro figurku
+     *TODO pokud je kolem figurky figurka s rozdílnou alliance a větší weight a nemá kolem
+     *TODO sebe figurku se stejnou alliance pak se vrátí prazdný pole leaálních pohybů.
+     */
     public Collection<Move> getLegalMoves (final Board board) {
         final List<Move> legalMoves = new ArrayList<>();
 
@@ -38,23 +69,15 @@ public abstract class Piece {
                     continue;
                 }
 
-                /*TODO add if is frozen return null possible move coordinates*/
-                /*TODO change getPossibleMoveCoordinates so its checking all squares where rabbit can be frozen*/
-
                 final Square possibleDestinationSquare = board.getSquare(possibleDestinationCoordinate);
-
                 if (!possibleDestinationSquare.isSquareOccupied()){
                     legalMoves.add(new SimpleMove(board, this, possibleDestinationCoordinate));
-                    /*TODO add parameters for simple move*/
                 } else {
-
                     final Piece pieceAtDestination = possibleDestinationSquare.getPieceOnSquare();
                     final Alliance pieceColor = pieceAtDestination.getPieceColor();
-
                     if (this.pieceColor != pieceColor) {
                         legalMoves.add(new Push(board, this, possibleDestinationCoordinate));
                         legalMoves.add(new Pull(board, this, possibleDestinationCoordinate));
-                        /* TODO complete push and pull classes*/
                     }
                 }
             }
@@ -63,12 +86,33 @@ public abstract class Piece {
     }
 
     /**
-     * @return
+     * @return pole směrů, kterýmí se může figurka pohybovat.
+     * U králíka záleží na barvě a nesmí se pohybovat dozadu, jinak jsou u všech figurek směry stejné
      */
-    public abstract int[] getPossibleMoveCoordinates();
+    public int[] getPossibleMoveCoordinates(){
+        if (this.pieceType == PieceType.RABBIT) {
+            if (this.pieceColor == Alliance.GOLDEN){
+                return new int[]{-8, -1, 1};
+            } else return new int[]{-1, 1, 8};
+        } else return new int[]{-8, -1, 1, 8};
+    }
 
-//    public abstract int getWeight(); TODO
-//    public abstract boolean isFrozen(); TODO
+    public int getWeight(){
+        switch (this.pieceType){
+            case ELEPHANT:
+                return 6;
+            case CAMEL:
+                return 5;
+            case HORSE:
+                return 4;
+            case DOG:
+                return 3;
+            case CAT:
+                return 2;
+            default: /*RABBIT*/
+                return 1;
+        }
+    }
 
     public int getPiecePosition() {
         return this.piecePosition;
@@ -94,25 +138,4 @@ public abstract class Piece {
         return BoardUtils.Eight_Column[currentPosition] && (candidateOffset == 1);
     }
 
-    /**
-     *
-     */
-    public enum PieceType{
-        ELEPHANT("E"),
-        CAMEL("M"),
-        HORSE("H"),
-        DOG("D"),
-        CAT("C"),
-        RABBIT("R");
-
-        private String pieceName;
-        PieceType(String pieceName) {
-            this.pieceName = pieceName;
-        }
-
-        @Override
-        public String toString() {
-            return this.pieceName;
-        }
-    }
 }

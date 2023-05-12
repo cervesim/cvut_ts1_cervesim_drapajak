@@ -4,9 +4,8 @@ import com.google.common.collect.ImmutableList;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.OtherPieces;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Rabbit;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 
 import java.util.*;
 
@@ -59,39 +58,40 @@ public class Board {
     public static Board createTestBoard () {
         final Builder builder = new Builder();
 
-        builder.setPiece(new OtherPieces(0, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(1, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(2, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(3, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(4, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(5, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(6, Alliance.SILVER));
-        builder.setPiece(new OtherPieces(7, Alliance.SILVER));
-        builder.setPiece(new Rabbit(8, Alliance.SILVER));
-        builder.setPiece(new Rabbit(9, Alliance.SILVER));
-        builder.setPiece(new Rabbit(10, Alliance.SILVER));
-        builder.setPiece(new Rabbit(11, Alliance.SILVER));
-        builder.setPiece(new Rabbit(12, Alliance.SILVER));
-        builder.setPiece(new Rabbit(13, Alliance.SILVER));
-        builder.setPiece(new Rabbit(14, Alliance.SILVER));
-        builder.setPiece(new Rabbit(15, Alliance.SILVER));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 2));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 3));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 4));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 5));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 6));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 7));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 8));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 9));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 10));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.ELEPHANT, 11));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.CAMEL, 12));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 13));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 14));
+        builder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 15));
 
-        builder.setPiece(new Rabbit(48, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(49, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(50, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(51, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(52, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(53, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(54, Alliance.GOLDEN));
-        builder.setPiece(new Rabbit(55, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(56, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(57, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(58, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(59, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(60, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(61, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(62, Alliance.GOLDEN));
-        builder.setPiece(new OtherPieces(63, Alliance.GOLDEN));
+
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.HORSE, 48));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.DOG, 49));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.CAT, 50));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.CAMEL, 51));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.ELEPHANT, 52));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.DOG, 53));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.CAT, 54));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.HORSE, 55));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 56));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 57));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 58));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 59));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 60));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 61));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 62));
+        builder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 63));
 
         builder.setMoveMaker(Alliance.GOLDEN);
 
