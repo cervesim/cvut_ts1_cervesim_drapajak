@@ -7,4 +7,9 @@ public class SimpleMove extends Move /*TODO*/ {
     public SimpleMove(Board board, Piece movedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
     }
+
+    @Override
+    public Board execute() {
+        return null;
+    }
 }

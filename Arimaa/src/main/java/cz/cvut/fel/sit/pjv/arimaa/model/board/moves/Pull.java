@@ -7,4 +7,9 @@ public class Pull extends Move /*TODO*/{
     public Pull(Board board, Piece movedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
     }
+
+    @Override
+    public Board execute() {
+        return null;
+    }
 }

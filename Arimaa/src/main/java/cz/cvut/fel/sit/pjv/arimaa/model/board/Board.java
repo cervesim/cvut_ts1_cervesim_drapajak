@@ -6,6 +6,9 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.GoldenPlayer;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
 
 import java.util.*;
 
@@ -13,6 +16,10 @@ public class Board {
     private final List<Square> gameBoard;
     private final Collection<Piece> goldenPieces;
     private final Collection<Piece> silverPieces;
+
+    private final GoldenPlayer goldenPlayer;
+    private final SilverPlayer silverPlayer;
+    private final Player currentPlayer;
     private Board(Builder builder) {
         this.gameBoard = createGameBoard(builder);
         this.goldenPieces = getActivePieces(this.gameBoard, Alliance.GOLDEN);
@@ -20,8 +27,16 @@ public class Board {
 
         final Collection<Move> goldenStandardLegalMoves = getAllLegalMoves(this.goldenPieces);
         final Collection<Move> silverStandardLegalMoves = getAllLegalMoves(this.silverPieces);
+
+        this.goldenPlayer = new GoldenPlayer(this, goldenStandardLegalMoves, silverStandardLegalMoves);
+        this.silverPlayer = new SilverPlayer(this, silverStandardLegalMoves, goldenStandardLegalMoves);
+
+        this.currentPlayer = builder.nextMoveMaker.choosePlayer(this.goldenPlayer, this.silverPlayer);
     }
 
+    /**
+     * @return board na print
+     */
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
@@ -44,10 +59,6 @@ public class Board {
         return ImmutableList.copyOf(legalMoves);
     }
 
-    public Square getSquare(final int squareCoordinate) {
-        return gameBoard.get(squareCoordinate);
-    }
-
     private static List<Square> createGameBoard (final Builder builder){
         final Square[] squares = new Square[BoardUtils.Num_Squares];
         for (int i = 0; i < BoardUtils.Num_Squares; i++){
@@ -55,8 +66,7 @@ public class Board {
         }
         return ImmutableList.copyOf(squares);
     }
-    public static Board createTestBoard () {
-        final Builder builder = new Builder();
+    public static Board createTestBoard () {final Builder builder = new Builder();
 
         builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
         builder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
@@ -109,6 +119,22 @@ public class Board {
             }
         }
         return ImmutableList.copyOf(activePieces);
+    }
+    private final Player getCurrentPlayer(){return this.currentPlayer;}
+    public GoldenPlayer getGoldenPlayer() {
+        return this.goldenPlayer;
+    }
+    public SilverPlayer getSilverPlayer() {
+        return this.silverPlayer;
+    }
+    public Collection<Piece> getGoldenPieces() {
+        return this.goldenPieces;
+    }
+    public Collection<Piece> getSilverPieces() {
+        return this.silverPieces;
+    }
+    public Square getSquare(final int squareCoordinate) {
+        return gameBoard.get(squareCoordinate);
     }
 
     public static class Builder{

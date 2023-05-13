@@ -113,7 +113,9 @@ public class Piece {
                 return 1;
         }
     }
-
+    public Object getPieceType() {
+        return this.pieceType;
+    }
     public int getPiecePosition() {
         return this.piecePosition;
     }
@@ -137,5 +139,4 @@ public class Piece {
     protected static boolean isEightColumnExclusion(final int currentPosition, final int candidateOffset) {
         return BoardUtils.Eight_Column[currentPosition] && (candidateOffset == 1);
     }
-
 }
