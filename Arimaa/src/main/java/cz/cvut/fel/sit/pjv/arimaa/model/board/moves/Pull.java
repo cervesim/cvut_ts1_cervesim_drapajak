@@ -1,15 +1,40 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
+import cz.cvut.fel.sit.pjv.arimaa.controller.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
 public class Pull extends Move /*TODO*/{
-    public Pull(Board board, Piece movedPiece, int destinationCoordinate) {
-        super(board, movedPiece, destinationCoordinate);
-    }
+    final Piece pulledPiece;
 
-    @Override
+    public Pull(final Board board, final Piece movedPiece, final Piece pulledPiece, int destinationCoordinate) {
+        super(board, movedPiece, destinationCoordinate);
+        this.pulledPiece = pulledPiece;
+    }
+    @Override /*TODO*/
     public Board execute() {
-        return null;
+        final BoardBuilder boardBuilder = new BoardBuilder();
+        final Player currentPlayer = board.getCurrentPlayer();
+
+        for (final Piece piece : currentPlayer.getActivePieces()){
+            if (movedPiece.equals(piece)){
+                boardBuilder.setPiece(movedPiece.movePiece(this));
+            }else {
+                boardBuilder.setPiece(piece);
+            }
+        }
+        Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordiante());
+        for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
+            if (pulledPiece.equals(piece)){
+                boardBuilder.setPiece(pulledPiece.movePiece(pulledPieceMove));
+            }else {
+                boardBuilder.setPiece(piece);
+            }
+        }
+        /*TODO add notation*/
+
+        boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
+        return boardBuilder.build();
     }
 }

@@ -1,7 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.square;
 
 import com.google.common.collect.ImmutableMap;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardUtils;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ public abstract class Square {
     private static Map<Integer, EmptySquare> createAllPossibleEmptySquares() {
         final  Map<Integer, EmptySquare> emptySquareMap = new HashMap<>();
 
-        for(int i = 0; i < BoardUtils.Num_Squares; i++) {
+        for(int i = 0; i < Board.Num_Squares; i++) {
             emptySquareMap.put(i, new EmptySquare(i));
         }
 
