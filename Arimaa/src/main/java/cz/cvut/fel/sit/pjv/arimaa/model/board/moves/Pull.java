@@ -1,6 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
-import cz.cvut.fel.sit.pjv.arimaa.controller.BoardBuilder;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;

@@ -7,7 +7,6 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Push;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 
-import java.util.ArrayList;
 
 public class GameController{
 

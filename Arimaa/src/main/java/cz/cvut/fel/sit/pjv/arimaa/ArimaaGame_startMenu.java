@@ -1,25 +1,31 @@
 package cz.cvut.fel.sit.pjv.arimaa;
 
+import cz.cvut.fel.sit.pjv.arimaa.view.MainSceneView;
+import cz.cvut.fel.sit.pjv.arimaa.view.SettingsView;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ArimaaGame_startMenu extends Application {
     /**
-     *
      * @param stage
      * @throws IOException
      */
+    Stage mainWindow;
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ArimaaGame_startMenu.class.getResource("StartMenuView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
-        stage.setTitle("Arimaa");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage mainWindow) throws IOException {
+        this.mainWindow = mainWindow;
+        this.mainWindow.setTitle("Arimaa_cervesim");
+
+        MainSceneView mainSceneView = new MainSceneView(mainWindow);
+        this.mainWindow.setScene(mainSceneView.display());
+        this.mainWindow.show();
     }
 
     /**
@@ -29,4 +35,6 @@ public class ArimaaGame_startMenu extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+
 }

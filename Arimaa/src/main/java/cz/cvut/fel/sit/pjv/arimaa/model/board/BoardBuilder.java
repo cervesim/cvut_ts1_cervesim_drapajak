@@ -1,7 +1,6 @@
-package cz.cvut.fel.sit.pjv.arimaa.controller;
+package cz.cvut.fel.sit.pjv.arimaa.model.board;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 
 import java.util.HashMap;
