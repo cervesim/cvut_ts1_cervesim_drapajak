@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view;
+package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class SettingsView {
+public class SettingsStageView {
 
     public static void display(){
         Stage settingsWindow = new Stage();

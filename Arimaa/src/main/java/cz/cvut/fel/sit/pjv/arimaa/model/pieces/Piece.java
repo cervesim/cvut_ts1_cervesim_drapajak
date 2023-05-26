@@ -181,7 +181,7 @@ public class Piece {
                 return 1;
         }
     }
-    public Object getPieceType() {return this.pieceType;}
+    public PieceType getPieceType() {return this.pieceType;}
     public int getPiecePosition() {return this.piecePosition;}
     public Alliance getPieceColor() {return this.pieceColor;}
     public int getPieceWeight() {

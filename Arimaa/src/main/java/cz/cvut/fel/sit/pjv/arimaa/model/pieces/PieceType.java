@@ -1,5 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.pieces;
 
+import javafx.scene.image.Image;
+
 public enum PieceType {
     ELEPHANT("E"),
     CAMEL("M"),
@@ -18,4 +20,5 @@ public enum PieceType {
     public String toString() {
         return this.pieceName;
     }
+
 }

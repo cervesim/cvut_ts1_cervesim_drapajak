@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="GUI started">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/SquareView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/ConfirmStageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/PieceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/MainSceneView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/PieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/PieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/SettingsStageView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2PIRIpdfkeEhxfCiSvC3lijihKb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Java Basics&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.players" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.controller.BoardBuilder" />
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" />
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType" />
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardUtils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\simon\CVUT\Summer_2023\PJV_S_2023\Arimaa\Arimaa\src\main\resources" />
+      <recent name="C:\Users\simon\CVUT\Summer_2023\PJV_S_2023\Arimaa\Arimaa\src\main\resources\cz\cvut\fel\sit\pjv" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cz.cvut.fel.sit.pjv.arimaaInterfaces" />
+      <recent name="cz.cvut.fel.sit.pjv.arimaa" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.modelInterface" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ArimaaGame_startMenu">
+    <configuration name="ArimaaGame_startMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cz.cvut.fel.sit.pjv.arimaa.ArimaaGame_startMenu" />
+      <module name="Arimaa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cz.cvut.fel.sit.pjv.arimaa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cz.cvut.fel.sit.pjv.arimaa in Arimaa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Arimaa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cz.cvut.fel.sit.pjv.arimaa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cz.cvut.fel.sit.pjv.arimaa" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ArimaaGame_startMenu" />
+        <item itemvalue="JUnit.cz.cvut.fel.sit.pjv.arimaa in Arimaa" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="" />
+      <created>1683142533608</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683142533608</updated>
+      <workItem from="1683142534614" duration="20073000" />
+      <workItem from="1683661067997" duration="31000" />
+      <workItem from="1683764386917" duration="6830000" />
+      <workItem from="1683801241806" duration="12903000" />
+      <workItem from="1683827830772" duration="11004000" />
+      <workItem from="1683881572176" duration="22297000" />
+      <workItem from="1684072835798" duration="2785000" />
+      <workItem from="1684092485069" duration="168000" />
+      <workItem from="1684107119282" duration="3866000" />
+      <workItem from="1684160015025" duration="9236000" />
+      <workItem from="1684229559740" duration="669000" />
+      <workItem from="1684235311555" duration="352000" />
+      <workItem from="1684255645608" duration="26612000" />
+      <workItem from="1684346825773" duration="727000" />
+      <workItem from="1684430014505" duration="24349000" />
+      <workItem from="1684784190481" duration="144000" />
+      <workItem from="1684939310457" duration="24000" />
+      <workItem from="1685008400120" duration="11244000" />
+      <workItem from="1685044688052" duration="20571000" />
+      <workItem from="1685118530301" duration="11317000" />
+    </task>
+    <task id="LOCAL-00001" summary="repostiory refractoring">
+      <created>1683142792349</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683142792349</updated>
+    </task>
+    <task id="LOCAL-00002" summary="deleted old arimaa">
+      <created>1683142887756</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683142887756</updated>
+    </task>
+    <task id="LOCAL-00003" summary="classes added">
+      <created>1683152294137</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683152294138</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated Square and added interfaces">
+      <created>1683201129168</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683201129168</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Square somehow done, currently doing piece">
+      <created>1683796314867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683796314867</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Pieces somehow done, a lot of todos ahead">
+      <created>1683824232389</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683824232389</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Gameboard somehow done, I will modify the piece now">
+      <created>1683882147956</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683882147956</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Piece almost done todo add frozen method">
+      <created>1683887976996</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683887976996</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Player somehow done, moving on to make move">
+      <created>1684000843483</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684000843483</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Moves somehow done now to gui">
+      <created>1685021050091</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685021050091</updated>
+    </task>
+    <task id="LOCAL-00011" summary="GUI started">
+      <created>1685096126186</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685096126186</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="repostiory refractoring" />
+    <MESSAGE value="deleted old arimaa" />
+    <MESSAGE value="classes added" />
+    <MESSAGE value="updated Square and added interfaces" />
+    <MESSAGE value="Square somehow done, currently doing piece" />
+    <MESSAGE value="Pieces somehow done, a lot of todos ahead" />
+    <MESSAGE value="Gameboard somehow done, I will modify the piece now" />
+    <MESSAGE value="Piece almost done todo add frozen method" />
+    <MESSAGE value="Player somehow done, moving on to make move" />
+    <MESSAGE value="Moves somehow done now to gui" />
+    <MESSAGE value="GUI started" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI started" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece" memberName="pieceType" />
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="goldenPieces" />
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="silverPieces" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.gameBoard.get(9)" />
+        <watch expression="board.gameBoard" />
+        <watch expression="boardGridPane" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
