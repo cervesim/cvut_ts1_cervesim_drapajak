@@ -1,7 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Iterables;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
@@ -21,7 +20,6 @@ public class Board {
     private final List<Square> gameBoard;
     private final Collection<Piece> goldenPieces;
     private final Collection<Piece> silverPieces;
-
     private final GoldenPlayer goldenPlayer;
     private final SilverPlayer silverPlayer;
     private final Player currentPlayer;
