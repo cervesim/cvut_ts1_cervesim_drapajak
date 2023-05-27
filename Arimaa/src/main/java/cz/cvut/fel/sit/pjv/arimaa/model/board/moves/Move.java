@@ -17,6 +17,18 @@ public abstract class Move {
         this.destinationCoordinate = destinationCoordinate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Move move)) return false;
+        return destinationCoordinate == move.destinationCoordinate && Objects.equal(board, move.board) && Objects.equal(movedPiece, move.movedPiece);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(board, movedPiece, destinationCoordinate);
+    }
+
     public abstract Board execute();
     public int getDestinationCoordinate() {
         return destinationCoordinate;
