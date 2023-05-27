@@ -1,11 +1,10 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
+import com.google.common.base.Objects;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
-
-import java.util.Objects;
 
 public class Pull extends Move{
     final Piece pulledPiece;
@@ -20,12 +19,12 @@ public class Pull extends Move{
         if (this == o) return true;
         if (!(o instanceof Pull pull)) return false;
         if (!super.equals(o)) return false;
-        return Objects.equals(pulledPiece, pull.pulledPiece);
+        return Objects.equal(pulledPiece, pull.pulledPiece);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), pulledPiece);
+        return Objects.hashCode(super.hashCode(), pulledPiece);
     }
 
     @Override
