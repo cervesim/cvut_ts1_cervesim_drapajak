@@ -1,7 +1,9 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
 
 import java.util.Objects;
@@ -37,7 +39,19 @@ public abstract class Move {
     public Piece getMovedPiece() {
         return this.movedPiece;
     }
-    public int getCurrentCoordiante() {
+    public int getCurrentCoordinate() {
         return this.movedPiece.getPiecePosition();
     }
+    protected void setBoardBuilder(BoardBuilder boardBuilder, int moveWeight){
+        Player currentPlayer = board.getCurrentPlayer();
+        boardBuilder.setMoveCount(board.getMoveCount() + moveWeight);
+
+        if (boardBuilder.getMoveCount() == 4){
+            boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
+            boardBuilder.setMoveCount(0);
+            return;
+        }
+        boardBuilder.setMoveMaker(currentPlayer.getAlliance());
+    }
+
 }

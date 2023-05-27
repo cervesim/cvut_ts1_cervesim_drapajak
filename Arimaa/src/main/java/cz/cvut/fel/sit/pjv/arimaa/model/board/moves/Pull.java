@@ -7,7 +7,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
 import java.util.Objects;
 
-public class Pull extends Move /*TODO*/{
+public class Pull extends Move{
     final Piece pulledPiece;
 
     public Pull(final Board board, final Piece movedPiece, final Piece pulledPiece, int destinationCoordinate) {
@@ -28,10 +28,11 @@ public class Pull extends Move /*TODO*/{
         return Objects.hash(super.hashCode(), pulledPiece);
     }
 
-    @Override /*TODO*/
+    @Override
     public Board execute() {
         final BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = board.getCurrentPlayer();
+
 
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
@@ -40,7 +41,7 @@ public class Pull extends Move /*TODO*/{
                 boardBuilder.setPiece(piece);
             }
         }
-        Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordiante());
+        Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordinate());
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
             if (pulledPiece.equals(piece)){
                 boardBuilder.setPiece(pulledPiece.movePiece(pulledPieceMove));
@@ -48,9 +49,7 @@ public class Pull extends Move /*TODO*/{
                 boardBuilder.setPiece(piece);
             }
         }
-        /*TODO add notation*/
-
-        boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
+        setBoardBuilder(boardBuilder, 2);
         return boardBuilder.build();
     }
 }

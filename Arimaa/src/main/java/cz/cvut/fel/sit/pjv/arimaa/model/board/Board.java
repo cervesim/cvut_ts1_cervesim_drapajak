@@ -25,10 +25,12 @@ public class Board {
     private final GoldenPlayer goldenPlayer;
     private final SilverPlayer silverPlayer;
     private final Player currentPlayer;
+    private final int moveCount;
     public Board(BoardBuilder boardBuilder) {
         this.gameBoard = createGameBoard(boardBuilder);
         this.goldenPieces = setActivePieces(this.gameBoard, Alliance.GOLDEN);
         this.silverPieces = setActivePieces(this.gameBoard, Alliance.SILVER);
+        this.moveCount = boardBuilder.getMoveCount();
 
         final Collection<Move> goldenStandardLegalMoves = getLegalMoves(this.goldenPieces);
         final Collection<Move> silverStandardLegalMoves = getLegalMoves(this.silverPieces);
@@ -123,6 +125,7 @@ public class Board {
         boardBuilder.setPiece(new Piece(Alliance.GOLDEN, PieceType.RABBIT, 63));
 
         boardBuilder.setMoveMaker(Alliance.GOLDEN);
+        boardBuilder.setMoveCount(0);
 
         return boardBuilder.build();
     }
@@ -140,6 +143,7 @@ public class Board {
         return ImmutableList.copyOf(activePieces);
     }
     public Player getCurrentPlayer(){return this.currentPlayer;}
+    public int getMoveCount(){return this.moveCount;}
     public GoldenPlayer getGoldenPlayer() {
         return this.goldenPlayer;
     }
@@ -154,10 +158,6 @@ public class Board {
     }
     public Square getSquare(final int squareCoordinate) {
         return gameBoard.get(squareCoordinate);
-    }
-
-    public Iterable<Move> getAllLegalMoves() {
-        return Iterables.unmodifiableIterable(Iterables.concat(this.goldenPlayer.getLegalMoves(), this.silverPlayer.getLegalMoves()));
     }
 
 }

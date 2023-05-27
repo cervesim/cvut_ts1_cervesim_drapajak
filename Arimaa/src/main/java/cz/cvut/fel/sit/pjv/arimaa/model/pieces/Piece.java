@@ -92,7 +92,6 @@ public class Piece {
         }
         int[] possibleMoveCoordinates = getPossibleCoordinates(true);
 
-        /*TODO check if problem*/
         for(final int possibleMoveCoordinate : possibleMoveCoordinates){
             possibleDestinationSquareNumber = this.piecePosition + possibleMoveCoordinate;
             if (board.isValidSquareNumber(possibleDestinationSquareNumber) &&
@@ -101,36 +100,36 @@ public class Piece {
                 final Square possibleDestinationSquare = board.getSquare(possibleDestinationSquareNumber);
                 if (!possibleDestinationSquare.isSquareOccupied()){
                     legalMoves.add(new SimpleMove(board, this, possibleDestinationSquareNumber));
-                } else {
+                } else if (
+                        !((board.getMoveCount()) + 2 > 4)){
                     final Piece pieceAtDestination = possibleDestinationSquare.getPieceOnSquare();
-                    legalMoves.addAll(calculateLegalPushAndPUll(board, pieceAtDestination));
+                    legalMoves.addAll(calculateLegalPushAndPull(board, pieceAtDestination));
                 }
             }
         }
         return legalMoves;
     }
 
-    private Collection<Move> calculateLegalPushAndPUll(Board board, Piece pieceAtDestination) {
+    private Collection<Move> calculateLegalPushAndPull(Board board, Piece pieceAtDestination) {
         final List<Move> legalMoves = new ArrayList<>();
         if (this.pieceColor != pieceAtDestination.getPieceColor() && this.pieceWeight > pieceAtDestination.getPieceWeight()) {
-            int[] coordinatesOfDestinationPiece = pieceAtDestination.getPossibleCoordinates(false);
-            for (int coordinateOfDestinationPiece: coordinatesOfDestinationPiece){
-                int possibleDestinationSquareNumber = pieceAtDestination.getPiecePosition() + coordinateOfDestinationPiece;
-                final Square possibleDestinationSquare = board.getSquare(possibleDestinationSquareNumber);
-                if (board.isValidSquareNumber(possibleDestinationSquareNumber) &&
-                        !isFirstAndEighthColumnException(this.piecePosition, coordinateOfDestinationPiece) &&
-                        !possibleDestinationSquare.isSquareOccupied()){
-                    legalMoves.add(new Push(board, this, pieceAtDestination, possibleDestinationSquareNumber));
-                }
-            }
-            int[] coordinatesOfMovingPiece = this.getPossibleCoordinates(false);
-            for (int coordinateOfMovingPiece: coordinatesOfMovingPiece){
-                int possibleDestinationSquareNumber = this.getPiecePosition() + coordinateOfMovingPiece;
-                final Square possibleDestinationSquare = board.getSquare(possibleDestinationSquareNumber);
-                if (board.isValidSquareNumber(possibleDestinationSquareNumber) &&
-                        !isFirstAndEighthColumnException(this.piecePosition, coordinateOfMovingPiece) &&
-                        !possibleDestinationSquare.isSquareOccupied()){
-                    legalMoves.add(new Pull(board, this, pieceAtDestination, possibleDestinationSquareNumber));
+            int[][] coordinates = { pieceAtDestination.getPossibleCoordinates(false), this.getPossibleCoordinates(false) };
+            Piece[] pieces = {pieceAtDestination, this };
+
+            for (int i = 0; i < coordinates.length; i++) {
+                for (int coordinate : coordinates[i]) {
+                    int possibleDestinationSquareNumber = pieces[i].getPiecePosition() + coordinate;
+                    if (board.isValidSquareNumber(possibleDestinationSquareNumber) &&
+                            !isFirstAndEighthColumnException(pieces[i].getPiecePosition(), coordinate)) {
+                        final Square possibleDestinationSquare = board.getSquare(possibleDestinationSquareNumber);
+                        if (!possibleDestinationSquare.isSquareOccupied()) {
+                            if (pieces[i] == pieceAtDestination) {
+                                legalMoves.add(new Push(board, this, pieceAtDestination, possibleDestinationSquareNumber));
+                            } else {
+                                legalMoves.add(new Pull(board, this, pieceAtDestination, possibleDestinationSquareNumber));
+                            }
+                        }
+                    }
                 }
             }
         }

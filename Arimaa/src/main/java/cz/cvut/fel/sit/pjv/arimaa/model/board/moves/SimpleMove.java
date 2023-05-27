@@ -5,13 +5,13 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
-public class SimpleMove extends Move /*TODO*/ {
+public class SimpleMove extends Move {
     public SimpleMove(Board board, Piece movedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
     }
     @Override
     public Board execute() {
-        final BoardBuilder boardBuilder = new BoardBuilder();
+        BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = this.board.getCurrentPlayer();
         final Piece movedPiece = this.movedPiece;
 
@@ -27,7 +27,7 @@ public class SimpleMove extends Move /*TODO*/ {
         }
         /*TODO add notation*/
 
-        boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
+        setBoardBuilder(boardBuilder, 1);
         return boardBuilder.build();
     }
 }

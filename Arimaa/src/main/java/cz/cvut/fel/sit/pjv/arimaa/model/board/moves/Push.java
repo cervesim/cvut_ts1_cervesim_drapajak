@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  *
  */
-public class Push extends Move /*TODO*/{
+public class Push extends Move{
     Piece pushedPiece;
     public Push(Board board, Piece movedPiece, Piece pushedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
@@ -32,27 +32,28 @@ public class Push extends Move /*TODO*/{
 
     @Override
     public Board execute() {
-        final BoardBuilder boardBuilder = new BoardBuilder();
-        final Player currentPlayer = board.getCurrentPlayer();
+        BoardBuilder boardBuilder = new BoardBuilder();
+        Player currentPlayer = board.getCurrentPlayer();
 
         Move movedPieceMove = new SimpleMove(board, movedPiece, pushedPiece.getPiecePosition());
-        for (final Piece piece : currentPlayer.getActivePieces()){
-            if (movedPiece.equals(piece)){
+        for (Piece piece : currentPlayer.getActivePieces()) {
+            if (movedPiece.equals(piece)) {
                 boardBuilder.setPiece(movedPiece.movePiece(movedPieceMove));
-            }else {
-                boardBuilder.setPiece(piece);
-            }
-        }
-        Move pushedPieceMove = new SimpleMove(board, pushedPiece, destinationCoordinate);
-        for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
-            if (pushedPiece.equals(piece)){
-                boardBuilder.setPiece(pushedPiece.movePiece(pushedPieceMove));
-            }else {
+            } else {
                 boardBuilder.setPiece(piece);
             }
         }
 
-        boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
+        Move pushedPieceMove = new SimpleMove(board, pushedPiece, destinationCoordinate);
+        for (Piece piece : currentPlayer.getOpponent().getActivePieces()) {
+            if (pushedPiece.equals(piece)) {
+                boardBuilder.setPiece(pushedPiece.movePiece(pushedPieceMove));
+            } else {
+                boardBuilder.setPiece(piece);
+            }
+        }
+
+        setBoardBuilder(boardBuilder, 2);
         return boardBuilder.build();
     }
 }

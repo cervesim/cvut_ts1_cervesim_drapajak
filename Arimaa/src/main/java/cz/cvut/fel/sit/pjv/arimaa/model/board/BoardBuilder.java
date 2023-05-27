@@ -9,7 +9,7 @@ import java.util.Map;
 public class BoardBuilder {
     public Map<Integer, Piece> boardConfig;
     private Alliance nextMoveMaker;
-
+    private int moveCount;
     public BoardBuilder(){
         this.boardConfig = new HashMap<>();
     }
@@ -26,5 +26,13 @@ public class BoardBuilder {
 
     public Alliance getNextMoveMaker() {
         return nextMoveMaker;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 }

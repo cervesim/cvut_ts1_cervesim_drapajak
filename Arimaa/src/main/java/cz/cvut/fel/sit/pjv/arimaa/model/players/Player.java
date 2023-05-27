@@ -2,6 +2,7 @@ package cz.cvut.fel.sit.pjv.arimaa.model.players;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Pull;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Push;
@@ -18,7 +19,6 @@ public abstract class Player {
     protected final Board board;
     protected final List<Piece> playersRabbits;
     protected final Collection<Move> legalMoves;
-
     public Player(final Board board, final Collection<Move> legalMoves, final Collection<Move> opponentsMoves) {
         this.board = board;
         this.playersRabbits = getRabbits();
