@@ -1,5 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
@@ -7,6 +8,10 @@ import javafx.scene.layout.StackPane;
 
 public class BoardView{
     public Board board;
+    public static int clickCount = 0;
+    public static Square firstClickedSquare;
+    public static Square secondClickedSquare;
+    public static Square thirdClickedSquare;
     public BoardView(Board board) {
         this.board = board;
     }
@@ -30,5 +35,6 @@ public class BoardView{
         }
         return boardGridPane;
     }
+
 }
 

@@ -27,5 +27,8 @@ public abstract class Square {
     }
     public abstract boolean isSquareOccupied();
     public abstract Piece getPieceOnSquare();
+    public int getSquareLocation() {
+        return squareLocation;
+    }
 }
 

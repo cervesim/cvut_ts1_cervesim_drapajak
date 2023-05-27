@@ -5,6 +5,8 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
+import java.util.Objects;
+
 /**
  *
  */
@@ -14,6 +16,20 @@ public class Push extends Move /*TODO*/{
         super(board, movedPiece, destinationCoordinate);
         this.pushedPiece = pushedPiece;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Push push)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(pushedPiece, push.pushedPiece);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), pushedPiece);
+    }
+
     @Override
     public Board execute() {
         final BoardBuilder boardBuilder = new BoardBuilder();

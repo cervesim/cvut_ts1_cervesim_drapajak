@@ -70,7 +70,10 @@ public class Board {
     private Collection<Move> getLegalMoves(Collection<Piece> pieces) {
         final  List<Move> legalMoves = new ArrayList<>();
         for(final Piece piece : pieces) {
-            legalMoves.addAll(piece.getLegalMoves(this));
+            Collection<Move> pieceLegalMoves = piece.getLegalMoves(this);
+            if(!pieceLegalMoves.isEmpty()) {
+                legalMoves.addAll(pieceLegalMoves);
+            }
         }
         return List.copyOf(legalMoves);
     }

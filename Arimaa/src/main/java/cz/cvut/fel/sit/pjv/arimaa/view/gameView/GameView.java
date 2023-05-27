@@ -13,11 +13,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GameView {
-    Stage mainWindow;
+    static Stage mainWindow;
     Board board;
-    public GameView(Stage mainWindow) {
+    public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
-        this.board = Board.createTestBoard();
+        this.board = board;
     }
 
     public final Scene display(){

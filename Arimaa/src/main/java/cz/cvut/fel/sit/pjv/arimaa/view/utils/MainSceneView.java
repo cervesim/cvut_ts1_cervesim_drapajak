@@ -35,7 +35,7 @@ public class MainSceneView {
 
         Button startGameButton = new Button("Start Game");
         startGameButton.setOnAction(e -> {
-            GameView gameView = new GameView(mainWindow);
+            GameView gameView = new GameView(mainWindow, Board.createTestBoard());
             mainWindow.setScene(gameView.display());
         });
         centerMenu.getChildren().addAll(MenuLabel, startGameButton);

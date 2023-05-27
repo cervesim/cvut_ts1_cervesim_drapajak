@@ -3,6 +3,10 @@ package cz.cvut.fel.sit.pjv.arimaa.model.players;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Pull;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Push;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SimpleMove;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 
@@ -20,14 +24,16 @@ public abstract class Player {
         this.playersRabbits = getRabbits();
         this.legalMoves = legalMoves;
     }
-//    public Move makeMove (final Move move) {
-//        if(!isMoveLegal(move)){
-//            return new MoveTransition(this.board, move, MoveStatus.ILLEGAL_MOVE);
-//        }
-//        final Board transitionBoard = move.execute();
-//
-//        return new MoveTransition(transitionBoard, move, MoveStatus.DONE);
-//    }
+    public Move createMove (Piece firstClickedPiece, Piece secondClickedPiece, int destinationSquare){
+        if (secondClickedPiece != null){
+            if (firstClickedPiece.getPieceColor() == board.getCurrentPlayer().getAlliance()){
+                return new Push(board, firstClickedPiece, secondClickedPiece, destinationSquare);
+            }else {
+                return new Pull(board, secondClickedPiece, firstClickedPiece, destinationSquare);
+            }
+        }
+        return new SimpleMove(board, firstClickedPiece, destinationSquare);
+    }
     public boolean isMoveLegal(final Move move) {
         return this.legalMoves.contains(move);
     }
