@@ -41,9 +41,6 @@ public class Board {
         this.currentPlayer = boardBuilder.getNextMoveMaker().choosePlayer(this.goldenPlayer, this.silverPlayer);
         this.gameEnded = hasWon() != null;
     }
-    /**
-     * @return board na print TODO
-     */
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();

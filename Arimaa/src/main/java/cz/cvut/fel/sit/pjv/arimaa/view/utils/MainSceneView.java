@@ -21,7 +21,7 @@ public class MainSceneView {
         HBox topMenu = new HBox(); /*TODO change to differentLayout*/
         BorderPane borderPane = new BorderPane();
 
-        /*TOP menu TODO add to class or something*/
+        /*TOP menu*/
         Button gameSettingsButton = new Button("Settings");
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
         topMenu.getChildren().addAll(gameSettingsButton);

@@ -42,7 +42,7 @@ public abstract class Player {
                 playersRabbits.add(piece);
             }
         }
-        return playersRabbits; /*TODO return gameEnded() method or something like that*/
+        return playersRabbits;
     }
     public Collection<Move> getLegalMoves() {
         return this.legalMoves;

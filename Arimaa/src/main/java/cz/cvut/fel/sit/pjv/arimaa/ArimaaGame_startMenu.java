@@ -29,10 +29,6 @@ public class ArimaaGame_startMenu extends Application {
             mainWindow.close();
         }
     }
-    /**
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         launch();
     }
