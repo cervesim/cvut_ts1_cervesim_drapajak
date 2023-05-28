@@ -1,5 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.square;
 
+import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 
 public final class OccupiedSquare extends Square{
@@ -23,4 +24,12 @@ public final class OccupiedSquare extends Square{
     public Piece getPieceOnSquare() {
         return this.pieceOnSquare;
     }
+
+    @Override
+    public boolean isSupported(Board board) {
+        return false;
+    }
+
+    @Override
+    public void setPieceOnSquare(Piece piece) {}
 }

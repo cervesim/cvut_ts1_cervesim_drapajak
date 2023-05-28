@@ -26,6 +26,7 @@ public class Board {
     private final int moveCount;
     public Board(BoardBuilder boardBuilder) {
         this.gameBoard = createGameBoard(boardBuilder);
+        setTrapSquares();
         this.goldenPieces = setActivePieces(this.gameBoard, Alliance.GOLDEN);
         this.silverPieces = setActivePieces(this.gameBoard, Alliance.SILVER);
         this.moveCount = boardBuilder.getMoveCount();
@@ -66,6 +67,17 @@ public class Board {
         } while (columnNumber < Num_Squares);
         return column;
     }
+    public void setTrapSquares (){
+        int[] trapSquarePositions = new int[]{18, 21, 42, 45};
+        for (int trapSquarePosition : trapSquarePositions) {
+            Square trapSquare = gameBoard.get(trapSquarePosition);
+            if (trapSquare.isSquareOccupied()){
+                if (!trapSquare.isSupported(this)){
+                    trapSquare.setPieceOnSquare(null);
+                }
+            }
+        }
+    }
 
     private Collection<Move> getLegalMoves(Collection<Piece> pieces) {
         final  List<Move> legalMoves = new ArrayList<>();
@@ -83,7 +95,7 @@ public class Board {
         for (int i = 0; i < Num_Squares; i++){
             squares[i] = Square.createSquare(i, boardBuilder.boardConfig.get(i));
         }
-        return ImmutableList.copyOf(squares);
+        return List.of(squares);
     }
     public static Board createTestBoard () {final BoardBuilder boardBuilder = new BoardBuilder();
 

@@ -23,12 +23,19 @@ public abstract class Square {
     }
 
     public static Square createSquare(final int squareLocation, final Piece pieceOnSquare){
-        return pieceOnSquare != null ? new OccupiedSquare(squareLocation, pieceOnSquare) : Empty_Squares.get(squareLocation);
+        if (squareLocation == 18 || squareLocation == 21 || squareLocation == 42 || squareLocation == 45){
+            return new TrapSquare(squareLocation, pieceOnSquare);
+        }
+        if (pieceOnSquare != null){
+            return new OccupiedSquare(squareLocation, pieceOnSquare);
+        } else return Empty_Squares.get(squareLocation);
     }
     public abstract boolean isSquareOccupied();
     public abstract Piece getPieceOnSquare();
     public int getSquareLocation() {
         return squareLocation;
     }
+    public abstract boolean isSupported(Board board);
+    public abstract void setPieceOnSquare(Piece piece);
 }
 
