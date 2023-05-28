@@ -38,7 +38,8 @@ public class SquareView{
             imageView.setFitWidth(40);
 
             StackPane stackPane = new StackPane(cell, imageView);
-            setSquareOnMouseClick(stackPane, cell);
+            MouseClickController mouseClickController = new MouseClickController(GameView.mainWindow, stackPane, cell, board, squarePosition);
+            mouseClickController.execute();
             return stackPane;
         }
 
@@ -47,68 +48,6 @@ public class SquareView{
         mouseClickController.execute();
         return stackPane;
     }
-
-    private void setSquareOnMouseClick(StackPane stackPane, Rectangle cell) {
-        stackPane.setOnMouseClicked(e -> {
-            int clickCount = ++BoardView.clickCount;
-            if (e.getButton() == MouseButton.PRIMARY) {
-                if (clickCount == 1) {
-                    BoardView.firstClickedSquare = board.getSquare(squarePosition);
-                    if (!BoardView.firstClickedSquare.isSquareOccupied()) {
-                        BoardView.clickCount = 0;
-                        cell.setFill((squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45)
-                                ? Color.BLACK : Color.WHITE);
-                    } else {
-                        cell.setFill(Color.RED);
-                    }
-                } else if (clickCount == 2) {
-                    BoardView.secondClickedSquare = board.getSquare(squarePosition);
-                    if (!BoardView.secondClickedSquare.isSquareOccupied()) {
-                        Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
-                                null, BoardView.secondClickedSquare.getSquareLocation());
-                        checkAndExecute(move, cell);
-                    } else {
-                        cell.setFill(Color.RED);
-                    }
-                } else if (clickCount == 3) {
-                    BoardView.thirdClickedSquare = board.getSquare(squarePosition);
-                    if (!BoardView.thirdClickedSquare.isSquareOccupied()) {
-                        Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
-                                BoardView.secondClickedSquare.getPieceOnSquare(),
-                                BoardView.thirdClickedSquare.getSquareLocation());
-                        checkAndExecute(move, cell);
-                    } else {
-                        cell.setFill(Color.RED);
-                    }
-                    BoardView.clickCount = 0;
-                }
-            } else if (e.getButton() == MouseButton.SECONDARY) {
-                if (e.getClickCount() == 1){
-                    BoardView.clickCount = 0;
-                    cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-                } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
-                    System.out.println("round skipped"); /*TODO delete print*/
-                    Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
-                    checkAndExecute(skipTurnsMove, cell);
-                }
-
-            }
-        });
-    }
-    private void checkAndExecute(Move move, Rectangle cell){
-        if (board.getCurrentPlayer().isMoveLegal(move)) {
-            GameView gameView = new GameView(GameView.mainWindow, move.execute());
-            GameView.mainWindow.setScene(gameView.display());
-            BoardView.clickCount = 0;
-            cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-        } else {
-            cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-        }
-    }
-    boolean isTrapSquare(int squarePosition){
-        return (squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45);
-    }
-
 
     private Image getPieceImage(PieceType pieceType, Alliance alliance) {
         String imagePath;

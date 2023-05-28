@@ -54,7 +54,8 @@ public class MouseClickController {
         } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
             System.out.println("round skipped"); /*TODO delete print*/
             Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
-            checkAndExecute(skipTurnsMove, cell);
+            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute());
+            mainWindow.setScene(gameView.display());
         }
     }
     private void leftClickControls(MouseEvent e){
