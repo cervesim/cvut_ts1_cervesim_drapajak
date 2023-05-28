@@ -2,12 +2,10 @@ package cz.cvut.fel.sit.pjv.arimaa.model.players;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Pull;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Push;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SimpleMove;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 
@@ -37,10 +35,7 @@ public abstract class Player {
     public boolean isMoveLegal(final Move move) {
         return this.legalMoves.contains(move);
     }
-    public boolean hasLost(){
-        return false; /*TODO implement this or something like this*/
-    }
-    private List<Piece> getRabbits() {
+    public List<Piece> getRabbits() {
         List<Piece> playersRabbits = new ArrayList<>();
         for(final Piece piece : getActivePieces()){
             if(piece.getPieceType() == PieceType.RABBIT){
@@ -56,4 +51,5 @@ public abstract class Player {
     public abstract Alliance getAlliance();
     public abstract Player getOpponent();
 
+    public abstract boolean rabbitFinishedHisJourney();
 }

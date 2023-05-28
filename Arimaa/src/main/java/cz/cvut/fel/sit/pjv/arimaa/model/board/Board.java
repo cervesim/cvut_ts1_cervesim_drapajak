@@ -24,6 +24,7 @@ public class Board {
     private final SilverPlayer silverPlayer;
     private final Player currentPlayer;
     private final int moveCount;
+    public final boolean gameEnded;
     public Board(BoardBuilder boardBuilder) {
         this.gameBoard = createGameBoard(boardBuilder);
         setTrapSquares();
@@ -38,8 +39,8 @@ public class Board {
         this.silverPlayer = new SilverPlayer(this, silverStandardLegalMoves, goldenStandardLegalMoves);
 
         this.currentPlayer = boardBuilder.getNextMoveMaker().choosePlayer(this.goldenPlayer, this.silverPlayer);
+        this.gameEnded = hasWon() != null;
     }
-
     /**
      * @return board na print TODO
      */
@@ -58,7 +59,6 @@ public class Board {
     public boolean isValidSquareNumber(int squareNumber) {
         return squareNumber >= 0 && squareNumber < Num_Squares;
     }
-
     private static boolean[] initColumn(int columnNumber) {
         final boolean[] column = new boolean[64];
         do {
@@ -66,6 +66,15 @@ public class Board {
             columnNumber += Num_Squares_Per_Row;
         } while (columnNumber < Num_Squares);
         return column;
+    }
+    public Player hasWon (){
+        if (silverPlayer.getLegalMoves().isEmpty() || silverPlayer.getRabbits().isEmpty() || goldenPlayer.rabbitFinishedHisJourney()) {
+            System.out.println("goldenPlayerHasWon");
+            return goldenPlayer;
+        } else if (goldenPlayer.getLegalMoves().isEmpty() || goldenPlayer.getRabbits().isEmpty() || silverPlayer.rabbitFinishedHisJourney()) {
+            System.out.println("silverPlayerHasWon");
+            return silverPlayer;
+        } else return null;
     }
     public void setTrapSquares (){
         int[] trapSquarePositions = new int[]{18, 21, 42, 45};
@@ -78,7 +87,6 @@ public class Board {
             }
         }
     }
-
     private Collection<Move> getLegalMoves(Collection<Piece> pieces) {
         final  List<Move> legalMoves = new ArrayList<>();
         for(final Piece piece : pieces) {
@@ -89,7 +97,6 @@ public class Board {
         }
         return List.copyOf(legalMoves);
     }
-
     private static List<Square> createGameBoard (final BoardBuilder boardBuilder){
         final Square[] squares = new Square[Num_Squares];
         for (int i = 0; i < Num_Squares; i++){

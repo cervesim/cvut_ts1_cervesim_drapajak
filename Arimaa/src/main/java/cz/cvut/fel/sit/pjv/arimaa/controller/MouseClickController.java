@@ -28,7 +28,7 @@ public class MouseClickController {
     public void execute(){
         stackPane.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
-                leftClickControls(e);
+                leftClickControls();
             } else if (e.getButton() == MouseButton.SECONDARY) {
                 rightClickControls(e);
             }
@@ -58,7 +58,7 @@ public class MouseClickController {
             mainWindow.setScene(gameView.display());
         }
     }
-    private void leftClickControls(MouseEvent e){
+    private void leftClickControls(){
         int clickCount = ++BoardView.clickCount;
         if (clickCount == 1) {
             BoardView.firstClickedSquare = board.getSquare(squarePosition);

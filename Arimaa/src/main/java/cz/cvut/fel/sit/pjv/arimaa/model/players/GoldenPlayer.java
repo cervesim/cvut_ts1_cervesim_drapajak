@@ -5,6 +5,8 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class GoldenPlayer extends Player{
@@ -25,5 +27,16 @@ public class GoldenPlayer extends Player{
     @Override
     public Player getOpponent() {
         return this.board.getSilverPlayer();
+    }
+
+    @Override
+    public boolean rabbitFinishedHisJourney() {
+        ArrayList<Integer> lastSquaresPosition = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
+        for (Piece playersRabbit : getRabbits()) {
+            if (lastSquaresPosition.contains(playersRabbit.getPiecePosition())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
