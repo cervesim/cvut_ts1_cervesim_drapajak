@@ -50,6 +50,6 @@ public abstract class Player {
     public abstract Collection<Piece> getActivePieces();
     public abstract Alliance getAlliance();
     public abstract Player getOpponent();
-
+    public abstract Collection<Piece> getAllAvailablePieces();
     public abstract boolean rabbitFinishedHisJourney();
 }

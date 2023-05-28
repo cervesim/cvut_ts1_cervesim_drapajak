@@ -143,6 +143,13 @@ public class Board {
 
         return boardBuilder.build();
     }
+    public static Board createEmptyBoard(){
+        final BoardBuilder boardBuilder = new BoardBuilder();
+        boardBuilder.setMoveMaker(Alliance.GOLDEN);
+        boardBuilder.setMoveCount(0);
+
+        return boardBuilder.build();
+    }
     private static Collection<Piece> setActivePieces(final List<Square> gameBoard, Alliance alliance) {
         final List<Piece> activePieces = new ArrayList<>();
 

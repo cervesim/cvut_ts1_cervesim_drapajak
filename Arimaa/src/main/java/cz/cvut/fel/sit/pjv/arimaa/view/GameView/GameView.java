@@ -1,6 +1,7 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmStageView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
 import javafx.geometry.Pos;
@@ -31,6 +32,10 @@ public class GameView {
             mainWindow.setScene(mainSceneView.display());
 
         });
+        if (board.gameEnded){
+            String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
+            ConfirmStageView.display("Game end", text);
+        }
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
         topMenu.getChildren().addAll(gameSettingsButton, exitButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);
@@ -45,6 +50,7 @@ public class GameView {
 
         BoardView boardView = new BoardView(board);
         borderPane.setCenter(boardView.display());
+
         /*BoardView*/
         return new Scene(borderPane, 500, 500);
     }

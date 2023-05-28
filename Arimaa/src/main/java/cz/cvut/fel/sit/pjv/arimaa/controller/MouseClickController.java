@@ -3,8 +3,8 @@ package cz.cvut.fel.sit.pjv.arimaa.controller;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
-import cz.cvut.fel.sit.pjv.arimaa.view.gameView.BoardView;
-import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -64,8 +64,7 @@ public class MouseClickController {
             BoardView.firstClickedSquare = board.getSquare(squarePosition);
             if (!BoardView.firstClickedSquare.isSquareOccupied()) {
                 BoardView.clickCount = 0;
-                cell.setFill((squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45)
-                        ? Color.BLACK : Color.WHITE);
+                cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
             } else {
                 cell.setFill(Color.RED);
             }

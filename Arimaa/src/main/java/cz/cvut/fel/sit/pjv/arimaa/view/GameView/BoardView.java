@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import javafx.geometry.Insets;

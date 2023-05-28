@@ -1,7 +1,8 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,14 +34,23 @@ public class MainSceneView {
         Label MenuLabel = new Label("Arimaa Game");
         centerMenu.setAlignment(Pos.CENTER);
 
-        Button startGameButton = new Button("Start Game");
-        startGameButton.setOnAction(e -> {
+        Button startTestGameButton = new Button("Start test game");
+        startTestGameButton.setOnAction(e -> {
             GameView gameView = new GameView(mainWindow, Board.createTestBoard());
             mainWindow.setScene(gameView.display());
         });
-        centerMenu.getChildren().addAll(MenuLabel, startGameButton);
+        Button startSimpleGameButton = new Button("Start classic game");
+        startSimpleGameButton.setOnAction(e -> {
+            Board board = Board.createEmptyBoard();
+            SetupGameView setupGameView = new SetupGameView(mainWindow, board,
+                    board.getGoldenPlayer().getAllAvailablePieces(),
+                    board.getSilverPlayer().getAllAvailablePieces());
+
+            mainWindow.setScene(setupGameView.display());
+        });
+        centerMenu.getChildren().addAll(MenuLabel,startSimpleGameButton, startTestGameButton );
         borderPane.setCenter(centerMenu);
 
-        return new Scene(borderPane, 500, 500);
+        return new Scene(borderPane, 600, 600);
     }
 }
