@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="Equals corrected on every move class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/SquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/SquareView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

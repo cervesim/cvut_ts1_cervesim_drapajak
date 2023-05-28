@@ -3,6 +3,7 @@ package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import javafx.scene.image.Image;
@@ -54,9 +55,9 @@ public class SquareView{
                     if (!BoardView.firstClickedSquare.isSquareOccupied()) {
                         BoardView.clickCount = 0;
                         cell.setFill((squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45)
-                                ? Color.BLACK : Color.WHITE);  // Set the color back to the original
+                                ? Color.BLACK : Color.WHITE);
                     } else {
-                        cell.setFill(Color.RED);  // Set the color to red
+                        cell.setFill(Color.RED);
                     }
                 } else if (clickCount == 2) {
                     BoardView.secondClickedSquare = board.getSquare(squarePosition);
@@ -98,9 +99,18 @@ public class SquareView{
                     BoardView.clickCount = 0;
                 }
             } else if (e.getButton() == MouseButton.SECONDARY) {
-                BoardView.clickCount = 0;
-                cell.setFill((squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45)
-                        ? Color.BLACK : Color.WHITE);
+                if (e.getClickCount() == 1){
+                    BoardView.clickCount = 0;
+                    cell.setFill((squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45)
+                            ? Color.BLACK : Color.WHITE);
+                } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
+                    System.out.println("round skipped");
+                    Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
+                    GameView gameView = new GameView(GameView.mainWindow, skipTurnsMove.execute());
+                    GameView.mainWindow.setScene(gameView.display());
+                    BoardView.clickCount = 0;
+                }
+
             }
         });
     }

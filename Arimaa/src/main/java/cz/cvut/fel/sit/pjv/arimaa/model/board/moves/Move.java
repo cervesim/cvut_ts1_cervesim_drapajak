@@ -44,7 +44,7 @@ public abstract class Move {
         Player currentPlayer = board.getCurrentPlayer();
         boardBuilder.setMoveCount(board.getMoveCount() + moveWeight);
 
-        if (boardBuilder.getMoveCount() == 4){
+        if (boardBuilder.getMoveCount() >= 4){
             boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
             boardBuilder.setMoveCount(0);
             return;
