@@ -20,11 +20,12 @@ import javafx.stage.Stage;
 import java.util.Collection;
 
 public class SetupGameView {
-    static Stage mainWindow;
+    Stage mainWindow;
     Board board;
     Collection<Piece> goldenPlayerPieces;
     Collection<Piece> silverPlayerPieces;
     boolean boardIsSet;
+    protected static Piece pieceToSet;
 
     public SetupGameView(Stage mainWindow, Board board, Collection<Piece> goldenPlayerPieces, Collection<Piece> silverPlayerPieces) {
         this.mainWindow = mainWindow;
@@ -64,7 +65,7 @@ public class SetupGameView {
         /*Bottom menu*/
 
         /*BoardView*/
-        SetupBoardView setupBoardView = new SetupBoardView(board, goldenPlayerPieces, silverPlayerPieces);
+        SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
         borderPane.setCenter(setupBoardView.display());
         borderPane.setLeft(makeHbox(goldenPlayerPieces));
         borderPane.setRight(makeHbox(silverPlayerPieces));
@@ -78,12 +79,10 @@ public class SetupGameView {
         ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
         pieceChoiceBox.getItems().addAll(pieces);
         pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            System.out.println(newValue); /*TODO deleteAfterFinishing*/
+            pieceToSet = newValue;
         });
 
         hBox.getChildren().add(pieceChoiceBox);
         return hBox;
     }
-
-
 }

@@ -44,7 +44,7 @@ public class MouseClickController {
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         }
     }
-    private boolean isTrapSquare(int squarePosition){
+    public static boolean isTrapSquare(int squarePosition){
         return (squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45);
     }
     private void rightClickControls(MouseEvent e){

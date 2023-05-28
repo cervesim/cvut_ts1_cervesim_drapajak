@@ -1,24 +1,36 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.setupGameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
+import java.util.Collection;
 import java.util.Objects;
 
-public class SquareView{
+public class SetupSquareView{
     int squarePosition;
+    Stage mainWindow;
     Board board;
-    public SquareView(int squarePosition, Board board) {
+    Collection<Piece> goldenPieces;
+    Collection<Piece> silverPieces;
+    public SetupSquareView(int squarePosition, Stage mainWindow, Board board, Collection<Piece> goldenPieces, Collection<Piece> silverPieces) {
         this.squarePosition = squarePosition;
+        this.mainWindow = mainWindow;
         this.board = board;
+        this.goldenPieces = goldenPieces;
+        this.silverPieces = silverPieces;
     }
 
     public StackPane setSquare() {
@@ -34,14 +46,28 @@ public class SquareView{
             imageView.setFitWidth(40);
 
             StackPane stackPane = new StackPane(cell, imageView);
-            MouseClickController mouseClickController = new MouseClickController(GameView.mainWindow, stackPane, cell, board, squarePosition);
-            mouseClickController.execute();
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
-        MouseClickController mouseClickController = new MouseClickController(GameView.mainWindow, stackPane, cell, board, squarePosition);
-        mouseClickController.execute();
+        stackPane.setOnMouseClicked(e->{
+            if (e.getButton() == MouseButton.PRIMARY){
+                Piece pieceToSet = SetupGameView.pieceToSet;
+                if(pieceToSet != null){
+                    if(!currentSquare.isSquareOccupied()){
+
+                        if(pieceToSet.getPieceColor() == Alliance.GOLDEN){
+                            goldenPieces.remove(pieceToSet);
+                        }else silverPieces.remove(pieceToSet);
+
+                        Move setupMove = new SetupMove(board, pieceToSet, squarePosition);
+                        SetupGameView.pieceToSet = null;
+                        SetupGameView setupGameView = new SetupGameView(mainWindow, setupMove.execute(), goldenPieces, silverPieces);
+                        mainWindow.setScene(setupGameView.display());
+                    }
+                }
+            }
+        });
         return stackPane;
     }
 
