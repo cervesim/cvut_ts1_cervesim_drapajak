@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -25,7 +26,7 @@ public class SetupGameView {
     Collection<Piece> goldenPlayerPieces;
     Collection<Piece> silverPlayerPieces;
     boolean boardIsSet;
-    protected static Piece pieceToSet;
+    public static Piece pieceToSet;
 
     public SetupGameView(Stage mainWindow, Board board, Collection<Piece> goldenPlayerPieces, Collection<Piece> silverPlayerPieces) {
         this.mainWindow = mainWindow;
@@ -67,22 +68,28 @@ public class SetupGameView {
         /*BoardView*/
         SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
         borderPane.setCenter(setupBoardView.display());
-        borderPane.setLeft(makeHbox(goldenPlayerPieces));
-        borderPane.setRight(makeHbox(silverPlayerPieces));
+
+        VBox rightVbox = makeVbox(goldenPlayerPieces, "Golden player pieces");
+        rightVbox.setAlignment(Pos.TOP_RIGHT);
+        borderPane.setRight(rightVbox);
+
+        borderPane.setLeft(makeVbox(silverPlayerPieces, "Silver player pieces"));
 
         /*BoardView*/
-        return new Scene(borderPane, 600, 600);
+        return new Scene(borderPane, 700, 600);
     }
 
-    private HBox makeHbox(Collection<Piece> pieces) {
-        HBox hBox = new HBox();
+    private VBox makeVbox(Collection<Piece> pieces, String whichPieces) {
+        VBox vBox = new VBox();
         ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
         pieceChoiceBox.getItems().addAll(pieces);
         pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             pieceToSet = newValue;
         });
+        Label label = new Label(whichPieces);
 
-        hBox.getChildren().add(pieceChoiceBox);
-        return hBox;
+
+        vBox.getChildren().addAll(label, pieceChoiceBox);
+        return vBox;
     }
 }

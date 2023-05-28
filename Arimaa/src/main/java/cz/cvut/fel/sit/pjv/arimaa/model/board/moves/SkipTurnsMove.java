@@ -25,4 +25,9 @@ public class SkipTurnsMove extends Move{
         setBoardBuilder(boardBuilder, 4);
         return boardBuilder.build();
     }
+
+    @Override
+    public boolean isDone() {
+        return false;
+    }
 }

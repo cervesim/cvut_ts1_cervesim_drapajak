@@ -51,5 +51,6 @@ public abstract class Move {
         }
         boardBuilder.setMoveMaker(currentPlayer.getAlliance());
     }
+    public abstract boolean isDone();
 
 }

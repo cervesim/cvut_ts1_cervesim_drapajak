@@ -42,4 +42,9 @@ public class SimpleMove extends Move {
         setBoardBuilder(boardBuilder, 1);
         return boardBuilder.build();
     }
+
+    @Override
+    public boolean isDone() {
+        return false;
+    }
 }

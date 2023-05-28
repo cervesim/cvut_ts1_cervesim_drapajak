@@ -55,14 +55,15 @@ public class SetupSquareView{
                 Piece pieceToSet = SetupGameView.pieceToSet;
                 if(pieceToSet != null){
                     if(!currentSquare.isSquareOccupied()){
-
-                        if(pieceToSet.getPieceColor() == Alliance.GOLDEN){
-                            goldenPieces.remove(pieceToSet);
-                        }else silverPieces.remove(pieceToSet);
-
                         Move setupMove = new SetupMove(board, pieceToSet, squarePosition);
-                        SetupGameView.pieceToSet = null;
-                        SetupGameView setupGameView = new SetupGameView(mainWindow, setupMove.execute(), goldenPieces, silverPieces);
+                        Board newBoard = setupMove.execute();
+
+                        if (setupMove.isDone()){
+                            if(pieceToSet.getPieceColor() == Alliance.GOLDEN){
+                                goldenPieces.remove(pieceToSet);
+                            }else silverPieces.remove(pieceToSet);
+                        }
+                        SetupGameView setupGameView = new SetupGameView(mainWindow, newBoard, goldenPieces, silverPieces);
                         mainWindow.setScene(setupGameView.display());
                     }
                 }

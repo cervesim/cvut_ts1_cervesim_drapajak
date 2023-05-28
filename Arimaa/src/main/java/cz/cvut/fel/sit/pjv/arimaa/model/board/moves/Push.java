@@ -55,4 +55,9 @@ public class Push extends Move{
         setBoardBuilder(boardBuilder, 2);
         return boardBuilder.build();
     }
+
+    @Override
+    public boolean isDone() {
+        return false;
+    }
 }
