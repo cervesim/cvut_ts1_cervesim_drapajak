@@ -3,6 +3,7 @@ package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,16 +19,16 @@ public class MainSceneView {
         this.mainWindow = mainWindow;
     }
 
-    public final Scene display() {
-        HBox topMenu = new HBox(); /*TODO change to differentLayout*/
-        BorderPane borderPane = new BorderPane();
+    public Scene display() {
+
 
         /*TOP menu*/
         Button gameSettingsButton = new Button("Settings");
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
-        topMenu.getChildren().addAll(gameSettingsButton);
-        topMenu.setAlignment(Pos.TOP_RIGHT);
-        borderPane.setRight(topMenu);
+
+        VBox topSettingsButton = new VBox(gameSettingsButton); /*TODO change to differentLayout*/
+        topSettingsButton.setPadding(new Insets(2, 5, 2, 2));
+        topSettingsButton.setAlignment(Pos.TOP_RIGHT);
         /*TOP menu*/
 
         VBox centerMenu = new VBox(10);
@@ -39,17 +40,18 @@ public class MainSceneView {
             GameView gameView = new GameView(mainWindow, Board.createTestBoard());
             mainWindow.setScene(gameView.display());
         });
+
         Button startSimpleGameButton = new Button("Start classic game");
         startSimpleGameButton.setOnAction(e -> {
-            Board board = Board.createEmptyBoard();
+            Board board = Board.createEmptyBoard(); /*TODO change back*/
             SetupGameView setupGameView = new SetupGameView(mainWindow, board,
                     board.getGoldenPlayer().getAllAvailablePieces(),
                     board.getSilverPlayer().getAllAvailablePieces());
 
             mainWindow.setScene(setupGameView.display());
         });
-        centerMenu.getChildren().addAll(MenuLabel,startSimpleGameButton, startTestGameButton );
-        borderPane.setCenter(centerMenu);
+        centerMenu.getChildren().addAll(MenuLabel, startSimpleGameButton, startTestGameButton);
+        BorderPane borderPane = new BorderPane(centerMenu, topSettingsButton, null, null, null);
 
         return new Scene(borderPane, 600, 600);
     }

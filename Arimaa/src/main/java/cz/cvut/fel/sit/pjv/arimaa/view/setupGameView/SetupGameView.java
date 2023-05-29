@@ -5,6 +5,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
 import javafx.geometry.Pos;
@@ -33,26 +34,25 @@ public class SetupGameView {
         this.board = board;
         this.goldenPlayerPieces = goldenPlayerPieces;
         this.silverPlayerPieces = silverPlayerPieces;
-        this.boardIsSet = (goldenPlayerPieces.isEmpty() && silverPlayerPieces.isEmpty());
+        this.boardIsSet = (goldenPlayerPieces.isEmpty() && silverPlayerPieces.isEmpty()); /*TODO change back*/
     }
 
     public final Scene display() {
-        BorderPane borderPane = new BorderPane();
         MainSceneView mainSceneView = new MainSceneView(mainWindow);
-        /*TOP menu TODO add to class or something*/
+        /*TOP menu*/
         HBox topMenu = new HBox();
         Button gameSettingsButton = new Button("Settings");
-        Button exitButton = new Button("Exit");
-        exitButton.setOnAction(e -> {
-            mainWindow.setScene(mainSceneView.display());
-        });
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
+
+        Button exitButton = new Button("Exit");
+        exitButton.setOnAction(e ->{
+            boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
+            if(answer) mainWindow.setScene(mainSceneView.display());
+        });
         topMenu.getChildren().addAll(gameSettingsButton, exitButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);
-        borderPane.setTop(topMenu);
         /*TOP menu*/
         /*Bottom menu*/
-        VBox botMenu = new VBox();
         Button startGameButton = new Button("StartGame");
         startGameButton.setOnAction(e -> {
             if (boardIsSet){
@@ -60,22 +60,19 @@ public class SetupGameView {
                 mainWindow.setScene(gameView.display());
             }
         });
-        botMenu.getChildren().add(startGameButton);
+        VBox botMenu = new VBox(startGameButton);
         botMenu.setAlignment(Pos.CENTER);
-        borderPane.setBottom(botMenu);
         /*Bottom menu*/
 
-        /*BoardView*/
-        SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
-        borderPane.setCenter(setupBoardView.display());
-
+        /*Right menu*/
         VBox rightVbox = makeVbox(goldenPlayerPieces, "Golden player pieces");
         rightVbox.setAlignment(Pos.TOP_RIGHT);
-        borderPane.setRight(rightVbox);
+        /*Right menu*/
+        VBox leftVbox = makeVbox(silverPlayerPieces, "Silver player pieces"); /*Left menu*/
 
-        borderPane.setLeft(makeVbox(silverPlayerPieces, "Silver player pieces"));
 
-        /*BoardView*/
+        SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
+        BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
         return new Scene(borderPane, 700, 600);
     }
 

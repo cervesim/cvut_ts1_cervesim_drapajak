@@ -1,6 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa;
 
-import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmStageView;
+import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameEndedStageView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -22,12 +22,6 @@ public class ArimaaGame_startMenu extends Application {
         MainSceneView mainSceneView = new MainSceneView(mainWindow);
         this.mainWindow.setScene(mainSceneView.display());
         this.mainWindow.show();
-    }
-    public void closeAndSave(){
-        if (ConfirmStageView.display("Confirm exit", "Are you sure you want to exit?")){
-            System.out.println("file is saved"); /*TODO save game*/
-            mainWindow.close();
-        }
     }
     public static void main(String[] args) {
         launch();
