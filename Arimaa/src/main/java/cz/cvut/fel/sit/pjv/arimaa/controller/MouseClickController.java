@@ -52,7 +52,6 @@ public class MouseClickController {
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
-            System.out.println("round skipped"); /*TODO delete print*/
             Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
             GameView gameView = new GameView(mainWindow, skipTurnsMove.execute());
             mainWindow.setScene(gameView.display());

@@ -1,17 +1,15 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
-import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameEndedStageView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GameView {
@@ -38,7 +36,15 @@ public class GameView {
         if (board.gameEnded){
             String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
             boolean answer = ConfirmBoxView.display("Game ended", text);
-            if (answer) mainWindow.setScene(mainSceneView.display());
+            if (answer) {
+                Board board = Board.createEmptyBoard();
+                SetupGameView setupGameView = new SetupGameView(mainWindow,
+                        Board.createEmptyBoard(),
+                        board.getGoldenPlayer().getAllAvailablePieces(),
+                        board.getSilverPlayer().getAllAvailablePieces());
+                return setupGameView.display();
+
+            }else return mainSceneView.display();
         }
 
         HBox topMenu = new HBox(gameSettingsButton, exitButton);
@@ -49,7 +55,6 @@ public class GameView {
         BoardView boardView = new BoardView(board);
         BorderPane borderPane = new BorderPane(boardView.display(), topMenu, null, null, null);
         /*BoardView + GameView*/
-
         return new Scene(borderPane, 500, 500);
     }
 

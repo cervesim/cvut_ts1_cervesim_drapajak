@@ -26,7 +26,7 @@ public class SetupGameView {
     Board board;
     Collection<Piece> goldenPlayerPieces;
     Collection<Piece> silverPlayerPieces;
-    boolean boardIsSet;
+    public boolean boardIsSet;
     public static Piece pieceToSet;
 
     public SetupGameView(Stage mainWindow, Board board, Collection<Piece> goldenPlayerPieces, Collection<Piece> silverPlayerPieces) {
@@ -34,7 +34,7 @@ public class SetupGameView {
         this.board = board;
         this.goldenPlayerPieces = goldenPlayerPieces;
         this.silverPlayerPieces = silverPlayerPieces;
-        this.boardIsSet = (goldenPlayerPieces.isEmpty() && silverPlayerPieces.isEmpty()); /*TODO change back*/
+        this.boardIsSet = (goldenPlayerPieces.isEmpty() && silverPlayerPieces.isEmpty());
     }
 
     public final Scene display() {
@@ -44,12 +44,15 @@ public class SetupGameView {
         Button gameSettingsButton = new Button("Settings");
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
 
+        Button testButton = new Button();
+        testButton.setOnAction(e -> boardIsSet = true);
+
         Button exitButton = new Button("Exit");
         exitButton.setOnAction(e ->{
             boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
             if(answer) mainWindow.setScene(mainSceneView.display());
         });
-        topMenu.getChildren().addAll(gameSettingsButton, exitButton);
+        topMenu.getChildren().addAll(gameSettingsButton, exitButton, testButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);
         /*TOP menu*/
         /*Bottom menu*/
@@ -73,6 +76,7 @@ public class SetupGameView {
 
         SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
         BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
+
         return new Scene(borderPane, 700, 600);
     }
 

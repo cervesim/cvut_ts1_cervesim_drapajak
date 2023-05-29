@@ -66,10 +66,8 @@ public class Board {
     }
     public Player hasWon (){
         if (silverPlayer.getLegalMoves().isEmpty() || silverPlayer.getRabbits().isEmpty() || goldenPlayer.rabbitFinishedHisJourney()) {
-            System.out.println("goldenPlayerHasWon");
             return goldenPlayer;
         } else if (goldenPlayer.getLegalMoves().isEmpty() || goldenPlayer.getRabbits().isEmpty() || silverPlayer.rabbitFinishedHisJourney()) {
-            System.out.println("silverPlayerHasWon");
             return silverPlayer;
         } else return null;
     }

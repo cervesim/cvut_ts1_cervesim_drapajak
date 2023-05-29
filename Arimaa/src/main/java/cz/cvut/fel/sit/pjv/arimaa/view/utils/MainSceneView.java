@@ -20,8 +20,6 @@ public class MainSceneView {
     }
 
     public Scene display() {
-
-
         /*TOP menu*/
         Button gameSettingsButton = new Button("Settings");
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
@@ -43,7 +41,7 @@ public class MainSceneView {
 
         Button startSimpleGameButton = new Button("Start classic game");
         startSimpleGameButton.setOnAction(e -> {
-            Board board = Board.createEmptyBoard(); /*TODO change back*/
+            Board board = Board.createEmptyBoard();
             SetupGameView setupGameView = new SetupGameView(mainWindow, board,
                     board.getGoldenPlayer().getAllAvailablePieces(),
                     board.getSilverPlayer().getAllAvailablePieces());

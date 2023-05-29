@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="SetupBoard completed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/ConfirmBoxView.java" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="Small refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupBoardView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/ConfirmStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/GameEndedStageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/GameEndedStageView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +159,7 @@
       <workItem from="1685044688052" duration="20571000" />
       <workItem from="1685118530301" duration="23557000" />
       <workItem from="1685173568802" duration="33342000" />
-      <workItem from="1685356096489" duration="4107000" />
+      <workItem from="1685356096489" duration="6972000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -337,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685313225423</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Small refactoring">
+      <created>1685360275060</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685360275060</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +361,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted old arimaa" />
     <MESSAGE value="classes added" />
     <MESSAGE value="updated Square and added interfaces" />
     <MESSAGE value="Square somehow done, currently doing piece" />
@@ -380,7 +385,8 @@
     <MESSAGE value="board to set almost finished" />
     <MESSAGE value="SetupBoardView and other almost finished" />
     <MESSAGE value="SetupBoard completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="SetupBoard completed" />
+    <MESSAGE value="Small refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

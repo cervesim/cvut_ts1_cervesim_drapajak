@@ -15,9 +15,8 @@ import java.util.Collection;
 
 public class SetupBoardView {
     Stage mainWindow;
+
     public Board board;
-    public static int clickCount = 0;
-    public static Square firstClickedSquare;
     Collection<Piece> goldenPlayerPieces;
     Collection<Piece> silverPlayerPieces;
     public SetupBoardView(Stage mainWindow, Board board, Collection<Piece> goldenPlayerPieces, Collection<Piece> silverPlayerPieces) {

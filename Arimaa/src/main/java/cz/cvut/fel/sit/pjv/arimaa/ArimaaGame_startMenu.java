@@ -1,6 +1,5 @@
 package cz.cvut.fel.sit.pjv.arimaa;
 
-import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameEndedStageView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import javafx.application.Application;
 import javafx.stage.Stage;
