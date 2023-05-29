@@ -65,9 +65,19 @@ public class Board {
         return column;
     }
     public Player hasWon (){
-        if (silverPlayer.getLegalMoves().isEmpty() || silverPlayer.getRabbits().isEmpty() || goldenPlayer.rabbitFinishedHisJourney()) {
+        Piece possibleGoldenRabbitTheChampion = goldenPlayer.rabbitFinishedHisJourney();
+        Piece possibleSilverRabbitTheChampion = silverPlayer.rabbitFinishedHisJourney();
+        if (silverPlayer.getLegalMoves().isEmpty() ||
+                silverPlayer.getRabbits().isEmpty() ||
+                (possibleGoldenRabbitTheChampion != null) &&
+                        (silverPlayer != currentPlayer || silverPlayer.getMoveCount() < 2 &&
+                                possibleGoldenRabbitTheChampion.isFrozen(this))) {
             return goldenPlayer;
-        } else if (goldenPlayer.getLegalMoves().isEmpty() || goldenPlayer.getRabbits().isEmpty() || silverPlayer.rabbitFinishedHisJourney()) {
+        } else if (goldenPlayer.getLegalMoves().isEmpty() ||
+                goldenPlayer.getRabbits().isEmpty() ||
+                possibleSilverRabbitTheChampion != null &&
+                        (goldenPlayer != currentPlayer || goldenPlayer.getMoveCount() < 2 &&
+                                possibleSilverRabbitTheChampion.isFrozen(this))) {
             return silverPlayer;
         } else return null;
     }

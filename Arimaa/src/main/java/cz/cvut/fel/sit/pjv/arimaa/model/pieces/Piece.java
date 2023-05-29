@@ -136,7 +136,7 @@ public class Piece {
         return legalMoves;
     }
 
-    protected boolean isFrozen(Board board) {
+    public boolean isFrozen(Board board) {
         int[] possibleFreezersCoordinates = getPossibleCoordinates(false);
         if (!isSupported(board)){
             for (final int possibleFreezersCoordinate : possibleFreezersCoordinates) {

@@ -47,9 +47,15 @@ public abstract class Player {
     public Collection<Move> getLegalMoves() {
         return this.legalMoves;
     }
+    public int getMoveCount() {
+        if (this == board.getCurrentPlayer()){
+            return board.getMoveCount();
+        }else return 0;
+    }
     public abstract Collection<Piece> getActivePieces();
     public abstract Alliance getAlliance();
     public abstract Player getOpponent();
     public abstract Collection<Piece> getAllAvailablePieces();
-    public abstract boolean rabbitFinishedHisJourney();
+    public abstract Piece rabbitFinishedHisJourney();
+
 }

@@ -33,17 +33,17 @@ public class GoldenPlayer extends Player{
     public Player getOpponent() {
         return this.board.getSilverPlayer();
     }
-
     @Override
-    public boolean rabbitFinishedHisJourney() {
+    public Piece rabbitFinishedHisJourney() {
         ArrayList<Integer> lastSquaresPosition = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
         for (Piece playersRabbit : getRabbits()) {
             if (lastSquaresPosition.contains(playersRabbit.getPiecePosition())) {
-                return true;
+                return playersRabbit;
             }
         }
-        return false;
+        return null;
     }
+
     public Collection<Piece> getAllAvailablePieces(){
         ArrayList<Piece> availablePieces = new ArrayList<>();
         availablePieces.add(new Piece(Alliance.GOLDEN, PieceType.HORSE, 0));
