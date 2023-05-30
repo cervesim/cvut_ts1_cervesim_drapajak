@@ -8,6 +8,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.PieceView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -40,7 +41,7 @@ public class SetupSquareView{
                 ? Color.BLACK : Color.WHITE);
 
         if (currentSquare.isSquareOccupied()) {
-            Image image = getPieceImage(currentSquare.getPieceOnSquare().getPieceType(), currentSquare.getPieceOnSquare().getPieceColor());
+            Image image = PieceView.getPieceImage(currentSquare.getPieceOnSquare().getPieceType(), currentSquare.getPieceOnSquare().getPieceColor());
             ImageView imageView = new ImageView(image);
             imageView.setFitHeight(40);
             imageView.setFitWidth(40);
@@ -70,57 +71,5 @@ public class SetupSquareView{
             }
         });
         return stackPane;
-    }
-
-    private Image getPieceImage(PieceType pieceType, Alliance alliance) {
-        String imagePath;
-        switch (pieceType) {
-            case ELEPHANT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenElephant.png";
-                } else {
-                    imagePath = "/pieceImages/silverElephant.png";
-                }
-            }
-            case CAMEL -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenCamel.png";
-                } else {
-                    imagePath = "/pieceImages/silverCamel.png";
-                }
-            }
-            case HORSE -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenHorse.png";
-                } else {
-                    imagePath = "/pieceImages/silverHorse.gif";
-                }
-            }
-            case DOG -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenDog.png";
-                } else {
-                    imagePath = "/pieceImages/silverDog.png";
-                }
-            }
-            case CAT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenCat.png";
-                } else {
-                    imagePath = "/pieceImages/silverCat.png";
-                }
-            }
-            case RABBIT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenRabbit.png";
-                } else {
-                    imagePath = "/pieceImages/silverRabbit.png";
-                }
-            }
-            default -> {
-                return null;
-            }
-        }
-        return new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm());
     }
 }

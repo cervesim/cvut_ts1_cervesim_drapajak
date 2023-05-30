@@ -1,26 +1,22 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
-import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
-import java.util.Objects;
-
-public class SquareView{
+public class SquareView extends GameView{
     int squarePosition;
-    Board board;
-    public SquareView(int squarePosition, Board board) {
+    public SquareView(Stage mainWindow, Board board, int squarePosition) {
+        super(mainWindow, board);
         this.squarePosition = squarePosition;
-        this.board = board;
     }
-
     public StackPane setSquare() {
         Rectangle cell = new Rectangle(50, 50);
         Square currentSquare = board.getSquare(squarePosition);
@@ -28,72 +24,24 @@ public class SquareView{
                 ? Color.BLACK : Color.WHITE);
 
         if (currentSquare.isSquareOccupied()) {
-            Image image = getPieceImage(currentSquare.getPieceOnSquare().getPieceType(), currentSquare.getPieceOnSquare().getPieceColor());
-            ImageView imageView = new ImageView(image);
+            Piece pieceOnSquare = currentSquare.getPieceOnSquare();
+            ImageView imageView = new ImageView(PieceView.getPieceImage(pieceOnSquare.getPieceType(), pieceOnSquare.getPieceColor()));
             imageView.setFitHeight(40);
             imageView.setFitWidth(40);
 
             StackPane stackPane = new StackPane(cell, imageView);
-            MouseClickController mouseClickController = new MouseClickController(GameView.mainWindow, stackPane, cell, board, squarePosition);
-            mouseClickController.execute();
+            if (!board.gameEnded){
+                new MouseClickController(mainWindow, stackPane, cell, board, squarePosition);
+            }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
-        MouseClickController mouseClickController = new MouseClickController(GameView.mainWindow, stackPane, cell, board, squarePosition);
-        mouseClickController.execute();
+        if (!board.gameEnded){
+            new MouseClickController(mainWindow, stackPane, cell, board, squarePosition);
+        }
         return stackPane;
     }
 
-    private Image getPieceImage(PieceType pieceType, Alliance alliance) {
-        String imagePath;
-        switch (pieceType) {
-            case ELEPHANT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenElephant.png";
-                } else {
-                    imagePath = "/pieceImages/silverElephant.png";
-                }
-            }
-            case CAMEL -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenCamel.png";
-                } else {
-                    imagePath = "/pieceImages/silverCamel.png";
-                }
-            }
-            case HORSE -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenHorse.png";
-                } else {
-                    imagePath = "/pieceImages/silverHorse.gif";
-                }
-            }
-            case DOG -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenDog.png";
-                } else {
-                    imagePath = "/pieceImages/silverDog.png";
-                }
-            }
-            case CAT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenCat.png";
-                } else {
-                    imagePath = "/pieceImages/silverCat.png";
-                }
-            }
-            case RABBIT -> {
-                if (alliance == Alliance.GOLDEN) {
-                    imagePath = "/pieceImages/goldenRabbit.png";
-                } else {
-                    imagePath = "/pieceImages/silverRabbit.png";
-                }
-            }
-            default -> {
-                return null;
-            }
-        }
-        return new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm());
-    }
+
 }

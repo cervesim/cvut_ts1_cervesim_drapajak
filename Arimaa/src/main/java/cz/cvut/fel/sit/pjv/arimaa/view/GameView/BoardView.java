@@ -1,33 +1,27 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameUtils;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-public class BoardView{
-    public Board board;
+public class BoardView extends GameView{
     public static int clickCount = 0;
     public static Square firstClickedSquare;
     public static Square secondClickedSquare;
     public static Square thirdClickedSquare;
-    public BoardView(Board board) {
-        this.board = board;
+    public BoardView(Stage mainWindow, Board board) {
+        super(mainWindow, board);
     }
-
-    public GridPane display() {
+    public GridPane displayBoard() {
         GridPane boardGridPane = new GridPane();
-        boardGridPane.setPadding(new Insets(10,10,10,10));
-        boardGridPane.setGridLinesVisible(true);
-        boardGridPane.setHgap(1);
-        boardGridPane.setVgap(1);
-        boardGridPane.setAlignment(Pos.CENTER);
+        GameUtils.setBoardGridPane(boardGridPane);
 
         int cellCounter = 0;
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
-                SquareView squareView = new SquareView(cellCounter, board);
+                SquareView squareView = new SquareView(mainWindow, board, cellCounter);
                 StackPane stackPane = squareView.setSquare();
                 boardGridPane.add(stackPane, col, row);
                 cellCounter++;

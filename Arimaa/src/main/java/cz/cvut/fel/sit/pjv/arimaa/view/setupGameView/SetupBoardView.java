@@ -1,12 +1,8 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.setupGameView;
 
-import com.almasb.fxgl.app.MainWindow;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.SquareView;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameUtils;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -28,11 +24,7 @@ public class SetupBoardView {
 
     public GridPane display() {
         GridPane boardGridPane = new GridPane();
-        boardGridPane.setPadding(new Insets(10,10,10,10));
-        boardGridPane.setGridLinesVisible(true);
-        boardGridPane.setHgap(1);
-        boardGridPane.setVgap(1);
-        boardGridPane.setAlignment(Pos.CENTER);
+        GameUtils.setBoardGridPane(boardGridPane);
 
         int cellCounter = 0;
         for (int row = 0; row < 8; row++) {

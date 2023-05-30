@@ -158,6 +158,30 @@ public class Board {
 
         return boardBuilder.build();
     }
+    public static Board createBoardWithSilverPiecesSet(){
+        final BoardBuilder boardBuilder = new BoardBuilder();
+        boardBuilder.setMoveMaker(Alliance.GOLDEN);
+        boardBuilder.setMoveCount(0);
+
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 2));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 3));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 4));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 5));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 6));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 7));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 8));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 9));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 10));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.ELEPHANT, 11));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAMEL, 12));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 13));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 14));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 15));
+
+        return boardBuilder.build();
+    }
     private static Collection<Piece> setActivePieces(final List<Square> gameBoard, Alliance alliance) {
         final List<Piece> activePieces = new ArrayList<>();
 

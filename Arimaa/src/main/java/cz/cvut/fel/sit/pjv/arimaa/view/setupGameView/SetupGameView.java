@@ -2,8 +2,6 @@ package cz.cvut.fel.sit.pjv.arimaa.view.setupGameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
@@ -13,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -22,7 +19,7 @@ import javafx.stage.Stage;
 import java.util.Collection;
 
 public class SetupGameView {
-    Stage mainWindow;
+    protected Stage mainWindow;
     Board board;
     Collection<Piece> goldenPlayerPieces;
     Collection<Piece> silverPlayerPieces;
@@ -36,26 +33,44 @@ public class SetupGameView {
         this.silverPlayerPieces = silverPlayerPieces;
         this.boardIsSet = (goldenPlayerPieces.isEmpty() && silverPlayerPieces.isEmpty());
     }
+    public SetupGameView(Stage mainWindow) {
+        this.mainWindow = mainWindow;
+        this.board = Board.createEmptyBoard();
+        this.goldenPlayerPieces = board.getGoldenPlayer().getAllAvailablePieces();
+        this.silverPlayerPieces = board.getSilverPlayer().getAllAvailablePieces();
+        this.boardIsSet = false;
+    }
 
-    public final Scene display() {
-        MainSceneView mainSceneView = new MainSceneView(mainWindow);
-        /*TOP menu*/
-        HBox topMenu = new HBox();
-        Button gameSettingsButton = new Button("Settings");
-        gameSettingsButton.setOnAction(e -> SettingsStageView.display());
 
-        Button testButton = new Button();
-        testButton.setOnAction(e -> boardIsSet = true);
+    public Scene display() {
+        HBox topMenu = makeTopMenu();/*Top menu*/
 
-        Button exitButton = new Button("Exit");
-        exitButton.setOnAction(e ->{
-            boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
-            if(answer) mainWindow.setScene(mainSceneView.display());
-        });
-        topMenu.getChildren().addAll(gameSettingsButton, exitButton, testButton);
-        topMenu.setAlignment(Pos.TOP_RIGHT);
-        /*TOP menu*/
-        /*Bottom menu*/
+        VBox botMenu = makeBottomMenu();/*Bottom menu*/
+
+        /*Right menu*/
+        VBox rightVbox = makeLeftAndRightMenu(goldenPlayerPieces, "Golden player pieces");
+        /*Right menu*/
+
+        VBox leftVbox = makeLeftAndRightMenu(silverPlayerPieces, "Silver player pieces"); /*Left menu*/
+
+        SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
+        BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
+
+        return setScene(borderPane);
+    }
+    private VBox makeLeftAndRightMenu(Collection<Piece> pieces, String whichPieces) {
+        ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
+        pieceChoiceBox.getItems().addAll(pieces);
+        pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> pieceToSet = newValue);
+        Label label = new Label(whichPieces);
+
+        VBox vBox = new VBox(label, pieceChoiceBox);
+        if (whichPieces.equals("Golden player pieces")){
+            vBox.setAlignment(Pos.TOP_RIGHT);
+        }
+        return vBox;
+    }
+    private VBox makeBottomMenu(){
         Button startGameButton = new Button("StartGame");
         startGameButton.setOnAction(e -> {
             if (boardIsSet){
@@ -65,32 +80,26 @@ public class SetupGameView {
         });
         VBox botMenu = new VBox(startGameButton);
         botMenu.setAlignment(Pos.CENTER);
-        /*Bottom menu*/
-
-        /*Right menu*/
-        VBox rightVbox = makeVbox(goldenPlayerPieces, "Golden player pieces");
-        rightVbox.setAlignment(Pos.TOP_RIGHT);
-        /*Right menu*/
-        VBox leftVbox = makeVbox(silverPlayerPieces, "Silver player pieces"); /*Left menu*/
-
-
-        SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
-        BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
-
-        return new Scene(borderPane, 700, 600);
+        return botMenu;
     }
+    protected HBox makeTopMenu(){
+        Button gameSettingsButton = new Button("Settings");
+        gameSettingsButton.setOnAction(e -> SettingsStageView.display());
 
-    private VBox makeVbox(Collection<Piece> pieces, String whichPieces) {
-        VBox vBox = new VBox();
-        ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
-        pieceChoiceBox.getItems().addAll(pieces);
-        pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            pieceToSet = newValue;
+        Button testButton = new Button();
+        testButton.setOnAction(e -> boardIsSet = true);
+
+        Button exitButton = new Button("Exit");
+        exitButton.setOnAction(e ->{
+            boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
+            MainSceneView mainSceneView = new MainSceneView(mainWindow);
+            if(answer) mainWindow.setScene(mainSceneView.display());
         });
-        Label label = new Label(whichPieces);
-
-
-        vBox.getChildren().addAll(label, pieceChoiceBox);
-        return vBox;
+        HBox topMenu = new HBox(gameSettingsButton, exitButton, testButton);
+        topMenu.setAlignment(Pos.TOP_RIGHT);
+        return topMenu;
+    }
+    protected Scene setScene(BorderPane borderPane){
+        return new Scene(borderPane, 700, 600);
     }
 }

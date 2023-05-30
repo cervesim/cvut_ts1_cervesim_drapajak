@@ -24,6 +24,7 @@ public class MouseClickController {
         this.cell = cell;
         this.board = board;
         this.squarePosition = squarePosition;
+        execute();
     }
     public void execute(){
         stackPane.setOnMouseClicked(e -> {

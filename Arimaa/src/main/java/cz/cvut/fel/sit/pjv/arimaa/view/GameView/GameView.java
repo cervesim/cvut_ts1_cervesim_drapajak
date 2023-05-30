@@ -3,59 +3,47 @@ package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
-import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
-import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class GameView {
-    static Stage mainWindow;
+public class GameView extends SetupGameView{
     Board board;
+    public static boolean gameEnded;
     public GameView(Stage mainWindow, Board board) {
-        this.mainWindow = mainWindow;
+        super(mainWindow);
         this.board = board;
+        GameView.gameEnded = board.gameEnded;
+    }
+    public GameView(Stage mainWindow) {
+        super(mainWindow);
+        this.board = Board.createTestBoard();
+        GameView.gameEnded = false;
     }
 
-    public final Scene display(){
-        MainSceneView mainSceneView = new MainSceneView(mainWindow);
-
+    public Scene display(){
         /*TOP menu*/
-        Button gameSettingsButton = new Button("Settings");
-        gameSettingsButton.setOnAction(e -> SettingsStageView.display());
+        HBox topMenu = makeTopMenu();
 
-        Button exitButton = new Button("Exit");
-        exitButton.setOnAction(e ->{
-            boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
-            if(answer) mainWindow.setScene(mainSceneView.display());
-        });
-
-        if (board.gameEnded){
+        if (GameView.gameEnded){
             String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
             boolean answer = ConfirmBoxView.display("Game ended", text);
             if (answer) {
-                Board board = Board.createEmptyBoard();
-                SetupGameView setupGameView = new SetupGameView(mainWindow,
-                        Board.createEmptyBoard(),
-                        board.getGoldenPlayer().getAllAvailablePieces(),
-                        board.getSilverPlayer().getAllAvailablePieces());
+                SetupGameView setupGameView = new SetupGameView(mainWindow);
                 return setupGameView.display();
-
-            }else return mainSceneView.display();
+            }/*TODO block mouse controller*/
         }
-
-        HBox topMenu = new HBox(gameSettingsButton, exitButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);
         /*TOP menu*/
 
         /*BoardView + GameView*/
-        BoardView boardView = new BoardView(board);
-        BorderPane borderPane = new BorderPane(boardView.display(), topMenu, null, null, null);
+        BoardView boardView = new BoardView(mainWindow, board);
+        BorderPane borderPane = new BorderPane(boardView.displayBoard(), topMenu, null, null, null);
         /*BoardView + GameView*/
-        return new Scene(borderPane, 500, 500);
+        return setScene(borderPane);
     }
+
 
 }
