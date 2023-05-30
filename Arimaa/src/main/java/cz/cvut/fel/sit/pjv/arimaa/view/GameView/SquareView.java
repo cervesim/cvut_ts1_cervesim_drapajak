@@ -4,7 +4,6 @@ import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -31,14 +30,14 @@ public class SquareView extends GameView{
 
             StackPane stackPane = new StackPane(cell, imageView);
             if (!board.gameEnded){
-                new MouseClickController(mainWindow, stackPane, cell, board, squarePosition);
+                new MouseClickController(mainWindow, board, stackPane, cell,  squarePosition);
             }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
         if (!board.gameEnded){
-            new MouseClickController(mainWindow, stackPane, cell, board, squarePosition);
+            new MouseClickController(mainWindow, board, stackPane, cell,  squarePosition);
         }
         return stackPane;
     }

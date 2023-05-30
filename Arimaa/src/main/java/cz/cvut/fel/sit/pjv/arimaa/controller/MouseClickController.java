@@ -12,17 +12,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class MouseClickController {
-    Stage mainWindow;
+public class MouseClickController extends GameView {
     StackPane stackPane;
     Rectangle cell;
-    Board board;
     int squarePosition;
-    public MouseClickController(Stage mainWindow, StackPane stackPane, Rectangle cell, Board board, int squarePosition) {
-        this.mainWindow = mainWindow;
+    public MouseClickController(Stage mainWindow, Board board, StackPane stackPane, Rectangle cell,  int squarePosition) {
+        super(mainWindow, board);
         this.stackPane = stackPane;
         this.cell = cell;
-        this.board = board;
         this.squarePosition = squarePosition;
         execute();
     }
@@ -37,6 +34,7 @@ public class MouseClickController {
     }
     private void checkAndExecute(Move move, Rectangle cell){
         if (board.getCurrentPlayer().isMoveLegal(move)) {
+            currentBoard = (GameView) mainWindow.getUserData();
             GameView gameView = new GameView(mainWindow, move.execute());
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;
@@ -84,6 +82,7 @@ public class MouseClickController {
                         BoardView.secondClickedSquare.getPieceOnSquare(),
                         BoardView.thirdClickedSquare.getSquareLocation());
                 checkAndExecute(move, cell);
+
             } else {
                 cell.setFill(Color.RED);
             }

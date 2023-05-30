@@ -6,14 +6,14 @@ import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Collection;
@@ -56,31 +56,7 @@ public class SetupGameView {
         SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
         BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
 
-        return setScene(borderPane);
-    }
-    private VBox makeLeftAndRightMenu(Collection<Piece> pieces, String whichPieces) {
-        ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
-        pieceChoiceBox.getItems().addAll(pieces);
-        pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> pieceToSet = newValue);
-        Label label = new Label(whichPieces);
-
-        VBox vBox = new VBox(label, pieceChoiceBox);
-        if (whichPieces.equals("Golden player pieces")){
-            vBox.setAlignment(Pos.TOP_RIGHT);
-        }
-        return vBox;
-    }
-    private VBox makeBottomMenu(){
-        Button startGameButton = new Button("StartGame");
-        startGameButton.setOnAction(e -> {
-            if (boardIsSet){
-                GameView gameView = new GameView(mainWindow, board);
-                mainWindow.setScene(gameView.display());
-            }
-        });
-        VBox botMenu = new VBox(startGameButton);
-        botMenu.setAlignment(Pos.CENTER);
-        return botMenu;
+        return new Scene(borderPane, 700, 600);
     }
     protected HBox makeTopMenu(){
         Button gameSettingsButton = new Button("Settings");
@@ -97,9 +73,35 @@ public class SetupGameView {
         });
         HBox topMenu = new HBox(gameSettingsButton, exitButton, testButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);
+        topMenu.setPadding(new Insets(4));
         return topMenu;
     }
-    protected Scene setScene(BorderPane borderPane){
-        return new Scene(borderPane, 700, 600);
+    private VBox makeLeftAndRightMenu(Collection<Piece> pieces, String whichPieces) {
+        ChoiceBox<Piece> pieceChoiceBox = new ChoiceBox<>();
+        pieceChoiceBox.setPadding(new Insets(5, 15, 0, 0));
+        pieceChoiceBox.getItems().addAll(pieces);
+        pieceChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> pieceToSet = newValue);
+        Label label = new Label(whichPieces);
+
+        VBox vBox = new VBox(label, pieceChoiceBox);
+        vBox.setAlignment(Pos.TOP_CENTER);
+        if (whichPieces.equals("Golden player pieces")){
+
+            vBox.setBackground(new Background(new BackgroundFill(Color.GOLD, CornerRadii.EMPTY, Insets.EMPTY)));
+        } else vBox.setBackground(new Background(new BackgroundFill(Color.SILVER, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        return vBox;
+    }
+    private VBox makeBottomMenu(){
+        Button startGameButton = new Button("StartGame");
+        startGameButton.setOnAction(e -> {
+            if (boardIsSet){
+                GameView gameView = new GameView(mainWindow, board);
+                mainWindow.setScene(gameView.display());
+            }
+        });
+        VBox botMenu = new VBox(startGameButton);
+        botMenu.setAlignment(Pos.CENTER);
+        return botMenu;
     }
 }

@@ -58,6 +58,6 @@ public class MainSceneView {
         VBox centerMenu = new VBox(10, MenuLabel, startSimpleGameButton, startGameAgainstComputer, startTestGameButton);
         centerMenu.setAlignment(Pos.CENTER);
         BorderPane borderPane = new BorderPane(centerMenu, topSettingsButton, null, null, null);
-        return new Scene(borderPane, 600, 600);
+        return new Scene(borderPane, 700, 600);
     }
 }
