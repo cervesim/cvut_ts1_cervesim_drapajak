@@ -3,6 +3,7 @@ package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 import com.google.common.base.Objects;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
@@ -12,6 +13,11 @@ public class Pull extends Move{
     public Pull(final Board board, final Piece movedPiece, final Piece pulledPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
         this.pulledPiece = pulledPiece;
+    }
+
+    @Override
+    public String toString() {
+        return movedPiece.toString() + SquareLocationToString.fromSquareNumber(destinationCoordinate) + getDirection() + " ";
     }
 
     @Override
@@ -31,8 +37,10 @@ public class Pull extends Move{
     public Board execute() {
         final BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = board.getCurrentPlayer();
+        boardBuilder.setGoldenInitialSetup(board.goldenInitialSetup, null);
+        boardBuilder.setSilverInitialSetup(board.silverInitialSetup, null);
 
-
+        System.out.print(this); /*TODO destroy*/
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
                 boardBuilder.setPiece(movedPiece.movePiece(this));
@@ -41,6 +49,7 @@ public class Pull extends Move{
             }
         }
         Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordinate());
+        System.out.print(pulledPieceMove); /*TODO destroy*/
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
             if (pulledPiece.equals(piece)){
                 boardBuilder.setPiece(pulledPiece.movePiece(pulledPieceMove));

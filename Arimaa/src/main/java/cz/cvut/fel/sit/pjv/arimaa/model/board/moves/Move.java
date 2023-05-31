@@ -40,6 +40,14 @@ public abstract class Move {
     public int getCurrentCoordinate() {
         return this.movedPiece.getPiecePosition();
     }
+    protected String getDirection(){
+        return switch (movedPiece.getPiecePosition() - destinationCoordinate) {
+            case -1 -> "e";
+            case 8 -> "n";
+            case -8 -> "s";
+            default -> "w";
+        };
+    }
     protected void setBoardBuilder(BoardBuilder boardBuilder, int moveWeight){
         Player currentPlayer = board.getCurrentPlayer();
         boardBuilder.setMoveCount(board.getMoveCount() + moveWeight);

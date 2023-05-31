@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="small refactoring">
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="gameView ready for timer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/UndoMove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/GameUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/SquareLocationToString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/Notation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/Notation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/BoardBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/BoardBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Pull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Pull.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SimpleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SimpleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +96,11 @@
       <recent name="cz.cvut.fel.sit.pjv.arimaa.model.players" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder" />
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.modelUtils" />
       <recent name="cz.cvut.fel.sit.pjv.arimaa.controller.BoardBuilder" />
       <recent name="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" />
       <recent name="cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType" />
-      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardUtils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\simon\CVUT\Summer_2023\PJV_S_2023\Arimaa\Arimaa\src\main\resources" />
@@ -90,6 +109,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="cz.cvut.fel.sit.pjv.arimaaInterfaces" />
       <recent name="cz.cvut.fel.sit.pjv.arimaa" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="cz.cvut.fel.sit.pjv.arimaa.model.modelUtils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.GameAgainstComputerView" />
@@ -163,7 +185,7 @@
       <workItem from="1685118530301" duration="23557000" />
       <workItem from="1685173568802" duration="33342000" />
       <workItem from="1685356096489" duration="16237000" />
-      <workItem from="1685434981029" duration="18459000" />
+      <workItem from="1685434981029" duration="54154000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -368,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685443573732</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="gameView ready for timer">
+      <created>1685469150801</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685469150801</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pieces somehow done, a lot of todos ahead" />
     <MESSAGE value="Gameboard somehow done, I will modify the piece now" />
     <MESSAGE value="Piece almost done todo add frozen method" />
     <MESSAGE value="Player somehow done, moving on to make move" />
@@ -422,7 +450,8 @@
     <MESSAGE value="Small refactoring 2" />
     <MESSAGE value="game won if current player cant push done" />
     <MESSAGE value="small refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="small refactoring" />
+    <MESSAGE value="gameView ready for timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="gameView ready for timer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -436,11 +465,13 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="gameBoard" />
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder" memberName="goldenMoves" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece" memberName="pieceType" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove" memberName="board" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="goldenPieces" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="currentPlayer" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="moveCount" />
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder" memberName="goldenInitialSetup" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>

@@ -1,13 +1,11 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.setupGameView;
 
-import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.PieceView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,7 +16,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.Collection;
-import java.util.Objects;
+
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
 
 public class SetupSquareView{
     int squarePosition;
@@ -37,7 +36,7 @@ public class SetupSquareView{
     public StackPane setSquare() {
         Rectangle cell = new Rectangle(50, 50);
         Square currentSquare = board.getSquare(squarePosition);
-        cell.setFill(MouseClickController.isTrapSquare(squarePosition)
+        cell.setFill(isTrapSquare(squarePosition)
                 ? Color.BLACK : Color.WHITE);
 
         if (currentSquare.isSquareOccupied()) {
@@ -46,8 +45,8 @@ public class SetupSquareView{
             imageView.setFitHeight(40);
             imageView.setFitWidth(40);
 
-            StackPane stackPane = new StackPane(cell, imageView);
-            return stackPane;
+
+            return new StackPane(cell, imageView);
         }
 
         StackPane stackPane = new StackPane(cell);

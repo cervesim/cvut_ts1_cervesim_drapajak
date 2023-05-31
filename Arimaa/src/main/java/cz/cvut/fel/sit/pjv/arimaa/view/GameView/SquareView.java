@@ -10,6 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+
 public class SquareView extends GameView{
     int squarePosition;
     public SquareView(Stage mainWindow, Board board, int squarePosition) {
@@ -19,7 +21,7 @@ public class SquareView extends GameView{
     public StackPane setSquare() {
         Rectangle cell = new Rectangle(50, 50);
         Square currentSquare = board.getSquare(squarePosition);
-        cell.setFill(MouseClickController.isTrapSquare(squarePosition)
+        cell.setFill(isTrapSquare(squarePosition)
                 ? Color.BLACK : Color.WHITE);
 
         if (currentSquare.isSquareOccupied()) {

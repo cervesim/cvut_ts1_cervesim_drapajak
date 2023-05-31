@@ -2,6 +2,8 @@ package cz.cvut.fel.sit.pjv.arimaa.model.board.square;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 
 public class TrapSquare extends Square{
@@ -9,6 +11,14 @@ public class TrapSquare extends Square{
     TrapSquare(int squareLocation, Piece pieceOnSquare) {
         super(squareLocation);
         this.pieceOnSquare = pieceOnSquare;
+    }
+
+    @Override
+    public String toString() {
+        if (this.pieceOnSquare != null) {
+            return (getPieceOnSquare().getPieceColor().isSilver() ? getPieceOnSquare().toString().toLowerCase() : getPieceOnSquare().toString())
+                    + SquareLocationToString.fromSquareNumber(squareLocation) + "x ";
+        }else return "";
     }
 
     @Override
@@ -28,11 +38,12 @@ public class TrapSquare extends Square{
             final Square possibleSupportingSquare = board.getSquare(possibleSupportersSquareNumber);
             if (possibleSupportingSquare.isSquareOccupied()) {
                 final Alliance pieceAtDestinationColor = possibleSupportingSquare.getPieceOnSquare().getPieceColor();
-                if (pieceAtDestinationColor == pieceOnSquare.getPieceColor()) {
+                if (this.isSquareOccupied() && pieceAtDestinationColor == pieceOnSquare.getPieceColor()) {
                     return true;
                 }
             }
         }
+        if (!Board.pushOrPullNoted) System.out.print(this);
         return false;
     }
 

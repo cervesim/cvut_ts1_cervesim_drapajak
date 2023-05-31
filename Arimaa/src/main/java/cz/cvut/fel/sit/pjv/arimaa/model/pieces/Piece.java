@@ -29,17 +29,17 @@ public class Piece {
     public String toString() {
         switch (this.pieceType){
             case ELEPHANT:
-                return PieceType.ELEPHANT.toString();
+                return pieceColor.isSilver() ? PieceType.ELEPHANT.toString().toLowerCase() : PieceType.ELEPHANT.toString();
             case CAMEL:
-                return PieceType.CAMEL.toString();
+                return pieceColor.isSilver() ? PieceType.CAMEL.toString().toLowerCase() : PieceType.CAMEL.toString();
             case HORSE:
-                return PieceType.HORSE.toString();
+                return pieceColor.isSilver() ? PieceType.HORSE.toString().toLowerCase() : PieceType.HORSE.toString();
             case DOG:
-                return PieceType.DOG.toString();
+                return pieceColor.isSilver() ? PieceType.DOG.toString().toLowerCase() : PieceType.DOG.toString();
             case CAT:
-                return PieceType.CAT.toString();
+                return pieceColor.isSilver() ? PieceType.CAT.toString().toLowerCase() : PieceType.CAT.toString();
             default:
-                return PieceType.RABBIT.toString();
+                return pieceColor.isSilver() ? PieceType.RABBIT.toString().toLowerCase() : PieceType.RABBIT.toString();
         }
     }
 

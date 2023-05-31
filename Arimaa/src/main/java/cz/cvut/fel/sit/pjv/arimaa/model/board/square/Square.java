@@ -6,6 +6,8 @@ import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import java.util.HashMap;
 import java.util.Map;
 
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+
 public abstract class Square {
     protected final int squareLocation;
     private static final Map<Integer, EmptySquare> Empty_Squares = createAllPossibleEmptySquares();
@@ -23,7 +25,7 @@ public abstract class Square {
     }
 
     public static Square createSquare(final int squareLocation, final Piece pieceOnSquare){
-        if (squareLocation == 18 || squareLocation == 21 || squareLocation == 42 || squareLocation == 45){
+        if (isTrapSquare(squareLocation)){
             return new TrapSquare(squareLocation, pieceOnSquare);
         }
         if (pieceOnSquare != null){

@@ -1,7 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
@@ -22,25 +22,27 @@ public class GameView{
     protected GameView nextBoard;
     protected GameView currentBoard;
     public GameView previousBoard;
-    public static boolean gameEnded;
+    public boolean gameEnded;
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
         this.board = Board.createTestBoard();
         this.currentBoard = this;
         this.nextBoard = null;
         this.previousBoard = null;
-        GameView.gameEnded = false;
+        this.gameEnded = false;
         mainWindow.setUserData(this);
     }
     public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
         this.board = board;
-        GameView.gameEnded = board.gameEnded;
+        this.gameEnded = board.gameEnded;
     }
     public Scene display(){
-        if (GameView.gameEnded){
+        if (this.gameEnded){
             String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
             boolean answer = ConfirmBoxView.display("Game ended", text);
+            System.out.println(board.silverInitialSetup.toString());
+            System.out.println(board.goldenInitialSetup.toString()); /*TODO destroy it Issildur*/
             if (answer) return new SetupGameView(mainWindow).display();
         }
 
@@ -53,7 +55,7 @@ public class GameView{
                 makeLeftAndRightMenu("Silver player"));
         /*BoardView + GameView*/
 
-        return new Scene(borderPane, 700, 600);
+        return new Scene(borderPane, 720, 600);
     }
     private VBox makeLeftAndRightMenu(String player) {
         Label label = new Label(player);

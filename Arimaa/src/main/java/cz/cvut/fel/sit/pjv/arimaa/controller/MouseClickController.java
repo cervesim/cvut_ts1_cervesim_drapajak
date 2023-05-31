@@ -12,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+
 public class MouseClickController extends GameView {
     StackPane stackPane;
     Rectangle cell;
@@ -42,9 +44,6 @@ public class MouseClickController extends GameView {
         } else {
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         }
-    }
-    public static boolean isTrapSquare(int squarePosition){
-        return (squarePosition == 18 || squarePosition == 21 || squarePosition == 42 || squarePosition == 45);
     }
     private void rightClickControls(MouseEvent e){
         if (e.getClickCount() == 1){

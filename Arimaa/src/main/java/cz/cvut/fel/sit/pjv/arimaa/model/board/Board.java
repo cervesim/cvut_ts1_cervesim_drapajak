@@ -13,6 +13,12 @@ import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
 import java.util.*;
 
 public class Board {
+    public int roundCounter;
+    public ArrayList<String> goldenInitialSetup = new ArrayList<>();
+    public ArrayList<String> goldenMoves = new ArrayList<>();
+    public ArrayList<String>  silverInitialSetup = new ArrayList<>();
+    public ArrayList<String> silverMoves = new ArrayList<>();
+    public static boolean pushOrPullNoted = false;
     public static final int Num_Squares = 64;
     public static final int Num_Squares_Per_Row = 8;
     public static final boolean[] First_Column = initColumn(0);
@@ -28,8 +34,13 @@ public class Board {
     public Board(BoardBuilder boardBuilder) {
         this.gameBoard = createGameBoard(boardBuilder);
         setTrapSquares();
+
         this.goldenPieces = setActivePieces(this.gameBoard, Alliance.GOLDEN);
         this.silverPieces = setActivePieces(this.gameBoard, Alliance.SILVER);
+
+        goldenInitialSetup.addAll(boardBuilder.getGoldenInitialSetup());
+        silverInitialSetup.addAll(boardBuilder.getSilverInitialSetup());
+
         this.moveCount = boardBuilder.getMoveCount();
 
         final Collection<Move> goldenStandardLegalMoves = getLegalMoves(this.goldenPieces);
@@ -64,7 +75,7 @@ public class Board {
         } while (columnNumber < Num_Squares);
         return column;
     }
-    public Player hasWon (){
+    public Player hasWon(){
         Piece possibleGoldenRabbitTheChampion = goldenPlayer.rabbitFinishedHisJourney();
         Piece possibleSilverRabbitTheChampion = silverPlayer.rabbitFinishedHisJourney();
         if (silverPlayer.getLegalMoves().isEmpty() ||
@@ -109,7 +120,8 @@ public class Board {
         }
         return List.of(squares);
     }
-    public static Board createTestBoard () {final BoardBuilder boardBuilder = new BoardBuilder();
+    public static Board createTestBoard () {
+        final BoardBuilder boardBuilder = new BoardBuilder();
 
         boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
         boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));

@@ -56,7 +56,7 @@ public class SetupGameView {
         SetupBoardView setupBoardView = new SetupBoardView(mainWindow, board, goldenPlayerPieces, silverPlayerPieces);
         BorderPane borderPane = new BorderPane(setupBoardView.display(), topMenu, rightVbox, botMenu, leftVbox);
 
-        return new Scene(borderPane, 700, 600);
+        return new Scene(borderPane, 720, 600);
     }
     protected HBox makeTopMenu(){
         Button gameSettingsButton = new Button("Settings");
