@@ -1,7 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
@@ -41,8 +40,8 @@ public class GameView{
         if (this.gameEnded){
             String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
             boolean answer = ConfirmBoxView.display("Game ended", text);
-            System.out.println(board.silverInitialSetup.toString());
-            System.out.println(board.goldenInitialSetup.toString()); /*TODO destroy it Issildur*/
+            System.out.println(board.getInitialSetup().toString());/*TODO destroy it*/
+            System.out.println(board.getMovesHistory().toString());/*TODO destroy it*/
             if (answer) return new SetupGameView(mainWindow).display();
         }
 

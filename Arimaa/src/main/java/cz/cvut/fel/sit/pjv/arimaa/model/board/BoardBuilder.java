@@ -8,19 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BoardBuilder {
-    public ArrayList<String> goldenInitialSetup;
-    public ArrayList<String> goldenMoves;
-    public ArrayList<String>  silverInitialSetup;
-    public ArrayList<String> silverMoves;
+    private int roundCounter;
+    private ArrayList<String> initialSetup;
+    private ArrayList<String> movesHistory;
     public Map<Integer, Piece> boardConfig;
     private Alliance nextMoveMaker;
     private int moveCount;
     public BoardBuilder(){
         this.boardConfig = new HashMap<>();
-        this.goldenInitialSetup = new ArrayList<>();
-        this.silverInitialSetup = new ArrayList<>();
+        this.setInitialSetup(new ArrayList<>());
+        this.setMovesHistory(new ArrayList<>());
+        this.setRoundCounter(2);
     }
-
     public void setPiece (final Piece piece){
         this.boardConfig.put(piece.getPiecePosition(), piece);
     }
@@ -41,38 +40,38 @@ public class BoardBuilder {
     public void setMoveCount(int moveCount) {
         this.moveCount = moveCount;
     }
-    public ArrayList<String> getGoldenInitialSetup() {
-        return goldenInitialSetup;
+
+    public void setNewInitialSetup(ArrayList<String> oldInitialSetup, String newSetPiece){
+        if (newSetPiece != null){
+            oldInitialSetup.add(newSetPiece);
+            setInitialSetup(oldInitialSetup);
+        }
+    }
+    public ArrayList<String> getInitialSetup() {
+        return initialSetup;
     }
 
-    public void setGoldenInitialSetup(ArrayList<String> oldArray, String newSetPiece) {
-        if (oldArray != null) this.goldenInitialSetup.addAll(oldArray);
-        if (newSetPiece != null || oldArray.size() != 16) this.goldenInitialSetup.add(newSetPiece);
+    public void setInitialSetup(ArrayList<String> initialSetup) {
+        this.initialSetup = initialSetup;
     }
 
-    public ArrayList<String> getGoldenMoves() {
-        return goldenMoves;
+    public ArrayList<String> getMovesHistory() {
+        return movesHistory;
     }
 
-    public void setGoldenMoves(String goldenMoves) {
-        this.goldenMoves.add(goldenMoves);
+    public void setMovesHistory(ArrayList<String> movesHistory) {
+        this.movesHistory = movesHistory;
+    }
+    public void setNewMovesHistory(ArrayList<String> oldMoveHistory, String newNotation) {
+        oldMoveHistory.add(newNotation);
+        setMovesHistory(oldMoveHistory);
     }
 
-    public ArrayList<String> getSilverInitialSetup() {
-        return silverInitialSetup;
+    public int getRoundCounter() {
+        return roundCounter;
     }
 
-    public void setSilverInitialSetup(ArrayList<String> oldArray, String newSetPiece) {
-        if (oldArray != null) this.silverInitialSetup.addAll(oldArray);
-        if (newSetPiece != null || oldArray.size() != 16) this.silverInitialSetup.add(newSetPiece);
-
-    }
-
-    public ArrayList<String> getSilverMoves() {
-        return silverMoves;
-    }
-
-    public void setSilverMoves(String silverMoves) {
-        this.silverMoves.add(silverMoves);
+    public void setRoundCounter(int roundCounter) {
+        this.roundCounter = roundCounter;
     }
 }

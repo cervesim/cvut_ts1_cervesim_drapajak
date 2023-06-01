@@ -51,12 +51,23 @@ public abstract class Move {
     protected void setBoardBuilder(BoardBuilder boardBuilder, int moveWeight){
         Player currentPlayer = board.getCurrentPlayer();
         boardBuilder.setMoveCount(board.getMoveCount() + moveWeight);
+        boardBuilder.setInitialSetup(board.getInitialSetup());
+        boardBuilder.setRoundCounter(board.getRoundCounter());
+        boardBuilder.setMovesHistory(board.getMovesHistory());
 
         if (boardBuilder.getMoveCount() >= 4){
             boardBuilder.setMoveMaker(currentPlayer.getOpponent().getAlliance());
             boardBuilder.setMoveCount(0);
+
+            if (currentPlayer == board.getSilverPlayer()) {
+                boardBuilder.setRoundCounter(board.getRoundCounter() + 1);
+            }
+//            System.out.println();
+//            System.out.print(boardBuilder.getRoundCounter() +
+//                        board.getCurrentPlayer().getOpponent().toString() + " ");/*TODO destroy*/
             return;
         }
+
         boardBuilder.setMoveMaker(currentPlayer.getAlliance());
     }
     public abstract boolean isDone();

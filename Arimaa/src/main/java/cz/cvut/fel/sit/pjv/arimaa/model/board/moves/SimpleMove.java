@@ -17,7 +17,6 @@ public class SimpleMove extends Move {
     @Override
     public String toString() {
         return movedPiece.toString()+SquareLocationToString.fromSquareNumber(movedPiece.getPiecePosition()) + getDirection() + " ";
-                /* + ifTrapped*/ /*TODO destroy or something*/
     }
 
     @Override
@@ -35,8 +34,7 @@ public class SimpleMove extends Move {
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = this.board.getCurrentPlayer();
-        boardBuilder.setGoldenInitialSetup(board.goldenInitialSetup, null);
-        boardBuilder.setSilverInitialSetup(board.silverInitialSetup, null);
+
 
 
         for (final Piece piece : currentPlayer.getActivePieces()){
@@ -50,11 +48,12 @@ public class SimpleMove extends Move {
             boardBuilder.setPiece(piece);
         }
 
-        System.out.print(this); /*TODO destroy*/
+//        System.out.print(this); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
+                board.getRoundCounter() + board.getCurrentPlayer().toString() + this);
         setBoardBuilder(boardBuilder, 1);
-        Board newBoard = boardBuilder.build();
-        if (boardBuilder.getNextMoveMaker() != movedPiece.getPieceColor()) System.out.println();
-        return newBoard;
+
+        return boardBuilder.build();
     }
 
     @Override

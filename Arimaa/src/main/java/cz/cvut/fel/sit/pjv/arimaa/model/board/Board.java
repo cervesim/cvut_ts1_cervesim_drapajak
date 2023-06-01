@@ -13,11 +13,9 @@ import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
 import java.util.*;
 
 public class Board {
-    public int roundCounter;
-    public ArrayList<String> goldenInitialSetup = new ArrayList<>();
-    public ArrayList<String> goldenMoves = new ArrayList<>();
-    public ArrayList<String>  silverInitialSetup = new ArrayList<>();
-    public ArrayList<String> silverMoves = new ArrayList<>();
+    private int roundCounter;
+    private ArrayList<String> initialSetup;
+    private ArrayList<String> movesHistory = new ArrayList<>();
     public static boolean pushOrPullNoted = false;
     public static final int Num_Squares = 64;
     public static final int Num_Squares_Per_Row = 8;
@@ -38,8 +36,9 @@ public class Board {
         this.goldenPieces = setActivePieces(this.gameBoard, Alliance.GOLDEN);
         this.silverPieces = setActivePieces(this.gameBoard, Alliance.SILVER);
 
-        goldenInitialSetup.addAll(boardBuilder.getGoldenInitialSetup());
-        silverInitialSetup.addAll(boardBuilder.getSilverInitialSetup());
+        setInitialSetup(boardBuilder.getInitialSetup());
+        setRoundCounter(boardBuilder.getRoundCounter());
+        setMovesHistory(boardBuilder.getMovesHistory());
 
         this.moveCount = boardBuilder.getMoveCount();
 
@@ -48,8 +47,8 @@ public class Board {
 
         this.goldenPlayer = new GoldenPlayer(this, goldenStandardLegalMoves, silverStandardLegalMoves);
         this.silverPlayer = new SilverPlayer(this, silverStandardLegalMoves, goldenStandardLegalMoves);
-
         this.currentPlayer = boardBuilder.getNextMoveMaker().choosePlayer(this.goldenPlayer, this.silverPlayer);
+
         this.gameEnded = hasWon() != null;
     }
     @Override
@@ -225,4 +224,27 @@ public class Board {
         return gameBoard.get(squareCoordinate);
     }
 
+    public ArrayList<String> getInitialSetup() {
+        return this.initialSetup;
+    }
+
+    public void setInitialSetup(ArrayList<String> initialSetup) {
+        this.initialSetup = initialSetup;
+    }
+
+    public int getRoundCounter() {
+        return this.roundCounter;
+    }
+
+    public void setRoundCounter(int roundCounter) {
+        this.roundCounter = roundCounter;
+    }
+
+    public ArrayList<String> getMovesHistory() {
+        return movesHistory;
+    }
+
+    public void setMovesHistory(ArrayList<String> movesHistory) {
+        this.movesHistory = movesHistory;
+    }
 }

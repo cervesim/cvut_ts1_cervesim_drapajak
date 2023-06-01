@@ -40,12 +40,12 @@ public class Push extends Move{
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
         Player currentPlayer = board.getCurrentPlayer();
-        boardBuilder.setGoldenInitialSetup(board.goldenInitialSetup, null);
-        boardBuilder.setSilverInitialSetup(board.silverInitialSetup, null);
-
 
         Move pushedPieceMove = new SimpleMove(board, pushedPiece, destinationCoordinate);
-        System.out.print(pushedPieceMove);
+//        System.out.print(pushedPieceMove); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
+                board.getRoundCounter() + board.getCurrentPlayer().toString() + pushedPieceMove);
+
         if (isTrapSquare(destinationCoordinate)) {
             Board futureBoard = new ViewMove(board, pushedPiece, destinationCoordinate).execute();
             Board.pushOrPullNoted = !futureBoard.getSquare(destinationCoordinate).isSupported(futureBoard);
@@ -60,7 +60,10 @@ public class Push extends Move{
         }
 
         Move movedPieceMove = new SimpleMove(board, movedPiece, pushedPiece.getPiecePosition());
-        System.out.print(movedPieceMove); /*TODO destroy*/
+//      System.out.print(movedPieceMove); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(),
+                board.getRoundCounter() + board.getCurrentPlayer().toString() + movedPieceMove);
+
         for (Piece piece : currentPlayer.getActivePieces()) {
             if (movedPiece.equals(piece)) {
                 boardBuilder.setPiece(movedPiece.movePiece(movedPieceMove));
@@ -71,8 +74,6 @@ public class Push extends Move{
 
         setBoardBuilder(boardBuilder, 2);
         Board newBoard = boardBuilder.build();
-
-        if (boardBuilder.getNextMoveMaker() != movedPiece.getPieceColor()) System.out.println();
         Board.pushOrPullNoted = false;
         return newBoard;
     }

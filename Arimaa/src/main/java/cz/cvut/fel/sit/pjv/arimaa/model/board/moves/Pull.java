@@ -37,10 +37,11 @@ public class Pull extends Move{
     public Board execute() {
         final BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = board.getCurrentPlayer();
-        boardBuilder.setGoldenInitialSetup(board.goldenInitialSetup, null);
-        boardBuilder.setSilverInitialSetup(board.silverInitialSetup, null);
 
-        System.out.print(this); /*TODO destroy*/
+//        System.out.print(this); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
+                board.getRoundCounter() + board.getCurrentPlayer().toString() + this);
+
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
                 boardBuilder.setPiece(movedPiece.movePiece(this));
@@ -49,7 +50,10 @@ public class Pull extends Move{
             }
         }
         Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordinate());
-        System.out.print(pulledPieceMove); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(),
+                board.getRoundCounter() + board.getCurrentPlayer().toString() + pulledPieceMove);
+//        System.out.print(pulledPieceMove); /*TODO destroy*/
+
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
             if (pulledPiece.equals(piece)){
                 boardBuilder.setPiece(pulledPiece.movePiece(pulledPieceMove));
@@ -57,6 +61,7 @@ public class Pull extends Move{
                 boardBuilder.setPiece(piece);
             }
         }
+
         setBoardBuilder(boardBuilder, 2);
         return boardBuilder.build();
     }

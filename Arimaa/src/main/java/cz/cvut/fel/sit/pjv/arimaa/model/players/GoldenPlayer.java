@@ -17,7 +17,7 @@ public class GoldenPlayer extends Player{
 
     @Override
     public String toString() {
-        return "GoldenPlayer";
+        return "g";
     }
     @Override
     public Collection<Piece> getActivePieces() {

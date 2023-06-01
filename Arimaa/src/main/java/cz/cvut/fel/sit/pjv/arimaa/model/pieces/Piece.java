@@ -73,15 +73,14 @@ public class Piece {
         }
     }
     /**
-     * nejdříve metoda zjistí všechny možný směry jakými se může pohybovat (getPossibleMoveCoordinates),
-     * poté pro každý směr určí podle své polohy na jake políčko by se moha figurka pohnout. (possibleDestinationCoordinate)
-     * pokud políčko není mimo hrací pole (isValidSquareCoordinate) a pokud není jednou z vyjímek (is...ColumnExclusion) pak pokračuje v určovaní jaký pohyb může provést.
-     * zjistí co je na políčku v možné destinaci (possibleDestinationSquare)
-     * podle barvy firgurky se přidají typy poybů do listu of legal moves.
+     * first the method finds all possible directions it can move in (getPossibleMoveCoordinates), then for each direction it determines according to its position
+     * which square the piece could move to. (possibleDestinationCoordinate)
+     * if the square is not out of the playing field (isValidSquareCoordinate) and if it is not one of the exceptions (is...ColumnExclusion)
+     * then it continues to determine what movement it can make. it finds out what is in the square in the possible destination (possibleDestinationSquare)
+     * according to the color of the piece it adds the types of moves to the list of legal moves.
      * @param board
-     * @return list všech možných tahů pro figurku
-     * pokud je kolem figurky figurka s rozdílnou alliance a větší weight a nemá kolem
-     * sebe figurku se stejnou alliance pak se vrátí prázdný pole legálních pohybů.
+     * @return A list of all possible moves for a piece if there is a piece with different alliance and higher weight around the piece, and
+     * it does not have a piece with the same alliance around it then an empty array of legal moves is returned.
      */
     public Collection<Move> getLegalMoves (final Board board) {
         final List<Move> legalMoves = new ArrayList<>();
@@ -175,8 +174,8 @@ public class Piece {
     }
 
     /**
-     * @return pole směrů, kterýmí se může figurka pohybovat.
-     * U králíka záleží na barvě a nesmí se pohybovat dozadu, jinak jsou u všech figurek směry stejné
+     * @return the array of directions the piece can move.
+     * The rabbit depends on the colour and cannot move backwards, otherwise the directions are the same for all figures
      */
     public int[] getPossibleCoordinates(Boolean isForMove){
          if(isForMove){

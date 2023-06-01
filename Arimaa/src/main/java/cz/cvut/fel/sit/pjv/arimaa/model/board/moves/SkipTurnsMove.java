@@ -12,15 +12,14 @@ public class SkipTurnsMove extends Move{
 
     @Override
     public String toString() {
-        return "";
+        return movedPiece.toString() + " ";
     }
 
     @Override
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = this.board.getCurrentPlayer();
-        boardBuilder.setGoldenInitialSetup(board.goldenInitialSetup, null);
-        boardBuilder.setSilverInitialSetup(board.silverInitialSetup, null);
+
 
         for (final Piece piece : currentPlayer.getActivePieces()){
             boardBuilder.setPiece(piece);
@@ -29,7 +28,6 @@ public class SkipTurnsMove extends Move{
             boardBuilder.setPiece(piece);
         }
 
-        System.out.println(this);
         setBoardBuilder(boardBuilder, 4);
         return boardBuilder.build();
     }

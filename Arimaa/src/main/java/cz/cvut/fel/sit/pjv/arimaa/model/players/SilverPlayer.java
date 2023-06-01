@@ -16,7 +16,7 @@ public class SilverPlayer extends Player {
     }
     @Override
     public String toString() {
-        return "SilverPlayer";
+        return "s";
     }
     @Override
     public Collection<Piece> getActivePieces() {

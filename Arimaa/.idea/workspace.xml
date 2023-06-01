@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="gameView ready for timer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/UndoMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/GameUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/SquareLocationToString.java" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="Notation almost done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/Notation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/Notation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/BoardBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/BoardBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" afterDir="false" />
@@ -21,15 +14,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SimpleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SimpleMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/GoldenPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/GoldenPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/SilverPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/SilverPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,27 +58,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Java Basics&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Java Basics",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.4632184",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.setupGameView" />
@@ -185,7 +174,7 @@
       <workItem from="1685118530301" duration="23557000" />
       <workItem from="1685173568802" duration="33342000" />
       <workItem from="1685356096489" duration="16237000" />
-      <workItem from="1685434981029" duration="54154000" />
+      <workItem from="1685434981029" duration="73070000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -397,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685469150801</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Notation almost done">
+      <created>1685564555257</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685564555257</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Gameboard somehow done, I will modify the piece now" />
     <MESSAGE value="Piece almost done todo add frozen method" />
     <MESSAGE value="Player somehow done, moving on to make move" />
     <MESSAGE value="Moves somehow done now to gui" />
@@ -451,7 +446,8 @@
     <MESSAGE value="game won if current player cant push done" />
     <MESSAGE value="small refactoring" />
     <MESSAGE value="gameView ready for timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="gameView ready for timer" />
+    <MESSAGE value="Notation almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Notation almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -468,6 +464,7 @@
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder" memberName="goldenMoves" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece" memberName="pieceType" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove" memberName="board" />
+        <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="initialSetup" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="goldenPieces" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="currentPlayer" />
         <PinnedItemInfo parentTag="cz.cvut.fel.sit.pjv.arimaa.model.board.Board" memberName="moveCount" />
