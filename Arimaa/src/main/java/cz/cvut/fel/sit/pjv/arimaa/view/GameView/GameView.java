@@ -33,11 +33,12 @@ import javafx.util.Duration;
 
 public class GameView{
     protected Stage mainWindow;
+    private int playerTime;
 
     protected Board board;
     public GameView previousBoard;
-    protected int goldenPlayerTime;
-    protected int silverPlayerTime;
+    public int goldenPlayerTime;
+    public int silverPlayerTime;
     public boolean gameEnded;
     public static boolean inViewMode;
     public static int howFarInPast = 0;
@@ -122,13 +123,9 @@ public class GameView{
                     silverPlayerTime++;
                 }
             }
-            int playerTime = player.equals("Golden player") ? goldenPlayerTime : silverPlayerTime;
+            playerTime = player.equals("Golden player") ? goldenPlayerTime : silverPlayerTime;
 
-            int minutes = playerTime / 60;
-            int seconds = playerTime % 60;
-
-            String timeText = String.format("%d:%02d", minutes, seconds);
-            timerLabel.setText(timeText);
+            timerLabel.setText(getFormattedTime(playerTime));
         }));
 
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -226,5 +223,10 @@ public class GameView{
         topMenu.setPadding(new Insets(4));
         return topMenu;
     }
+    private static String getFormattedTime(int playerTime) {
+        int minutes = playerTime / 60;
+        int seconds = playerTime % 60;
 
+        return String.format("%d:%02d", minutes, seconds);
+    }
 }

@@ -124,6 +124,16 @@ public class Board {
         }
         return List.of(squares);
     }
+    public static Board createBoardUsingArray(ArrayList<Piece> piecesToSet){
+        final BoardBuilder boardBuilder = new BoardBuilder();
+        for (Piece pieceToSet : piecesToSet) {
+            boardBuilder.setPiece(pieceToSet);
+        }
+        boardBuilder.setMoveMaker(Alliance.GOLDEN);
+        boardBuilder.setMoveCount(0);
+
+        return boardBuilder.build();
+    }
     public static Board createTestBoard () {
         final BoardBuilder boardBuilder = new BoardBuilder();
 
@@ -257,5 +267,15 @@ public class Board {
         Piece previousPiece = new Piece(pieceColor, pieceType, (piecePosition - destinationCoordinate));
 
         return (isToPast) ? new ViewMove(this, movedPiece, piecePosition, previousPiece) : new ViewMove(this, previousPiece, piecePosition - destinationCoordinate, movedPiece);
+    }
+
+    public static Piece decodePieceToSet (String moveInString) {
+        char[] moveChars = moveInString.toCharArray();
+
+        PieceType pieceType = fromCharToPieceType(String.valueOf(moveChars[0]).toLowerCase());
+        Alliance pieceColor = (Character.isUpperCase(moveChars[0])) ? Alliance.GOLDEN : Alliance.SILVER;
+        int piecePosition = SquareLocationToString.fromString((moveChars[1]) + String.valueOf(moveChars[2]));
+
+        return new Piece(pieceColor, pieceType, piecePosition);
     }
 }

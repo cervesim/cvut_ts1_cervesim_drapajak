@@ -109,6 +109,51 @@
       <artifactId>guava</artifactId>
       <version>31.1-jre</version>
     </dependency>
+      <dependency>
+          <groupId>com.github.donmor</groupId>
+          <artifactId>FileDialog</artifactId>
+          <version>1.2.1</version>
+      </dependency>
+    <dependency>
+      <groupId>com.github.donmor</groupId>
+      <artifactId>filedialog</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rap</groupId>
+      <artifactId>org.eclipse.rap.filedialog</artifactId>
+      <version>3.23.0</version>
+    </dependency>
   </dependencies>
 
   <build>

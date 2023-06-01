@@ -1,6 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import javafx.geometry.Insets;
@@ -10,9 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MainSceneView {
     Stage mainWindow;
@@ -54,10 +59,50 @@ public class MainSceneView {
             mainWindow.setScene(gameView.display());
         });
         /*TestGameButton*/
+        /*ReplayGameHistoryButton*/
+        Button replayGameHistoryButton = new Button("Replay history from file");
+        replayGameHistoryButton.setOnAction(e -> {
+            chooseTextToFile();
+        });
+        /*ReplayGameHistoryButton*/
 
-        VBox centerMenu = new VBox(10, MenuLabel, startSimpleGameButton, startGameAgainstComputer, startTestGameButton);
+        VBox centerMenu = new VBox(10, MenuLabel, startSimpleGameButton, startGameAgainstComputer, startTestGameButton, replayGameHistoryButton);
         centerMenu.setAlignment(Pos.CENTER);
         BorderPane borderPane = new BorderPane(centerMenu, topSettingsButton, null, null, null);
         return new Scene(borderPane, 720, 600);
+    }
+    private void readFile(File selectedFile) throws FileNotFoundException {
+        Scanner scanner = new Scanner(selectedFile);
+        ArrayList<Piece> initialSetup = new ArrayList<>();
+        ArrayList<Piece> movesHistory = new ArrayList<>();
+        for (int i = 0; i < 32; i++) {
+            String piece = scanner.next();
+            initialSetup.add(Board.decodePieceToSet(piece));
+        }
+        Board board = Board.createBoardUsingArray(initialSetup);
+//        i = 32
+//        while (scanner.hasNextLine()){
+//
+//        }
+//        board.setMovesHistory();
+        GameView gameView = new GameView(mainWindow, board);
+        gameView.gameEnded = true;
+        GameView.inViewMode = true;
+
+        mainWindow.setScene(gameView.display());
+    }
+
+    private void chooseTextToFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\Users\\simon\\CVUT\\Summer_2023\\PJV_S_2023\\Arimaa\\Arimaa\\src\\main\\ArimaaGameHistory"));
+        fileChooser.setTitle("Select game you want to see");
+        File selectedFile = fileChooser.showOpenDialog(mainWindow);
+        if (selectedFile != null) {
+            try {
+                readFile(selectedFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
