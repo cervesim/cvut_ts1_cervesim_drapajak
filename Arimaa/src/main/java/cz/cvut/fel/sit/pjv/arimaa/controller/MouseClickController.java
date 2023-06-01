@@ -18,8 +18,8 @@ public class MouseClickController extends GameView {
     StackPane stackPane;
     Rectangle cell;
     int squarePosition;
-    public MouseClickController(Stage mainWindow, Board board, int goldenPlayerTime, int silverPlayerTime, StackPane stackPane, Rectangle cell,  int squarePosition) {
-        super(mainWindow, board, goldenPlayerTime, silverPlayerTime);
+    public MouseClickController(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime, StackPane stackPane, Rectangle cell,  int squarePosition) {
+        super(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime);
         this.stackPane = stackPane;
         this.cell = cell;
         this.squarePosition = squarePosition;
@@ -36,8 +36,8 @@ public class MouseClickController extends GameView {
     }
     private void checkAndExecute(Move move, Rectangle cell){
         if (board.getCurrentPlayer().isMoveLegal(move)) {
-            currentBoard = (GameView) mainWindow.getUserData();
-            GameView gameView = new GameView(mainWindow, move.execute(), goldenPlayerTime, silverPlayerTime );
+            GameView gameView = new GameView(mainWindow, move.execute(), previousBoard ,goldenPlayerTime, silverPlayerTime );
+            gameView.previousBoard = this;
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
@@ -51,7 +51,8 @@ public class MouseClickController extends GameView {
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
             Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
-            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), goldenPlayerTime, silverPlayerTime);
+            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), previousBoard, goldenPlayerTime, silverPlayerTime);
+            gameView.previousBoard = this;
             mainWindow.setScene(gameView.display());
         }
     }

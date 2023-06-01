@@ -35,8 +35,6 @@ public class GameView{
     protected Stage mainWindow;
 
     protected Board board;
-    protected GameView nextBoard;
-    protected GameView currentBoard;
     public GameView previousBoard;
     protected int goldenPlayerTime;
     protected int silverPlayerTime;
@@ -44,8 +42,6 @@ public class GameView{
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
         this.board = Board.createTestBoard();
-        this.currentBoard = this;
-        this.nextBoard = null;
         this.previousBoard = null;
         this.gameEnded = false;
         this.goldenPlayerTime = 0;
@@ -55,15 +51,14 @@ public class GameView{
     public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
         this.board = board;
-        this.currentBoard = this;
-        this.nextBoard = null;
         this.previousBoard = null;
         this.gameEnded = board.gameEnded;
         mainWindow.setUserData(this);
     }
-    public GameView(Stage mainWindow, Board board, int goldenPlayerTime, int silverPlayerTime) {
+    public GameView(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime) {
         this.mainWindow = mainWindow;
         this.board = board;
+        this.previousBoard = previousBoard;
         this.gameEnded = board.gameEnded;
         this.goldenPlayerTime = goldenPlayerTime;
         this.silverPlayerTime = silverPlayerTime;
@@ -97,7 +92,7 @@ public class GameView{
         }
 
         /*BoardView + GameView*/
-        BoardView boardView = new BoardView(mainWindow, board, goldenPlayerTime, silverPlayerTime);
+        BoardView boardView = new BoardView(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime);
         BorderPane borderPane = new BorderPane(boardView.displayBoard(),
                 makeTopMenu(),
                 makeLeftAndRightMenu("Golden player"),
@@ -157,22 +152,18 @@ public class GameView{
         Button previousMove = new Button("Previous move");
         previousMove.setOnAction(e -> {
             /*TODO*/
-            if (!(previousBoard == null)) {
-                mainWindow.setScene(previousBoard.display());
-            }
+
             });
         Button nextMove = new Button("Next move");
         nextMove.setOnAction(e -> {
             /*TODO*/
-            if (!(nextBoard == null)) {
-                mainWindow.setScene(nextBoard.display());
-            }
+
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {
             /*TODO*/
             if (!(gameEnded || previousBoard == null)) {
-                previousBoard.nextBoard = null;
+                board.getMovesHistory().remove(board.getMovesHistory().size()-1);
                 mainWindow.setScene(previousBoard.display());
             }
         });
@@ -184,7 +175,7 @@ public class GameView{
         moveHistoryListView.setPrefHeight(10);
 
         ObservableList<String> moveHistory = FXCollections.observableArrayList
-                (board.getMovesHistory().subList(Math.max(0, board.getMovesHistory().size() - 1), board.getMovesHistory().size()));
+                (board.getMovesHistory().subList(Math.max(0, board.getMovesHistory().size() - 10), board.getMovesHistory().size()));
         moveHistoryListView.setItems(moveHistory);
 
         HBox moveHistoryBox = new HBox(moveHistoryLabel, moveHistoryListView);
