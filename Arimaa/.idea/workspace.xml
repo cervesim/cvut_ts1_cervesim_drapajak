@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="added game history reader">
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="added game history reader 2 currently debugging but it looks promising">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,7 @@
       <workItem from="1685118530301" duration="23557000" />
       <workItem from="1685173568802" duration="33342000" />
       <workItem from="1685356096489" duration="16237000" />
-      <workItem from="1685434981029" duration="106187000" />
+      <workItem from="1685434981029" duration="107790000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -429,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685646863543</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added game history reader 2 currently debugging but it looks promising">
+      <created>1685648684378</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1685648684378</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +465,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some things corrected" />
     <MESSAGE value="Equals in Simple move class corrected" />
     <MESSAGE value="Equals corrected on every move class" />
     <MESSAGE value="SkipsTurnMove and TODO list added" />
@@ -484,7 +489,8 @@
     <MESSAGE value="moves to past works" />
     <MESSAGE value="moves to past and to future works" />
     <MESSAGE value="added game history reader" />
-    <option name="LAST_COMMIT_MESSAGE" value="added game history reader" />
+    <MESSAGE value="added game history reader 2 currently debugging but it looks promising" />
+    <option name="LAST_COMMIT_MESSAGE" value="added game history reader 2 currently debugging but it looks promising" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,11 +500,6 @@
           <option name="timeStamp" value="15" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java</url>
           <line>131</line>
           <option name="timeStamp" value="177" />
@@ -507,11 +508,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java</url>
           <line>56</line>
           <option name="timeStamp" value="179" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="180" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

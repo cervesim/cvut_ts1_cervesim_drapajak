@@ -177,14 +177,16 @@ public class GameView{
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {
-            int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
-            if (backToThePast != 0){
-                GameView.inViewMode = howFarInPast != 0;
-                String pieceThatIsReturningToPast = board.getMovesHistory().remove(backToThePast - 1);
-                Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
-                GameView gameView = new GameView(mainWindow, viewMove.execute());
-                mainWindow.setScene(gameView.display());
-            }
+           if (!GameView.inViewMode){
+               int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
+               if (backToThePast != 0){
+                   GameView.inViewMode = howFarInPast != 0;
+                   String pieceThatIsReturningToPast = board.getMovesHistory().remove(backToThePast - 1);
+                   Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
+                   GameView gameView = new GameView(mainWindow, viewMove.execute());
+                   mainWindow.setScene(gameView.display());
+               }
+           }
         });
         Label moveHistoryLabel = new Label();
         moveHistoryLabel.setPadding(new Insets(1));

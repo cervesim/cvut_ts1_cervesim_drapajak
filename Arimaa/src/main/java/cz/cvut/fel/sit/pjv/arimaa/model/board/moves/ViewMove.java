@@ -41,10 +41,11 @@ public class ViewMove extends Move{
 
         boardBuilder.setPiece(movedPiece.movePiece(this));
 
+        boardBuilder.setMoveCount(board.getMoveCount());
         boardBuilder.setInitialSetup(board.getInitialSetup());
         boardBuilder.setRoundCounter(board.getRoundCounter());
         boardBuilder.setMovesHistory(board.getMovesHistory());
-        boardBuilder.setMoveMaker(movedPiece.getPieceColor());
+        boardBuilder.setMoveMaker(board.getCurrentPlayer().getAlliance());
 
         return boardBuilder.build();
     }
