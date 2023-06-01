@@ -11,8 +11,10 @@ public class BoardView extends GameView{
     public static Square firstClickedSquare;
     public static Square secondClickedSquare;
     public static Square thirdClickedSquare;
-    public BoardView(Stage mainWindow, Board board) {
-        super(mainWindow, board);
+    public BoardView(Stage mainWindow, Board board, int goldenPlayerTime, int silverPlayerTime) {
+        super(mainWindow, board, goldenPlayerTime , silverPlayerTime);
+        this.goldenPlayerTime = goldenPlayerTime;
+        this.silverPlayerTime = silverPlayerTime;
     }
     public GridPane displayBoard() {
         GridPane boardGridPane = new GridPane();
@@ -21,7 +23,7 @@ public class BoardView extends GameView{
         int cellCounter = 0;
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
-                SquareView squareView = new SquareView(mainWindow, board, cellCounter);
+                SquareView squareView = new SquareView(mainWindow, board, goldenPlayerTime, silverPlayerTime, cellCounter);
                 StackPane stackPane = squareView.setSquare();
                 boardGridPane.add(stackPane, col, row);
                 cellCounter++;

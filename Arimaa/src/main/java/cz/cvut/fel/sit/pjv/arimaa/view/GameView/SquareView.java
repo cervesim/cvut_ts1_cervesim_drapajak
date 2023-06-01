@@ -14,8 +14,10 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare
 
 public class SquareView extends GameView{
     int squarePosition;
-    public SquareView(Stage mainWindow, Board board, int squarePosition) {
-        super(mainWindow, board);
+    public SquareView(Stage mainWindow, Board board, int goldenPlayerTime, int silverPlayerTime, int squarePosition) {
+        super(mainWindow, board, goldenPlayerTime, silverPlayerTime);
+        this.goldenPlayerTime = goldenPlayerTime;
+        this.silverPlayerTime = silverPlayerTime;
         this.squarePosition = squarePosition;
     }
     public StackPane setSquare() {
@@ -32,14 +34,14 @@ public class SquareView extends GameView{
 
             StackPane stackPane = new StackPane(cell, imageView);
             if (!board.gameEnded){
-                new MouseClickController(mainWindow, board, stackPane, cell,  squarePosition);
+                new MouseClickController(mainWindow, board, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
             }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
         if (!board.gameEnded){
-            new MouseClickController(mainWindow, board, stackPane, cell,  squarePosition);
+            new MouseClickController(mainWindow, board, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
         }
         return stackPane;
     }

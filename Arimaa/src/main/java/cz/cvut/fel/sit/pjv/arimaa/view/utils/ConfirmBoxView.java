@@ -19,7 +19,7 @@ public class ConfirmBoxView {
         Stage confirmBox = new Stage();
         confirmBox.initModality(Modality.APPLICATION_MODAL); /*blocks inputs in other windows until this is closed*/
         confirmBox.setTitle(title);
-        confirmBox.setWidth(300);
+        confirmBox.setWidth(500);
         confirmBox.setHeight(200);
 
         Button yesButton = new Button("Yes");
