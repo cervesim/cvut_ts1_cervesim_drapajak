@@ -39,8 +39,7 @@ public class Pull extends Move{
         final Player currentPlayer = board.getCurrentPlayer();
 
 //        System.out.print(this); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
-                board.getRoundCounter() + board.getCurrentPlayer().toString() + this);
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
 
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
@@ -50,8 +49,7 @@ public class Pull extends Move{
             }
         }
         Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordinate());
-        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(),
-                board.getRoundCounter() + board.getCurrentPlayer().toString() + pulledPieceMove);
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), pulledPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
 //        System.out.print(pulledPieceMove); /*TODO destroy*/
 
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){

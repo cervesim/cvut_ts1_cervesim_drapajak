@@ -1,6 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
@@ -9,7 +10,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,8 +39,12 @@ public class GameView{
     protected int goldenPlayerTime;
     protected int silverPlayerTime;
     public boolean gameEnded;
+    public static boolean inViewMode;
+    public static int howFarInPast = 0;
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
+        GameView.inViewMode = howFarInPast != 0;
+        GameView.howFarInPast = 0;
         this.board = Board.createTestBoard();
         this.previousBoard = null;
         this.gameEnded = false;
@@ -53,7 +57,6 @@ public class GameView{
         this.board = board;
         this.previousBoard = null;
         this.gameEnded = board.gameEnded;
-        mainWindow.setUserData(this);
     }
     public GameView(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime) {
         this.mainWindow = mainWindow;
@@ -151,13 +154,26 @@ public class GameView{
     private HBox makeBottomMenu(){
         Button previousMove = new Button("Previous move");
         previousMove.setOnAction(e -> {
-            /*TODO*/
-
-            });
+            int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
+            if (backToThePast != 0){
+                howFarInPast--;
+                String pieceThatIsReturningToPast = board.getMovesHistory().get(backToThePast - 1);
+                Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
+                GameView gameView = new GameView(mainWindow, viewMove.execute());
+                mainWindow.setScene(gameView.display());
+            }
+        });
         Button nextMove = new Button("Next move");
         nextMove.setOnAction(e -> {
-            /*TODO*/
 
+            int backToTheFuture = (board.getMovesHistory().size() + howFarInPast);
+            if (howFarInPast != 0){
+                howFarInPast++;
+                String pieceThatIsReturningToFuture = board.getMovesHistory().get(backToTheFuture);
+                Move viewMove = board.decodeMove(pieceThatIsReturningToFuture, false);
+                GameView gameView = new GameView(mainWindow, viewMove.execute());
+                mainWindow.setScene(gameView.display());
+            }
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {

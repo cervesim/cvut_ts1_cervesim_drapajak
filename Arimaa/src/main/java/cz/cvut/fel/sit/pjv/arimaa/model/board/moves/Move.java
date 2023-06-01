@@ -1,10 +1,16 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
 import com.google.common.base.Objects;
+import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
+import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
+
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToDestinationCoordinate;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPieceType;
 
 public abstract class Move {
     final Board board;

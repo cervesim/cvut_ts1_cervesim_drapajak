@@ -1,33 +1,51 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 
+import com.google.common.base.Objects;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.BoardBuilder;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 public class ViewMove extends Move{
-    public ViewMove(Board board, Piece movedPiece, int destinationCoordinate) {
+    Piece presentPiece;
+    public ViewMove(Board board, Piece movedPiece, int destinationCoordinate, Piece presentPiece) {
         super(board, movedPiece, destinationCoordinate);
+        this.presentPiece = presentPiece;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleMove simpleMove)) return false;
+        return destinationCoordinate == simpleMove.destinationCoordinate && Objects.equal(board, simpleMove.board) && Objects.equal(movedPiece, simpleMove.movedPiece);
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(board, movedPiece, destinationCoordinate);
+    }
+    @Override
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
+        final Player currentPlayer = this.board.getCurrentPlayer();
 
-
-        final Collection<Piece> allPieces = new ArrayList<>();
-        allPieces.addAll(this.board.getGoldenPlayer().getActivePieces());
-        allPieces.addAll(this.board.getSilverPlayer().getActivePieces());
-
-        for (final Piece piece : allPieces) {
-            if (!piece.equals(movedPiece)) boardBuilder.setPiece(piece);
-            else boardBuilder.setPiece(movedPiece.movePiece(this));
+        for (final Piece piece : currentPlayer.getActivePieces()){
+            if (!presentPiece.equals(piece)){
+                boardBuilder.setPiece(piece);
+            }
+        }
+        for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
+            if (!presentPiece.equals(piece)){
+                boardBuilder.setPiece(piece);
+            }
         }
 
-        boardBuilder.setMoveMaker(board.getCurrentPlayer().getAlliance());
+        boardBuilder.setPiece(movedPiece.movePiece(this));
+
+        boardBuilder.setInitialSetup(board.getInitialSetup());
+        boardBuilder.setRoundCounter(board.getRoundCounter());
+        boardBuilder.setMovesHistory(board.getMovesHistory());
+        boardBuilder.setMoveMaker(movedPiece.getPieceColor());
+
         return boardBuilder.build();
     }
 

@@ -49,8 +49,7 @@ public class SimpleMove extends Move {
         }
 
 //        System.out.print(this); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
-                board.getRoundCounter() + board.getCurrentPlayer().toString() + this);
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
         setBoardBuilder(boardBuilder, 1);
 
         return boardBuilder.build();

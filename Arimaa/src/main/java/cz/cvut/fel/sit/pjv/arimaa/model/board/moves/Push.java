@@ -20,7 +20,7 @@ public class Push extends Move{
 
     @Override
     public String toString() {
-        return "dont know i needed";
+        return "";
     }
 
     @Override
@@ -43,11 +43,10 @@ public class Push extends Move{
 
         Move pushedPieceMove = new SimpleMove(board, pushedPiece, destinationCoordinate);
 //        System.out.print(pushedPieceMove); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(),
-                board.getRoundCounter() + board.getCurrentPlayer().toString() + pushedPieceMove);
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), pushedPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() +*/
 
         if (isTrapSquare(destinationCoordinate)) {
-            Board futureBoard = new ViewMove(board, pushedPiece, destinationCoordinate).execute();
+            Board futureBoard = new checkMove(board, pushedPiece, destinationCoordinate).execute();
             Board.pushOrPullNoted = !futureBoard.getSquare(destinationCoordinate).isSupported(futureBoard);
         }
 
@@ -61,8 +60,7 @@ public class Push extends Move{
 
         Move movedPieceMove = new SimpleMove(board, movedPiece, pushedPiece.getPiecePosition());
 //      System.out.print(movedPieceMove); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(),
-                board.getRoundCounter() + board.getCurrentPlayer().toString() + movedPieceMove);
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), movedPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
 
         for (Piece piece : currentPlayer.getActivePieces()) {
             if (movedPiece.equals(piece)) {

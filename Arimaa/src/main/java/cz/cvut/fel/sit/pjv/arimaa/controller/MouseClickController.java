@@ -36,7 +36,7 @@ public class MouseClickController extends GameView {
     }
     private void checkAndExecute(Move move, Rectangle cell){
         if (board.getCurrentPlayer().isMoveLegal(move)) {
-            GameView gameView = new GameView(mainWindow, move.execute(), previousBoard ,goldenPlayerTime, silverPlayerTime );
+            GameView gameView = new GameView(mainWindow, move.execute(), previousBoard ,goldenPlayerTime, silverPlayerTime);
             gameView.previousBoard = this;
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;

@@ -3,7 +3,9 @@ package cz.cvut.fel.sit.pjv.arimaa.model.board;
 import com.google.common.collect.ImmutableList;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.ViewMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
+import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.GoldenPlayer;
@@ -11,6 +13,9 @@ import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
 
 import java.util.*;
+
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToDestinationCoordinate;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPieceType;
 
 public class Board {
     private int roundCounter;
@@ -223,28 +228,34 @@ public class Board {
     public Square getSquare(final int squareCoordinate) {
         return gameBoard.get(squareCoordinate);
     }
-
     public ArrayList<String> getInitialSetup() {
         return this.initialSetup;
     }
-
     public void setInitialSetup(ArrayList<String> initialSetup) {
         this.initialSetup = initialSetup;
     }
-
     public int getRoundCounter() {
         return this.roundCounter;
     }
-
     public void setRoundCounter(int roundCounter) {
         this.roundCounter = roundCounter;
     }
-
     public ArrayList<String> getMovesHistory() {
         return movesHistory;
     }
-
     public void setMovesHistory(ArrayList<String> movesHistory) {
         this.movesHistory = movesHistory;
+    }
+    public Move decodeMove (String moveInString, boolean isToPast){
+        char[] moveChars = moveInString.toCharArray();
+
+        PieceType pieceType = fromCharToPieceType(String.valueOf(moveChars[0]).toLowerCase());
+        Alliance pieceColor = (Character.isUpperCase(moveChars[0])) ? Alliance.GOLDEN : Alliance.SILVER;
+        int piecePosition = SquareLocationToString.fromString((moveChars[1]) + String.valueOf(moveChars[2]));
+        int destinationCoordinate = fromCharToDestinationCoordinate(String.valueOf(moveChars[3]));
+        Piece movedPiece = new Piece(pieceColor, pieceType, piecePosition);
+        Piece previousPiece = new Piece(pieceColor, pieceType, (piecePosition - destinationCoordinate));
+
+        return (isToPast) ? new ViewMove(this, movedPiece, piecePosition, previousPiece) : new ViewMove(this, previousPiece, piecePosition, movedPiece);
     }
 }

@@ -96,6 +96,8 @@ public class SetupGameView {
         Button startGameButton = new Button("StartGame");
         startGameButton.setOnAction(e -> {
             if (boardIsSet){
+                GameView.inViewMode = false;
+                GameView.howFarInPast = -1;
                 GameView gameView = new GameView(mainWindow, board);
                 mainWindow.setScene(gameView.display());
             }

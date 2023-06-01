@@ -1,6 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.modelUtils;
 
-import cz.cvut.fel.sit.pjv.arimaa.model.Notation;
+import java.util.HashMap;
+import java.util.Map;
 
 public enum SquareLocationToString {
     A8(0), B8(1), C8(2), D8(3), E8(4), F8(5), G8(6), H8(7),
@@ -13,15 +14,26 @@ public enum SquareLocationToString {
     A1(56), B1(57), C1(58), D1(59), E1(60), F1(61), G1(62), H1(63);
 
     private final int squareNumber;
+    private static final Map<String, Integer> stringToSquareMap;
+
+    static {
+        stringToSquareMap = new HashMap<>();
+        for (SquareLocationToString square : values()) {
+            stringToSquareMap.put(square.toString(), square.squareNumber);
+        }
+    }
 
     SquareLocationToString(int squareNumber) {
         this.squareNumber = squareNumber;
     }
 
-    public int getSquareNumber() {
-        return squareNumber;
+    public static int fromString(String squareString) {
+        Integer squareNumber = stringToSquareMap.get(squareString);
+        if (squareNumber != null) {
+            return squareNumber;
+        }
+        throw new IllegalArgumentException("Invalid square string: " + squareString);
     }
-
     public static SquareLocationToString fromSquareNumber(int squareNumber) {
         for (SquareLocationToString squareLocationToString : values()) {
             if (squareLocationToString.squareNumber == squareNumber) {
@@ -30,7 +42,6 @@ public enum SquareLocationToString {
         }
         throw new IllegalArgumentException("Invalid square number: " + squareNumber);
     }
-
     @Override
     public String toString() {
         char file = (char) ('a' + squareNumber % 8);
