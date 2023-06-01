@@ -43,7 +43,6 @@ public class GameView{
     public static int howFarInPast = 0;
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
-        GameView.inViewMode = howFarInPast != 0;
         GameView.howFarInPast = 0;
         this.board = Board.createTestBoard();
         this.previousBoard = null;
@@ -156,7 +155,8 @@ public class GameView{
         previousMove.setOnAction(e -> {
             int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
             if (backToThePast != 0){
-                howFarInPast--;
+                GameView.howFarInPast--;
+                GameView.inViewMode = howFarInPast != 0;
                 String pieceThatIsReturningToPast = board.getMovesHistory().get(backToThePast - 1);
                 Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
                 GameView gameView = new GameView(mainWindow, viewMove.execute());
@@ -169,6 +169,7 @@ public class GameView{
             int backToTheFuture = (board.getMovesHistory().size() + howFarInPast);
             if (howFarInPast != 0){
                 howFarInPast++;
+                GameView.inViewMode = howFarInPast != 0;
                 String pieceThatIsReturningToFuture = board.getMovesHistory().get(backToTheFuture);
                 Move viewMove = board.decodeMove(pieceThatIsReturningToFuture, false);
                 GameView gameView = new GameView(mainWindow, viewMove.execute());
@@ -177,10 +178,13 @@ public class GameView{
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {
-            /*TODO*/
-            if (!(gameEnded || previousBoard == null)) {
-                board.getMovesHistory().remove(board.getMovesHistory().size()-1);
-                mainWindow.setScene(previousBoard.display());
+            int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
+            if (backToThePast != 0){
+                GameView.inViewMode = howFarInPast != 0;
+                String pieceThatIsReturningToPast = board.getMovesHistory().remove(backToThePast - 1);
+                Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
+                GameView gameView = new GameView(mainWindow, viewMove.execute());
+                mainWindow.setScene(gameView.display());
             }
         });
         Label moveHistoryLabel = new Label();

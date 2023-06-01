@@ -20,8 +20,8 @@ public class GameUtils {
         return switch (character) {
             case "n" -> 8;
             case "s" -> -8;
-            case "e" -> 1;
-            case "w" -> -1;
+            case "w" -> 1;
+            case "e" -> -1;
             default -> throw new IllegalArgumentException("invalidCharacter");
         };
     }

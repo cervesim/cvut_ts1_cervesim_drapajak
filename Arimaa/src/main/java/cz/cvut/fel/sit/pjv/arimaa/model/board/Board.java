@@ -256,6 +256,6 @@ public class Board {
         Piece movedPiece = new Piece(pieceColor, pieceType, piecePosition);
         Piece previousPiece = new Piece(pieceColor, pieceType, (piecePosition - destinationCoordinate));
 
-        return (isToPast) ? new ViewMove(this, movedPiece, piecePosition, previousPiece) : new ViewMove(this, previousPiece, piecePosition, movedPiece);
+        return (isToPast) ? new ViewMove(this, movedPiece, piecePosition, previousPiece) : new ViewMove(this, previousPiece, piecePosition - destinationCoordinate, movedPiece);
     }
 }

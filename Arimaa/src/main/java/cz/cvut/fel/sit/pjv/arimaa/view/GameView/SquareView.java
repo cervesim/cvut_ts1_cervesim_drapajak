@@ -34,14 +34,14 @@ public class SquareView extends GameView{
 
             StackPane stackPane = new StackPane(cell, imageView);
 
-            if (!(board.gameEnded && BoardView.inViewMode)){
+            if (!board.gameEnded && !BoardView.inViewMode){
                 new MouseClickController(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
             }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
-        if (!(board.gameEnded && BoardView.inViewMode)){
+        if (!board.gameEnded && !BoardView.inViewMode){
             new MouseClickController(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
         }
         return stackPane;
