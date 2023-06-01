@@ -67,31 +67,33 @@ public class GameView{
         this.silverPlayerTime = silverPlayerTime;
     }
     public Scene display() {
-        if (this.gameEnded){
-            String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
-            boolean answer = ConfirmBoxView.display("Game ended", text);
+        if (!inViewMode){
+            if (this.gameEnded){
+                String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
+                boolean answer = ConfirmBoxView.display("Game ended", text);
 
-            System.out.println(board.getInitialSetup().toString());/*TODO destroy it*/
-            System.out.println(board.getMovesHistory().toString());/*TODO destroy it*/
+                System.out.println(board.getInitialSetup().toString());/*TODO destroy it*/
+                System.out.println(board.getMovesHistory().toString());/*TODO destroy it*/
 
-            SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
-            Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
+                Date date = new Date();
 
-            File file = new File("src/main/ArimaaGameHistory/" + formatter.format(date) + ".txt");
-            try {
-                file.createNewFile();
-                PrintWriter newGameHistoryFile = new PrintWriter(file);
-                for (String setup : board.getInitialSetup()){
-                    newGameHistoryFile.println(setup);
+                File file = new File("src/main/ArimaaGameHistory/" + formatter.format(date) + ".txt");
+                try {
+                    file.createNewFile();
+                    PrintWriter newGameHistoryFile = new PrintWriter(file);
+                    for (String setup : board.getInitialSetup()){
+                        newGameHistoryFile.println(setup);
+                    }
+                    for(String moveNotation : board.getMovesHistory())
+                        newGameHistoryFile.println(moveNotation);
+                    newGameHistoryFile.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-                for(String moveNotation : board.getMovesHistory())
-                    newGameHistoryFile.println(moveNotation);
-                newGameHistoryFile.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
 
-            if (answer) return new SetupGameView(mainWindow).display();
+                if (answer) return new SetupGameView(mainWindow).display();
+            }
         }
 
         /*BoardView + GameView*/

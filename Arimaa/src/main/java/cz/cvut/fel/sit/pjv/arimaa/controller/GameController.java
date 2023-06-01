@@ -9,7 +9,7 @@ public class GameController{
         /*TODO random move generator to play against*/
         /*TODO javaDoc*/
         /*TODO loggers*/
-        /*TODO test*/
+        /*TODO tests*/
         /*TODO timer for each player should be better*/
     }
 }

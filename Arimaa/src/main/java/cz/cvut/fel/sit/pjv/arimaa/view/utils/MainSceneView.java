@@ -2,6 +2,7 @@ package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import javafx.geometry.Insets;
@@ -74,18 +75,19 @@ public class MainSceneView {
     private void readFile(File selectedFile) throws FileNotFoundException {
         Scanner scanner = new Scanner(selectedFile);
         ArrayList<Piece> initialSetup = new ArrayList<>();
-        ArrayList<Piece> movesHistory = new ArrayList<>();
+        ArrayList<String> movesHistory = new ArrayList<>();
         for (int i = 0; i < 32; i++) {
-            String piece = scanner.next();
+            String piece = scanner.nextLine();
             initialSetup.add(Board.decodePieceToSet(piece));
         }
         Board board = Board.createBoardUsingArray(initialSetup);
-//        i = 32
-//        while (scanner.hasNextLine()){
-//
-//        }
-//        board.setMovesHistory();
+        while (scanner.hasNextLine()){
+            String move = scanner.nextLine();
+            movesHistory.add(move);
+        }
+        board.setMovesHistory(movesHistory);
         GameView gameView = new GameView(mainWindow, board);
+        BoardView.howFarInPast = -movesHistory.size();
         gameView.gameEnded = true;
         GameView.inViewMode = true;
 
