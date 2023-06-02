@@ -13,8 +13,8 @@ import javafx.util.Duration;
 public class Timer extends ActionEvent {
     public Label goldenPlayerTimer;
     public Label silverPlayerTimer;
-    public int goldenPlayerTime;
-    public int silverPlayerTime;
+    public int goldenPlayerTime = 0;
+    public int silverPlayerTime = 0;
     private Player goldenPlayer;
     private Player silverPlayer;
     private Player currentPlayer;
@@ -23,7 +23,7 @@ public class Timer extends ActionEvent {
         setSilverPlayer(board.getSilverPlayer());
         setCurrentPlayer(board.getCurrentPlayer());
         this.goldenPlayerTimer = setPlayerTimer("g");
-        this.silverPlayerTimer = setPlayerTimer("s");;
+        this.silverPlayerTimer = setPlayerTimer("s");
     }
     public void setPlayers(Board board){
         this.setGoldenPlayer(board.getGoldenPlayer());
@@ -44,15 +44,12 @@ public class Timer extends ActionEvent {
     public Label setPlayerTimer(String player){
         Label timerLabel = setLabel();
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), second -> {
-            if (getCurrentPlayer().equals(getGoldenPlayer())) {
+            if (getCurrentPlayer().equals(getGoldenPlayer()) && player.equals("g")) {
                 goldenPlayerTime++;
-            } else if (getCurrentPlayer().equals(getSilverPlayer())) {
-                silverPlayerTime++;
-            }
-            if (player.equals("g")) {
                 timerLabel.setText(getFormattedTime(goldenPlayerTime));
             }
-            if (player.equals("s")) {
+            else if (getCurrentPlayer().equals(getSilverPlayer()) && player.equals("s")) {
+                silverPlayerTime++;
                 timerLabel.setText(getFormattedTime(silverPlayerTime));
             }
         }));
