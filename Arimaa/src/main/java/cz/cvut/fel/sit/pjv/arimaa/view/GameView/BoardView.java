@@ -1,6 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.GameUtils;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -11,10 +12,8 @@ public class BoardView extends GameView{
     public static Square firstClickedSquare;
     public static Square secondClickedSquare;
     public static Square thirdClickedSquare;
-    public BoardView(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime) {
-        super(mainWindow, board, previousBoard, goldenPlayerTime , silverPlayerTime);
-        this.goldenPlayerTime = goldenPlayerTime;
-        this.silverPlayerTime = silverPlayerTime;
+    public BoardView(Stage mainWindow, Board board, Timer timer) {
+        super(mainWindow, board, timer);
     }
     public GridPane displayBoard() {
         GridPane boardGridPane = new GridPane();
@@ -23,7 +22,7 @@ public class BoardView extends GameView{
         int cellCounter = 0;
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
-                SquareView squareView = new SquareView(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime, cellCounter);
+                SquareView squareView = new SquareView(mainWindow, board, timer, cellCounter);
                 StackPane stackPane = squareView.setSquare();
                 boardGridPane.add(stackPane, col, row);
                 cellCounter++;

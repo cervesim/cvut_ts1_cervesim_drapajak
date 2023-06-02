@@ -1,11 +1,7 @@
 package cz.cvut.fel.sit.pjv.arimaa.controller;
 
-import java.io.FileNotFoundException;
-
-
 public class GameController{
-    public static void main(String[] args) throws FileNotFoundException {
-        /*TODO going through game history file*/
+    public static void main(String[] args) {
         /*TODO random move generator to play against*/
         /*TODO javaDoc*/
         /*TODO loggers*/

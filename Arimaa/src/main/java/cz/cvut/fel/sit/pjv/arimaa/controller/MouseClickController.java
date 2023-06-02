@@ -3,6 +3,7 @@ package cz.cvut.fel.sit.pjv.arimaa.controller;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 import javafx.scene.input.MouseButton;
@@ -18,8 +19,8 @@ public class MouseClickController extends GameView {
     StackPane stackPane;
     Rectangle cell;
     int squarePosition;
-    public MouseClickController(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime, StackPane stackPane, Rectangle cell,  int squarePosition) {
-        super(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime);
+    public MouseClickController(Stage mainWindow, Board board, Timer timer, StackPane stackPane, Rectangle cell, int squarePosition) {
+        super(mainWindow, board, timer);
         this.stackPane = stackPane;
         this.cell = cell;
         this.squarePosition = squarePosition;
@@ -34,10 +35,9 @@ public class MouseClickController extends GameView {
             }
         });
     }
-    private void checkAndExecute(Move move, Rectangle cell){
+    private void checkAndExecute(Move move){
         if (board.getCurrentPlayer().isMoveLegal(move)) {
-            GameView gameView = new GameView(mainWindow, move.execute(), previousBoard , goldenPlayerTime, silverPlayerTime);
-            gameView.previousBoard = this;
+            GameView gameView = new GameView(mainWindow, move.execute(), timer);
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
@@ -51,8 +51,7 @@ public class MouseClickController extends GameView {
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
             Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
-            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), previousBoard, goldenPlayerTime, silverPlayerTime);
-            gameView.previousBoard = this;
+            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), timer);
             mainWindow.setScene(gameView.display());
         }
     }
@@ -71,7 +70,7 @@ public class MouseClickController extends GameView {
             if (!BoardView.secondClickedSquare.isSquareOccupied()) {
                 Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
                         null, BoardView.secondClickedSquare.getSquareLocation());
-                checkAndExecute(move, cell);
+                checkAndExecute(move);
             } else {
                 cell.setFill(Color.RED);
             }
@@ -81,7 +80,7 @@ public class MouseClickController extends GameView {
                 Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
                         BoardView.secondClickedSquare.getPieceOnSquare(),
                         BoardView.thirdClickedSquare.getSquareLocation());
-                checkAndExecute(move, cell);
+                checkAndExecute(move);
 
             } else {
                 cell.setFill(Color.RED);

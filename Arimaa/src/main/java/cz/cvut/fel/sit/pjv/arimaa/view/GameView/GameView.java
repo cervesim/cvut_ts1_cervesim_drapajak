@@ -2,6 +2,8 @@ package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
@@ -25,46 +27,42 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
-
 
 public class GameView{
     protected Stage mainWindow;
-    private int playerTime;
 
     protected Board board;
-    public GameView previousBoard;
-    public int goldenPlayerTime;
-    public int silverPlayerTime;
     public boolean gameEnded;
+    public Timer timer;
+    protected Label goldenPlayerTimer;
+    protected Label silverPlayerTimer;
     public static boolean inViewMode;
     public static int howFarInPast = 0;
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
         GameView.howFarInPast = 0;
         this.board = Board.createTestBoard();
-        this.previousBoard = null;
         this.gameEnded = false;
-        this.goldenPlayerTime = 0;
-        this.silverPlayerTime = 0;
-        mainWindow.setUserData(this);
+        this.timer = new Timer(board);
+        goldenPlayerTimer = timer.goldenPlayerTimer;
+        silverPlayerTimer = timer.silverPlayerTimer;
     }
     public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
         this.board = board;
-        this.previousBoard = null;
         this.gameEnded = board.gameEnded;
+        this.timer = new Timer(board);
+        this.goldenPlayerTimer = timer.goldenPlayerTimer;
+        this.silverPlayerTimer = timer.silverPlayerTimer;
     }
-    public GameView(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime) {
+    public GameView(Stage mainWindow, Board board, Timer timer) {
         this.mainWindow = mainWindow;
         this.board = board;
-        this.previousBoard = previousBoard;
         this.gameEnded = board.gameEnded;
-        this.goldenPlayerTime = goldenPlayerTime;
-        this.silverPlayerTime = silverPlayerTime;
+        this.timer = timer;
+        timer.setPlayers(board);
+        this.goldenPlayerTimer = timer.goldenPlayerTimer;
+        this.silverPlayerTimer = timer.silverPlayerTimer;
     }
     public Scene display() {
         if (!inViewMode){
@@ -80,14 +78,16 @@ public class GameView{
 
                 File file = new File("src/main/ArimaaGameHistory/" + formatter.format(date) + ".txt");
                 try {
-                    file.createNewFile();
-                    PrintWriter newGameHistoryFile = new PrintWriter(file);
-                    for (String setup : board.getInitialSetup()){
-                        newGameHistoryFile.println(setup);
+                    boolean successful = file.createNewFile();
+                    if (successful){
+                        PrintWriter newGameHistoryFile = new PrintWriter(file);
+                        for (String setup : board.getInitialSetup()){
+                            newGameHistoryFile.println(setup);
+                        }
+                        for(String moveNotation : board.getMovesHistory())
+                            newGameHistoryFile.println(moveNotation);
+                        newGameHistoryFile.close();
                     }
-                    for(String moveNotation : board.getMovesHistory())
-                        newGameHistoryFile.println(moveNotation);
-                    newGameHistoryFile.close();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -97,53 +97,20 @@ public class GameView{
         }
 
         /*BoardView + GameView*/
-        BoardView boardView = new BoardView(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime);
+        BoardView boardView = new BoardView(mainWindow, board, timer);
         BorderPane borderPane = new BorderPane(boardView.displayBoard(),
                 makeTopMenu(),
-                makeLeftAndRightMenu("Golden player"),
+                makeLeftAndRightMenu(board.getGoldenPlayer()),
                 makeBottomMenu(),
-                makeLeftAndRightMenu("Silver player"));
+                makeLeftAndRightMenu(board.getSilverPlayer())
+        );
         /*BoardView + GameView*/
 
         return new Scene(borderPane, 720, 600);
     }
-    private VBox makeLeftAndRightMenu(String player) {
-        Label label = new Label(player);
-        label.setPadding(new Insets(20));
-
-        Label timerLabel = new Label("0:00");
-        timerLabel.setPadding(new Insets(10));
-        timerLabel.setAlignment(Pos.BOTTOM_CENTER);
-
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            if (player.equals("Golden player")) {
-                if (board.getCurrentPlayer() == board.getGoldenPlayer()) {
-                    goldenPlayerTime++;
-                }
-            } else if (player.equals("Silver player")) {
-                if (board.getCurrentPlayer() == board.getSilverPlayer()) {
-                    silverPlayerTime++;
-                }
-            }
-            playerTime = player.equals("Golden player") ? goldenPlayerTime : silverPlayerTime;
-
-            timerLabel.setText(getFormattedTime(playerTime));
-        }));
-
-        timeline.setCycleCount(Animation.INDEFINITE);
-        if (player.equals("Golden player")) {
-            if (board.getCurrentPlayer().toString().equals("g")) {
-                timeline.play();
-            } else {
-                timeline.pause();
-            }
-        } else if (player.equals("Silver player")) {
-            if (board.getCurrentPlayer().toString().equals("s")) {
-                timeline.play();
-            } else {
-                timeline.pause();
-            }
-        }
+    private VBox makeLeftAndRightMenu(Player player) {
+        Label label = new Label(player.equals(board.getGoldenPlayer()) ? "Golden Player" : "Silver Player");
+        Label timerLabel = player.equals(board.getGoldenPlayer()) ? goldenPlayerTimer : silverPlayerTimer;
 
         VBox vBox = new VBox(label, timerLabel);
         vBox.setAlignment(Pos.TOP_CENTER);
@@ -226,11 +193,5 @@ public class GameView{
         topMenu.setAlignment(Pos.TOP_RIGHT);
         topMenu.setPadding(new Insets(4));
         return topMenu;
-    }
-    private static String getFormattedTime(int playerTime) {
-        int minutes = playerTime / 60;
-        int seconds = playerTime % 60;
-
-        return String.format("%d:%02d", minutes, seconds);
     }
 }

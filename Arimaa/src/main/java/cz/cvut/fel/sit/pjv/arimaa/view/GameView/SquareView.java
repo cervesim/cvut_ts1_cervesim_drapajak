@@ -4,6 +4,7 @@ import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -14,10 +15,8 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare
 
 public class SquareView extends GameView{
     int squarePosition;
-    public SquareView(Stage mainWindow, Board board, GameView previousBoard, int goldenPlayerTime, int silverPlayerTime, int squarePosition) {
-        super(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime);
-        this.goldenPlayerTime = goldenPlayerTime;
-        this.silverPlayerTime = silverPlayerTime;
+    public SquareView(Stage mainWindow, Board board, Timer timer, int squarePosition) {
+        super(mainWindow, board, timer);
         this.squarePosition = squarePosition;
     }
     public StackPane setSquare() {
@@ -35,14 +34,14 @@ public class SquareView extends GameView{
             StackPane stackPane = new StackPane(cell, imageView);
 
             if (!board.gameEnded && !BoardView.inViewMode){
-                new MouseClickController(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
+                new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
             }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
         if (!board.gameEnded && !BoardView.inViewMode){
-            new MouseClickController(mainWindow, board, previousBoard, goldenPlayerTime, silverPlayerTime, stackPane, cell,  squarePosition);
+            new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
         }
         return stackPane;
     }

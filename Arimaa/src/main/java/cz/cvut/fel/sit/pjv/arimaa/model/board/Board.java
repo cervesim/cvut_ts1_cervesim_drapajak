@@ -19,6 +19,7 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPi
 
 public class Board {
     private int roundCounter;
+    private static boolean againstComputer = false;
     private ArrayList<String> initialSetup;
     private ArrayList<String> movesHistory = new ArrayList<>();
     public static boolean pushOrPullNoted = false;
