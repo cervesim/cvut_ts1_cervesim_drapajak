@@ -48,8 +48,8 @@ public class Board {
 
         this.moveCount = boardBuilder.getMoveCount();
 
-        final Collection<Move> goldenStandardLegalMoves = getLegalMoves(this.goldenPieces);
-        final Collection<Move> silverStandardLegalMoves = getLegalMoves(this.silverPieces);
+        final ArrayList<Move> goldenStandardLegalMoves = getLegalMoves(this.goldenPieces);
+        final ArrayList<Move> silverStandardLegalMoves = getLegalMoves(this.silverPieces);
 
         this.goldenPlayer = new GoldenPlayer(this, goldenStandardLegalMoves, silverStandardLegalMoves);
         this.silverPlayer = new SilverPlayer(this, silverStandardLegalMoves, goldenStandardLegalMoves);
@@ -108,15 +108,15 @@ public class Board {
             }
         }
     }
-    private Collection<Move> getLegalMoves(Collection<Piece> pieces) {
-        final  List<Move> legalMoves = new ArrayList<>();
+    private ArrayList<Move> getLegalMoves(Collection<Piece> pieces) {
+        final  ArrayList<Move> legalMoves = new ArrayList<>();
         for(final Piece piece : pieces) {
             Collection<Move> pieceLegalMoves = piece.getLegalMoves(this);
             if(!pieceLegalMoves.isEmpty()) {
                 legalMoves.addAll(pieceLegalMoves);
             }
         }
-        return List.copyOf(legalMoves);
+        return legalMoves;
     }
     private static List<Square> createGameBoard (final BoardBuilder boardBuilder){
         final Square[] squares = new Square[Num_Squares];
@@ -189,6 +189,7 @@ public class Board {
         final BoardBuilder boardBuilder = new BoardBuilder();
         boardBuilder.setMoveMaker(Alliance.GOLDEN);
         boardBuilder.setMoveCount(0);
+        againstComputer = true;
 
         boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
         boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
@@ -269,7 +270,6 @@ public class Board {
 
         return (isToPast) ? new ViewMove(this, movedPiece, piecePosition, previousPiece) : new ViewMove(this, previousPiece, piecePosition - destinationCoordinate, movedPiece);
     }
-
     public static Piece decodePieceToSet (String moveInString) {
         char[] moveChars = moveInString.toCharArray();
 

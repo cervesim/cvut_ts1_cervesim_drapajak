@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class GoldenPlayer extends Player{
-    public GoldenPlayer(final Board board, final Collection<Move> goldenStandardLegalMoves, final Collection<Move> silverStandardLegalMoves) {
+    public GoldenPlayer(final Board board, final ArrayList<Move> goldenStandardLegalMoves, final ArrayList<Move> silverStandardLegalMoves) {
         super(board, goldenStandardLegalMoves, silverStandardLegalMoves);
     }
 

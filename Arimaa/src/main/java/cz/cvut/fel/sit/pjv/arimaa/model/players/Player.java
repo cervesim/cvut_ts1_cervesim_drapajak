@@ -16,8 +16,8 @@ import java.util.List;
 public abstract class Player {
     protected final Board board;
     protected final List<Piece> playersRabbits;
-    protected final Collection<Move> legalMoves;
-    public Player(final Board board, final Collection<Move> legalMoves, final Collection<Move> opponentsMoves) {
+    protected final ArrayList<Move> legalMoves;
+    public Player(final Board board, final ArrayList<Move> legalMoves, final Collection<Move> opponentsMoves) {
         this.board = board;
         this.playersRabbits = getRabbits();
         this.legalMoves = legalMoves;
@@ -44,7 +44,7 @@ public abstract class Player {
         }
         return playersRabbits;
     }
-    public Collection<Move> getLegalMoves() {
+    public ArrayList<Move> getLegalMoves() {
         return this.legalMoves;
     }
     public int getMoveCount() {

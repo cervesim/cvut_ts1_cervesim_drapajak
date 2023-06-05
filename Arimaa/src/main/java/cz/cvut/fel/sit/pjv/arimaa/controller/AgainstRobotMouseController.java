@@ -2,59 +2,41 @@ package cz.cvut.fel.sit.pjv.arimaa.controller;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
-import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
 
-public class MouseClickController extends GameView {
-    StackPane stackPane;
-    Rectangle cell;
-    int squarePosition;
-    public MouseClickController(Stage mainWindow, Board board, Timer timer, StackPane stackPane, Rectangle cell, int squarePosition) {
-        super(mainWindow, board, timer);
-        this.stackPane = stackPane;
-        this.cell = cell;
-        this.squarePosition = squarePosition;
-        execute();
+public class AgainstRobotMouseController extends MouseClickController{
+    public AgainstRobotMouseController(Stage mainWindow, Board board, Timer timer, StackPane stackPane, Rectangle cell, int squarePosition) {
+        super(mainWindow, board, timer, stackPane, cell, squarePosition);
     }
-    public void execute(){
-        stackPane.setOnMouseClicked(e -> {
-            if (e.getButton() == MouseButton.PRIMARY) {
-                leftClickControls();
-            } else if (e.getButton() == MouseButton.SECONDARY) {
-                rightClickControls(e);
-            }
-        });
-    }
-    void checkAndExecute(Move move){
-        if (board.getCurrentPlayer().isMoveLegal(move)) {
-            GameView gameView = new GameView(mainWindow, move.execute(), timer);
+    @Override
+    void rightClickControls(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            BoardView.clickCount = 0;
+            cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
+        } else if (e.getClickCount() == 2 && board.getCurrentPlayer() == board.getSilverPlayer()) {
+            ArrayList<Move> arrayList = board.getSilverPlayer().getLegalMoves();
+            Random random = new Random();
+            int randomIndex = random.nextInt(arrayList.size());
+            Move newMove = arrayList.get(randomIndex);
+            GameView gameView = new GameView(mainWindow, newMove.execute(), timer);
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-        } else {
-            cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
         }
     }
-    void rightClickControls(MouseEvent e){
-        if (e.getClickCount() == 1){
-            BoardView.clickCount = 0;
-            cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-        } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1) {
-            Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
-            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), timer);
-            mainWindow.setScene(gameView.display());
-        }
-    }
+    @Override
     void leftClickControls(){
         int clickCount = ++BoardView.clickCount;
         if (clickCount == 1) {

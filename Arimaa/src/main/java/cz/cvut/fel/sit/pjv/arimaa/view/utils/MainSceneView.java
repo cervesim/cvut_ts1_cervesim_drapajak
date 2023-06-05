@@ -90,7 +90,7 @@ public class MainSceneView {
         BoardView.howFarInPast = -movesHistory.size();
         gameView.gameEnded = true;
         GameView.inViewMode = true;
-
+        gameView.fileSaved = true;
         mainWindow.setScene(gameView.display());
     }
 

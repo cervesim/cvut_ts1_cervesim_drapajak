@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class GameView{
     protected Stage mainWindow;
-
+    public boolean fileSaved = false;
     protected Board board;
     public boolean gameEnded;
     public Timer timer;
@@ -65,7 +65,7 @@ public class GameView{
         this.silverPlayerTimer = timer.silverPlayerTimer;
     }
     public Scene display() {
-        if (!inViewMode){
+        if (!inViewMode || !fileSaved){
             if (this.gameEnded){
                 String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
                 boolean answer = ConfirmBoxView.display("Game ended", text);
@@ -88,6 +88,7 @@ public class GameView{
                             newGameHistoryFile.println(moveNotation);
                         newGameHistoryFile.close();
                     }
+                    fileSaved = true;
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -136,6 +137,7 @@ public class GameView{
             if (howFarInPast != 0){
                 howFarInPast++;
                 GameView.inViewMode = howFarInPast != 0;
+                fileSaved = true;
                 String pieceThatIsReturningToFuture = board.getMovesHistory().get(backToTheFuture);
                 Move viewMove = board.decodeMove(pieceThatIsReturningToFuture, false);
                 GameView gameView = new GameView(mainWindow, viewMove.execute());
@@ -144,10 +146,10 @@ public class GameView{
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {
-           if (!GameView.inViewMode){
+           if (!GameView.inViewMode || !this.gameEnded){
                int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
                if (backToThePast != 0){
-                   GameView.inViewMode = howFarInPast != 0;
+                   if (this.gameEnded) {GameView.inViewMode = true;} else  GameView.inViewMode = (howFarInPast != 0);
                    String pieceThatIsReturningToPast = board.getMovesHistory().remove(backToThePast - 1);
                    Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
                    GameView gameView = new GameView(mainWindow, viewMove.execute());
@@ -187,6 +189,8 @@ public class GameView{
             MainSceneView mainSceneView = new MainSceneView(mainWindow);
             if(answer) {
                 mainWindow.setScene(mainSceneView.display());
+                GameView.inViewMode = false;
+                GameView.howFarInPast = 0;
             }
         });
         HBox topMenu = new HBox(gameSettingsButton, exitButton);

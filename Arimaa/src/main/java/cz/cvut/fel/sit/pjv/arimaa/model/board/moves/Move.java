@@ -68,9 +68,6 @@ public abstract class Move {
             if (currentPlayer == board.getSilverPlayer()) {
                 boardBuilder.setRoundCounter(board.getRoundCounter() + 1);
             }
-//            System.out.println();
-//            System.out.print(boardBuilder.getRoundCounter() +
-//                        board.getCurrentPlayer().getOpponent().toString() + " ");/*TODO destroy*/
             return;
         }
 
