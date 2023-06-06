@@ -18,11 +18,6 @@ public class ViewMove extends Move{
         if (!(o instanceof SimpleMove simpleMove)) return false;
         return destinationCoordinate == simpleMove.destinationCoordinate && Objects.equal(board, simpleMove.board) && Objects.equal(movedPiece, simpleMove.movedPiece);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(board, movedPiece, destinationCoordinate);
-    }
     @Override
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
@@ -41,11 +36,7 @@ public class ViewMove extends Move{
 
         boardBuilder.setPiece(movedPiece.movePiece(this));
 
-        boardBuilder.setMoveCount(board.getMoveCount());
-        boardBuilder.setInitialSetup(board.getInitialSetup());
-        boardBuilder.setRoundCounter(board.getRoundCounter());
-        boardBuilder.setMovesHistory(board.getMovesHistory());
-        boardBuilder.setMoveMaker(board.getCurrentPlayer().getAlliance());
+        setBoardBuilder(boardBuilder, 0);
 
         return boardBuilder.build();
     }
@@ -53,5 +44,13 @@ public class ViewMove extends Move{
     @Override
     public boolean isDone() {
         return false;
+    }
+    @Override
+    protected void setBoardBuilder(BoardBuilder boardBuilder, int moveWeight){
+        boardBuilder.setMoveCount(board.getMoveCount());
+        boardBuilder.setInitialSetup(board.getInitialSetup());
+        boardBuilder.setRoundCounter(board.getRoundCounter());
+        boardBuilder.setMovesHistory(board.getMovesHistory());
+        boardBuilder.setMoveMaker(board.getCurrentPlayer().getAlliance());
     }
 }

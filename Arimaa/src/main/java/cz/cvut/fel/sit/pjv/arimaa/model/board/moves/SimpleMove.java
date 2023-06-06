@@ -7,8 +7,6 @@ import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
-
 public class SimpleMove extends Move {
     public SimpleMove(Board board, Piece movedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
@@ -27,15 +25,9 @@ public class SimpleMove extends Move {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(board, movedPiece, destinationCoordinate);
-    }
-    @Override
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = this.board.getCurrentPlayer();
-
-
 
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
@@ -47,9 +39,7 @@ public class SimpleMove extends Move {
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
             boardBuilder.setPiece(piece);
         }
-
-//        System.out.print(this); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString());
         setBoardBuilder(boardBuilder, 1);
 
         return boardBuilder.build();

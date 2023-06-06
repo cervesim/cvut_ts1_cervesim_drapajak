@@ -68,8 +68,9 @@ public class SetupGameView {
         Button exitButton = new Button("Exit");
         exitButton.setOnAction(e ->{
             boolean answer = ConfirmBoxView.display("Exit game", "Are you sure you want to exit game?");
+            Board.againstComputer = false;
             MainSceneView mainSceneView = new MainSceneView(mainWindow);
-            if(answer) mainWindow.setScene(mainSceneView.display());
+            if (answer) mainWindow.setScene(mainSceneView.display());
         });
         HBox topMenu = new HBox(gameSettingsButton, exitButton, testButton);
         topMenu.setAlignment(Pos.TOP_RIGHT);

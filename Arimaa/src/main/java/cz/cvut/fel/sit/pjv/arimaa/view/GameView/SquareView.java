@@ -1,5 +1,6 @@
 package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
 
+import cz.cvut.fel.sit.pjv.arimaa.controller.AgainstRobotMouseController;
 import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
@@ -34,15 +35,17 @@ public class SquareView extends GameView{
             StackPane stackPane = new StackPane(cell, imageView);
 
             if (!board.gameEnded && !BoardView.inViewMode){
-                new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
+                if (Board.againstComputer){
+                    new AgainstRobotMouseController(mainWindow,board, timer, stackPane, cell, squarePosition);
+                } else new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
+
             }
             return stackPane;
         }
 
         StackPane stackPane = new StackPane(cell);
-        if (!board.gameEnded && !BoardView.inViewMode){
-            new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
-        }
+        if (Board.againstComputer) new AgainstRobotMouseController(mainWindow,board, timer, stackPane, cell, squarePosition);
+        else new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
         return stackPane;
     }
 

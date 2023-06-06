@@ -19,10 +19,11 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPi
 
 public class Board {
     private int roundCounter;
-    private static boolean againstComputer = false;
+    public static boolean againstComputer = false;
+    public static boolean pushOrPullNoted = false;
+    public final boolean gameEnded;
     private ArrayList<String> initialSetup;
     private ArrayList<String> movesHistory = new ArrayList<>();
-    public static boolean pushOrPullNoted = false;
     public static final int Num_Squares = 64;
     public static final int Num_Squares_Per_Row = 8;
     public static final boolean[] First_Column = initColumn(0);
@@ -34,7 +35,6 @@ public class Board {
     private final SilverPlayer silverPlayer;
     private final Player currentPlayer;
     private final int moveCount;
-    public final boolean gameEnded;
     public Board(BoardBuilder boardBuilder) {
         this.gameBoard = createGameBoard(boardBuilder);
         setTrapSquares();

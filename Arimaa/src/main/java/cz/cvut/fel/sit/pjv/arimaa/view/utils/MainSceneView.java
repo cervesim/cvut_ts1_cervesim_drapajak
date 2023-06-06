@@ -49,7 +49,6 @@ public class MainSceneView {
             SetupGameView setupGameWithBotView = new SetupGameView(mainWindow, board,
                     board.getGoldenPlayer().getAllAvailablePieces(),
                     new ArrayList<>());
-
             mainWindow.setScene(setupGameWithBotView.display());
         });
         /*GameAgainstComputer*/
@@ -90,7 +89,7 @@ public class MainSceneView {
         BoardView.howFarInPast = -movesHistory.size();
         gameView.gameEnded = true;
         GameView.inViewMode = true;
-        gameView.fileSaved = true;
+        GameView.fileSaved = true;
         mainWindow.setScene(gameView.display());
     }
 

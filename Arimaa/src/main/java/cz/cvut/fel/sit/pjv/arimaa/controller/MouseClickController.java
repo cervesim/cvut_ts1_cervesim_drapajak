@@ -81,9 +81,6 @@ public class MouseClickController extends GameView {
                         BoardView.secondClickedSquare.getPieceOnSquare(),
                         BoardView.thirdClickedSquare.getSquareLocation());
                 checkAndExecute(move);
-
-            } else {
-                cell.setFill(Color.RED);
             }
             BoardView.clickCount = 0;
         }

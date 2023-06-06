@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class GameView{
     protected Stage mainWindow;
-    public boolean fileSaved = false;
+    public static boolean fileSaved = false;
     protected Board board;
     public boolean gameEnded;
     public Timer timer;
@@ -46,6 +46,7 @@ public class GameView{
         this.timer = new Timer(board);
         goldenPlayerTimer = timer.goldenPlayerTimer;
         silverPlayerTimer = timer.silverPlayerTimer;
+        fileSaved = false;
     }
     public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
@@ -54,6 +55,7 @@ public class GameView{
         this.timer = new Timer(board);
         this.goldenPlayerTimer = timer.goldenPlayerTimer;
         this.silverPlayerTimer = timer.silverPlayerTimer;
+        fileSaved = false;
     }
     public GameView(Stage mainWindow, Board board, Timer timer) {
         this.mainWindow = mainWindow;
@@ -65,7 +67,7 @@ public class GameView{
         this.silverPlayerTimer = timer.silverPlayerTimer;
     }
     public Scene display() {
-        if (!inViewMode || !fileSaved){
+        if (!inViewMode && !fileSaved){
             if (this.gameEnded){
                 String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
                 boolean answer = ConfirmBoxView.display("Game ended", text);
@@ -126,7 +128,7 @@ public class GameView{
                 GameView.inViewMode = howFarInPast != 0;
                 String pieceThatIsReturningToPast = board.getMovesHistory().get(backToThePast - 1);
                 Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
-                GameView gameView = new GameView(mainWindow, viewMove.execute());
+                GameView gameView = new GameView(mainWindow, viewMove.execute(), timer);
                 mainWindow.setScene(gameView.display());
             }
         });
@@ -137,22 +139,21 @@ public class GameView{
             if (howFarInPast != 0){
                 howFarInPast++;
                 GameView.inViewMode = howFarInPast != 0;
-                fileSaved = true;
                 String pieceThatIsReturningToFuture = board.getMovesHistory().get(backToTheFuture);
                 Move viewMove = board.decodeMove(pieceThatIsReturningToFuture, false);
-                GameView gameView = new GameView(mainWindow, viewMove.execute());
+                GameView gameView = new GameView(mainWindow, viewMove.execute(), timer);
                 mainWindow.setScene(gameView.display());
             }
         });
         Button undoMove = new Button("Undo move");
         undoMove.setOnAction(e -> {
-           if (!GameView.inViewMode || !this.gameEnded){
+           if (!GameView.inViewMode && !fileSaved){
                int backToThePast = ((board.getMovesHistory().size() + howFarInPast));
                if (backToThePast != 0){
                    if (this.gameEnded) {GameView.inViewMode = true;} else  GameView.inViewMode = (howFarInPast != 0);
                    String pieceThatIsReturningToPast = board.getMovesHistory().remove(backToThePast - 1);
                    Move viewMove = board.decodeMove(pieceThatIsReturningToPast, true);
-                   GameView gameView = new GameView(mainWindow, viewMove.execute());
+                   GameView gameView = new GameView(mainWindow, viewMove.execute(), timer);
                    mainWindow.setScene(gameView.display());
                }
            }
@@ -172,6 +173,7 @@ public class GameView{
         moveHistoryBox.setAlignment(Pos.CENTER);
         moveHistoryBox.setSpacing(10);
         moveHistoryBox.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+
         HBox botMenu = new HBox(previousMove, undoMove, nextMove, moveHistoryBox);
         botMenu.setAlignment(Pos.CENTER);
         botMenu.setSpacing(10);

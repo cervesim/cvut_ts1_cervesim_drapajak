@@ -1,7 +1,9 @@
 package cz.cvut.fel.sit.pjv.arimaa.controller;
 
+import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
@@ -41,31 +43,27 @@ public class AgainstRobotMouseController extends MouseClickController{
         int clickCount = ++BoardView.clickCount;
         if (clickCount == 1) {
             BoardView.firstClickedSquare = board.getSquare(squarePosition);
-            if (!BoardView.firstClickedSquare.isSquareOccupied()) {
+            if (BoardView.firstClickedSquare.isSquareOccupied()) {
+                cell.setFill(Color.RED);
+            }else{
                 BoardView.clickCount = 0;
                 cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-            } else {
-                cell.setFill(Color.RED);
             }
         } else if (clickCount == 2) {
             BoardView.secondClickedSquare = board.getSquare(squarePosition);
-            if (!BoardView.secondClickedSquare.isSquareOccupied()) {
+            Alliance colorOfPieceOnFirstSquare = BoardView.firstClickedSquare.getPieceOnSquare().getPieceColor();
+            if (!BoardView.secondClickedSquare.isSquareOccupied() && colorOfPieceOnFirstSquare.isGolden()) {
                 Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
                         null, BoardView.secondClickedSquare.getSquareLocation());
                 checkAndExecute(move);
-            } else {
-                cell.setFill(Color.RED);
-            }
-        } else if (clickCount == 3) {
+            } else {cell.setFill(Color.RED);}
+        } else if (clickCount == 3){
             BoardView.thirdClickedSquare = board.getSquare(squarePosition);
-            if (!BoardView.thirdClickedSquare.isSquareOccupied()) {
+            if (!BoardView.thirdClickedSquare.isSquareOccupied() && board.getCurrentPlayer().getAlliance().isGolden()) {
                 Move move = board.getCurrentPlayer().createMove(BoardView.firstClickedSquare.getPieceOnSquare(),
                         BoardView.secondClickedSquare.getPieceOnSquare(),
                         BoardView.thirdClickedSquare.getSquareLocation());
                 checkAndExecute(move);
-
-            } else {
-                cell.setFill(Color.RED);
             }
             BoardView.clickCount = 0;
         }
