@@ -1,6 +1,5 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.board;
 
-import com.google.common.collect.ImmutableList;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.ViewMove;
@@ -11,6 +10,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.GoldenPlayer;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
+import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
 
 import java.util.*;
 
@@ -19,7 +19,6 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPi
 
 public class Board {
     private int roundCounter;
-    public static boolean againstComputer = false;
     public static boolean pushOrPullNoted = false;
     public final boolean gameEnded;
     private ArrayList<String> initialSetup;
@@ -29,8 +28,8 @@ public class Board {
     public static final boolean[] First_Column = initColumn(0);
     public static final boolean[] Eighth_Column = initColumn(7);
     private final List<Square> gameBoard;
-    private final Collection<Piece> goldenPieces;
-    private final Collection<Piece> silverPieces;
+    private final ArrayList<Piece> goldenPieces;
+    private final ArrayList<Piece> silverPieces;
     private final GoldenPlayer goldenPlayer;
     private final SilverPlayer silverPlayer;
     private final Player currentPlayer;
@@ -86,14 +85,14 @@ public class Board {
         if (silverPlayer.getLegalMoves().isEmpty() ||
                 silverPlayer.getRabbits().isEmpty() ||
                 (possibleGoldenRabbitTheChampion != null) &&
-                        (silverPlayer != currentPlayer || silverPlayer.getMoveCount() < 2 &&
-                                possibleGoldenRabbitTheChampion.isFrozen(this))) {
+                        (silverPlayer != currentPlayer && (silverPlayer.getMoveCount() < 2 &&
+                                possibleGoldenRabbitTheChampion.isFrozen(this)))) {
             return goldenPlayer;
         } else if (goldenPlayer.getLegalMoves().isEmpty() ||
                 goldenPlayer.getRabbits().isEmpty() ||
                 possibleSilverRabbitTheChampion != null &&
-                        (goldenPlayer != currentPlayer || goldenPlayer.getMoveCount() < 2 &&
-                                possibleSilverRabbitTheChampion.isFrozen(this))) {
+                        (goldenPlayer != currentPlayer && (goldenPlayer.getMoveCount() < 2 &&
+                                possibleSilverRabbitTheChampion.isFrozen(this)))) {
             return silverPlayer;
         } else return null;
     }
@@ -136,25 +135,9 @@ public class Board {
         return boardBuilder.build();
     }
     public static Board createTestBoard () {
-        final BoardBuilder boardBuilder = new BoardBuilder();
+        BoardBuilder boardBuilder = new BoardBuilder();
 
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 2));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 3));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 4));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 5));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 6));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 7));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 8));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 9));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 10));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.ELEPHANT, 11));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAMEL, 12));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 13));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 14));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 15));
-
+        setInitialSilverPieces(boardBuilder);
 
         boardBuilder.setPiece(new Piece(Alliance.GOLDEN, PieceType.HORSE, 48));
         boardBuilder.setPiece(new Piece(Alliance.GOLDEN, PieceType.DOG, 49));
@@ -189,29 +172,14 @@ public class Board {
         final BoardBuilder boardBuilder = new BoardBuilder();
         boardBuilder.setMoveMaker(Alliance.GOLDEN);
         boardBuilder.setMoveCount(0);
-        againstComputer = true;
+        GameView.againstComputer = true;
 
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 2));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 3));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 4));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 5));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 6));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 7));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 8));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 9));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 10));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.ELEPHANT, 11));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAMEL, 12));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 13));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 14));
-        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 15));
+        setInitialSilverPieces(boardBuilder);
 
         return boardBuilder.build();
     }
-    private static Collection<Piece> setActivePieces(final List<Square> gameBoard, Alliance alliance) {
-        final List<Piece> activePieces = new ArrayList<>();
+    private static ArrayList<Piece> setActivePieces(final List<Square> gameBoard, Alliance alliance) {
+        final ArrayList<Piece> activePieces = new ArrayList<>();
 
         for (final Square square : gameBoard){
             if(square.isSquareOccupied()) {
@@ -221,7 +189,7 @@ public class Board {
                 }
             }
         }
-        return ImmutableList.copyOf(activePieces);
+        return activePieces;
     }
     public Player getCurrentPlayer(){return this.currentPlayer;}
     public int getMoveCount(){return this.moveCount;}
@@ -231,10 +199,10 @@ public class Board {
     public SilverPlayer getSilverPlayer() {
         return this.silverPlayer;
     }
-    public Collection<Piece> getGoldenPieces() {
+    public ArrayList<Piece> getGoldenPieces() {
         return this.goldenPieces;
     }
-    public Collection<Piece> getSilverPieces() {
+    public ArrayList<Piece> getSilverPieces() {
         return this.silverPieces;
     }
     public Square getSquare(final int squareCoordinate) {
@@ -264,6 +232,7 @@ public class Board {
         PieceType pieceType = fromCharToPieceType(String.valueOf(moveChars[0]).toLowerCase());
         Alliance pieceColor = (Character.isUpperCase(moveChars[0])) ? Alliance.GOLDEN : Alliance.SILVER;
         int piecePosition = SquareLocationToString.fromString((moveChars[1]) + String.valueOf(moveChars[2]));
+
         int destinationCoordinate = fromCharToDestinationCoordinate(String.valueOf(moveChars[3]));
         Piece movedPiece = new Piece(pieceColor, pieceType, piecePosition);
         Piece previousPiece = new Piece(pieceColor, pieceType, (piecePosition - destinationCoordinate));
@@ -278,5 +247,24 @@ public class Board {
         int piecePosition = SquareLocationToString.fromString((moveChars[1]) + String.valueOf(moveChars[2]));
 
         return new Piece(pieceColor, pieceType, piecePosition);
+    }
+    private static void setInitialSilverPieces(BoardBuilder boardBuilder){
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 0));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 1));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 2));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 3));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 4));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 5));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 6));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.RABBIT, 7));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 8));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 9));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 10));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.ELEPHANT, 11));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAMEL, 12));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.DOG, 13));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.CAT, 14));
+        boardBuilder.setPiece(new Piece(Alliance.SILVER, PieceType.HORSE, 15));
+
     }
 }

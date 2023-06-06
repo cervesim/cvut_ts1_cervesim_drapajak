@@ -35,7 +35,7 @@ public class SquareView extends GameView{
             StackPane stackPane = new StackPane(cell, imageView);
 
             if (!board.gameEnded && !BoardView.inViewMode){
-                if (Board.againstComputer){
+                if (GameView.againstComputer){
                     new AgainstRobotMouseController(mainWindow,board, timer, stackPane, cell, squarePosition);
                 } else new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
 
@@ -44,7 +44,7 @@ public class SquareView extends GameView{
         }
 
         StackPane stackPane = new StackPane(cell);
-        if (Board.againstComputer) new AgainstRobotMouseController(mainWindow,board, timer, stackPane, cell, squarePosition);
+        if (GameView.againstComputer) new AgainstRobotMouseController(mainWindow,board, timer, stackPane, cell, squarePosition);
         else new MouseClickController(mainWindow, board, timer, stackPane, cell,  squarePosition);
         return stackPane;
     }

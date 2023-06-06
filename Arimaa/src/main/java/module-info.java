@@ -18,4 +18,8 @@ module cz.cvut.fel.sit.pjv.arimaa.arimaa {
     opens cz.cvut.fel.sit.pjv.arimaa.model to javafx.fxml;
     exports cz.cvut.fel.sit.pjv.arimaa.model.modelUtils;
     opens cz.cvut.fel.sit.pjv.arimaa.model.modelUtils to javafx.fxml;
+    exports cz.cvut.fel.sit.pjv.arimaa.model.players;
+    exports cz.cvut.fel.sit.pjv.arimaa.model.pieces;
+    exports cz.cvut.fel.sit.pjv.arimaa.model.board.square;
+    exports cz.cvut.fel.sit.pjv.arimaa.model.board.moves;
 }

@@ -30,31 +30,33 @@ import java.util.Date;
 
 public class GameView{
     protected Stage mainWindow;
-    public static boolean fileSaved = false;
     protected Board board;
     public boolean gameEnded;
     public Timer timer;
     protected Label goldenPlayerTimer;
     protected Label silverPlayerTimer;
+    public static boolean againstComputer = false;
+    public static boolean fileSaved = false;
     public static boolean inViewMode;
-    public static int howFarInPast = 0;
+    public static int howFarInPast;
+
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
-        GameView.howFarInPast = 0;
         this.board = Board.createTestBoard();
-        this.gameEnded = false;
         this.timer = new Timer(board);
-        goldenPlayerTimer = timer.goldenPlayerTimer;
-        silverPlayerTimer = timer.silverPlayerTimer;
+        this.goldenPlayerTimer = timer.goldenPlayerTimer;
+        this.silverPlayerTimer = timer.silverPlayerTimer;
+        this.gameEnded = false;
         fileSaved = false;
+        howFarInPast = 0;
     }
     public GameView(Stage mainWindow, Board board) {
         this.mainWindow = mainWindow;
         this.board = board;
-        this.gameEnded = board.gameEnded;
         this.timer = new Timer(board);
         this.goldenPlayerTimer = timer.goldenPlayerTimer;
         this.silverPlayerTimer = timer.silverPlayerTimer;
+        this.gameEnded = board.gameEnded;
         fileSaved = false;
     }
     public GameView(Stage mainWindow, Board board, Timer timer) {
@@ -62,9 +64,11 @@ public class GameView{
         this.board = board;
         this.gameEnded = board.gameEnded;
         this.timer = timer;
-        timer.setPlayers(board);
         this.goldenPlayerTimer = timer.goldenPlayerTimer;
         this.silverPlayerTimer = timer.silverPlayerTimer;
+        if (board.getMoveCount() == 0){
+            timer.setPlayers(board);
+        }
     }
     public Scene display() {
         if (!inViewMode && !fileSaved){
@@ -72,13 +76,8 @@ public class GameView{
                 String text = "Game ended, " + board.hasWon().toString() + " is the winner. Do you want to play again??";
                 boolean answer = ConfirmBoxView.display("Game ended", text);
 
-                System.out.println(board.getInitialSetup().toString());/*TODO destroy it*/
-                System.out.println(board.getMovesHistory().toString());/*TODO destroy it*/
-
                 SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
-                Date date = new Date();
-
-                File file = new File("src/main/ArimaaGameHistory/" + formatter.format(date) + ".txt");
+                File file = new File("src/main/ArimaaGameHistory/" + formatter.format(new Date()) + ".txt");
                 try {
                     boolean successful = file.createNewFile();
                     if (successful){
@@ -94,7 +93,7 @@ public class GameView{
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                Board.againstComputer = false;
+                againstComputer = false;
                 if (answer) return new SetupGameView(mainWindow).display();
             }
         }
