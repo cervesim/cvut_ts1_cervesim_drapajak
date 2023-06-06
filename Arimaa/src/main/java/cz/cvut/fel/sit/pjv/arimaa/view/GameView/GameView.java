@@ -90,11 +90,11 @@ public class GameView{
                             newGameHistoryFile.println(moveNotation);
                         newGameHistoryFile.close();
                     }
-                    fileSaved = true;
+                    fileSaved = successful;
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                Board.againstComputer = false;
                 if (answer) return new SetupGameView(mainWindow).display();
             }
         }

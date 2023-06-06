@@ -3,6 +3,7 @@ package cz.cvut.fel.sit.pjv.arimaa.controller;
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
 import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
@@ -27,7 +28,7 @@ public class AgainstRobotMouseController extends MouseClickController{
         if (e.getClickCount() == 1) {
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
-        } else if (e.getClickCount() == 2 && board.getCurrentPlayer() == board.getSilverPlayer()) {
+        } else if (e.getClickCount() == 2 && board.getCurrentPlayer().getAlliance().isSilver()) {
             ArrayList<Move> arrayList = board.getSilverPlayer().getLegalMoves();
             Random random = new Random();
             int randomIndex = random.nextInt(arrayList.size());
@@ -36,6 +37,10 @@ public class AgainstRobotMouseController extends MouseClickController{
             mainWindow.setScene(gameView.display());
             BoardView.clickCount = 0;
             cell.setFill(isTrapSquare(squarePosition) ? Color.BLACK : Color.WHITE);
+        } else if (e.getClickCount() == 3 && board.getMoveCount() >= 1 && board.getCurrentPlayer().getAlliance().isGolden()) {
+            Move skipTurnsMove = new SkipTurnsMove(board, null, 0);
+            GameView gameView = new GameView(mainWindow, skipTurnsMove.execute(), timer);
+            mainWindow.setScene(gameView.display());
         }
     }
     @Override
