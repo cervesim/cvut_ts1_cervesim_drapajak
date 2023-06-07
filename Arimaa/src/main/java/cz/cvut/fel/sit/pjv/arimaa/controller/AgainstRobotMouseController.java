@@ -20,9 +20,19 @@ import java.util.Random;
 import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
 
 public class AgainstRobotMouseController extends MouseClickController{
+    /**
+     * Extends MouseClickController and is used for controlling the random moves from robot and blocking gold player from moving with the robots silver pieces.
+     * @param mainWindow to display new build board after
+     * @param board to get board data from
+     * @param timer so the time doesn't change after displaying new gameView
+     * @param stackPane there is mouse click event controller bind onto that
+     * @param cell for cell color
+     * @param squarePosition for me to know where the square is when I click it
+     */
     public AgainstRobotMouseController(Stage mainWindow, Board board, Timer timer, StackPane stackPane, Rectangle cell, int squarePosition) {
         super(mainWindow, board, timer, stackPane, cell, squarePosition);
     }
+
     @Override
     void rightClickControls(MouseEvent e) {
         if (e.getClickCount() == 1) {

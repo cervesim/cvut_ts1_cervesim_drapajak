@@ -13,12 +13,26 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.util.logging.Logger;
+
 import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
 
 public class MouseClickController extends GameView {
+    private static final Logger logger = Logger.getLogger(MouseClickController.class.getName());
     StackPane stackPane;
     Rectangle cell;
     int squarePosition;
+
+    /**
+     * This class sets mouse click event controller to every square on board and tells what to do after each click.
+     * After right combination of clicks on the right squares the move is created depending on which player clicked.
+     * @param mainWindow to display new build board after
+     * @param board to get board data from
+     * @param timer so the time doesn't change after displaying new gameView
+     * @param stackPane there is mouse click event controller bind onto that
+     * @param cell for cell color
+     * @param squarePosition for me to know where the square is when I click it
+     */
     public MouseClickController(Stage mainWindow, Board board, Timer timer, StackPane stackPane, Rectangle cell, int squarePosition) {
         super(mainWindow, board, timer);
         this.stackPane = stackPane;
@@ -26,6 +40,11 @@ public class MouseClickController extends GameView {
         this.squarePosition = squarePosition;
         execute();
     }
+
+    /**
+     * After executing the mouse click event controller is set onto square.
+     * The left and right controls are used to determine what happens after each click.
+     */
     public void execute(){
         stackPane.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {

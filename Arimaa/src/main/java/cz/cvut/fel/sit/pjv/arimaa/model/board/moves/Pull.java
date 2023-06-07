@@ -10,6 +10,10 @@ import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 public class Pull extends Move{
     final Piece pulledPiece;
 
+    /**
+     * @param pulledPiece piece that has been pulled by moved piece
+     * @param destinationCoordinate for pushed piece
+     */
     public Pull(final Board board, final Piece movedPiece, final Piece pulledPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
         this.pulledPiece = pulledPiece;
@@ -33,13 +37,16 @@ public class Pull extends Move{
         return Objects.hashCode(super.hashCode(), pulledPiece);
     }
 
+    /**
+     * splits one move into two simple moves because of the movePiece method inside a move class
+     * @return new Board
+     */
     @Override
     public Board execute() {
         final BoardBuilder boardBuilder = new BoardBuilder();
         final Player currentPlayer = board.getCurrentPlayer();
 
-//        System.out.print(this); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), this.toString());
 
         for (final Piece piece : currentPlayer.getActivePieces()){
             if (movedPiece.equals(piece)){
@@ -49,8 +56,7 @@ public class Pull extends Move{
             }
         }
         Move pulledPieceMove = new SimpleMove(board, pulledPiece, getCurrentCoordinate());
-        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), pulledPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
-//        System.out.print(pulledPieceMove); /*TODO destroy*/
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), pulledPieceMove.toString());
 
         for (final Piece piece : currentPlayer.getOpponent().getActivePieces()){
             if (pulledPiece.equals(piece)){
@@ -59,7 +65,6 @@ public class Pull extends Move{
                 boardBuilder.setPiece(piece);
             }
         }
-
         setBoardBuilder(boardBuilder, 2);
         return boardBuilder.build();
     }

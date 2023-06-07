@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"cz.cvut.fel.sit.pjv.arimaa.arimaa"}];updateSearchResults();

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class checkMove extends Move{
+    /**
+     * @param board
+     * @param movedPiece
+     * @param destinationCoordinate
+     */
     public checkMove(Board board, Piece movedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
     }

@@ -4,128 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="robot done">
-      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/06_06_2023_23_04_38.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../copy.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/controller/AgainstRobotMouseController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/controller/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/controller/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/Alliance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/GameHistory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/Notation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/BoardBuilder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Pull.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SimpleMove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SkipTurnsMove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/checkMove.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/EmptySquare.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/OccupiedSquare.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/board/square/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/GameUtils.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/SquareLocationToString.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/pieces/Piece.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/pieces/PieceType.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/pieces/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/pieces/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/GoldenPlayer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/Player.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/SilverPlayer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/Timer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/model/players/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/BoardView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/PieceView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/GameView/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupBoardView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/ConfirmBoxView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/GameUtils.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/SettingsStageView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/cz/cvut/fel/sit/pjv/arimaa/view/utils/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cz.cvut.fel.sit.pjv.arimaa.arimaa/module-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-14.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-15.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-16.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-17.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-files/index-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jquery-ui.overrides.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../legal/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../legal/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../legal/jquery.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../legal/jqueryUI.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../module-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../script-dir/jquery-3.6.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../script-dir/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../script-dir/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../search-page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serialized-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tag-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="slight changes">
+      <change afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/ArimaaGame_startMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/AgainstRobotMouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/AgainstRobotMouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/GameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Pull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Pull.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/checkMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/checkMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +36,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -170,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/BlackWidow-Chess-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.4632184",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editing.templates",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Lessons_Seredi/07_maven_logging_junit/07_maven_logging_junit/110/logging&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.setupGameView" />
@@ -310,7 +206,8 @@
       <workItem from="1685356096489" duration="16237000" />
       <workItem from="1685434981029" duration="138028000" />
       <workItem from="1685971623673" duration="1684000" />
-      <workItem from="1686045071808" duration="15956000" />
+      <workItem from="1686045071808" duration="18574000" />
+      <workItem from="1686117096763" duration="4149000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -627,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686074418192</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="slight changes">
+      <created>1686086163380</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1686086163380</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="MouseClickController corrected" />
     <MESSAGE value="game won somehow done" />
     <MESSAGE value="just a cleanup" />
     <MESSAGE value="board to set almost finished" />
@@ -694,7 +597,8 @@
     <MESSAGE value="test for ts1" />
     <MESSAGE value="robot almost done" />
     <MESSAGE value="robot done" />
-    <option name="LAST_COMMIT_MESSAGE" value="robot done" />
+    <MESSAGE value="slight changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="slight changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

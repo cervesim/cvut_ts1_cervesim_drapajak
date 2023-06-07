@@ -13,6 +13,11 @@ import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare
  */
 public class Push extends Move{
     Piece pushedPiece;
+
+    /**
+     * @param pushedPiece piece that has been pushed by moved piece
+     * @param destinationCoordinate for pushed piece
+     */
     public Push(Board board, Piece movedPiece, Piece pushedPiece, int destinationCoordinate) {
         super(board, movedPiece, destinationCoordinate);
         this.pushedPiece = pushedPiece;
@@ -36,14 +41,17 @@ public class Push extends Move{
         return Objects.hashCode(super.hashCode(), pushedPiece);
     }
 
+    /**
+     * splits one move into two simple moves because of the movePiece method inside a move class
+     * @return new Board
+     */
     @Override
     public Board execute() {
         BoardBuilder boardBuilder = new BoardBuilder();
         Player currentPlayer = board.getCurrentPlayer();
 
         Move pushedPieceMove = new SimpleMove(board, pushedPiece, destinationCoordinate);
-//        System.out.print(pushedPieceMove); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(board.getMovesHistory(), pushedPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() +*/
+        boardBuilder.setNewMovesHistory(board.getMovesHistory(), pushedPieceMove.toString());
 
         if (isTrapSquare(destinationCoordinate)) {
             Board futureBoard = new checkMove(board, pushedPiece, destinationCoordinate).execute();
@@ -59,8 +67,7 @@ public class Push extends Move{
         }
 
         Move movedPieceMove = new SimpleMove(board, movedPiece, pushedPiece.getPiecePosition());
-//      System.out.print(movedPieceMove); /*TODO destroy*/
-        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), movedPieceMove.toString()); /*board.getRoundCounter() + board.getCurrentPlayer().toString() + */
+        boardBuilder.setNewMovesHistory(boardBuilder.getMovesHistory(), movedPieceMove.toString());
 
         for (Piece piece : currentPlayer.getActivePieces()) {
             if (movedPiece.equals(piece)) {
