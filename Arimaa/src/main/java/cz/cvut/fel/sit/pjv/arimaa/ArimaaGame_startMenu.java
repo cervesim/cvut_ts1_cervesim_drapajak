@@ -44,6 +44,7 @@ public class ArimaaGame_startMenu extends Application {
     public void closeAndSave() {
         if (ConfirmBoxView.display("Confirm exit", "Are you sure you want to exit?")) {
             mainWindow.close();
+            System.exit(0);
             logger.info("Application closed");
         }
     }
