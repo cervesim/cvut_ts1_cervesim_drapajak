@@ -8,6 +8,8 @@ import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -28,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class GameView{
+public class GameView extends Thread{
     protected Stage mainWindow;
     protected Board board;
     public boolean gameEnded;
@@ -43,7 +45,7 @@ public class GameView{
     public GameView(Stage mainWindow) {
         this.mainWindow = mainWindow;
         this.board = Board.createTestBoard();
-        this.timer = new Timer(board);
+        this.timer = new Timer(board);;
         this.goldenPlayerTimer = timer.goldenPlayerTimer;
         this.silverPlayerTimer = timer.silverPlayerTimer;
         this.gameEnded = false;
@@ -70,6 +72,7 @@ public class GameView{
             timer.setPlayers(board);
         }
     }
+
     public Scene display() {
         if (!inViewMode && !fileSaved){
             if (this.gameEnded){

@@ -84,15 +84,11 @@ public class Board {
         Piece possibleSilverRabbitTheChampion = silverPlayer.rabbitFinishedHisJourney();
         if (silverPlayer.getLegalMoves().isEmpty() ||
                 silverPlayer.getRabbits().isEmpty() ||
-                (possibleGoldenRabbitTheChampion != null) &&
-                        (silverPlayer != currentPlayer && (silverPlayer.getMoveCount() < 2 &&
-                                possibleGoldenRabbitTheChampion.isFrozen(this)))) {
+                (possibleGoldenRabbitTheChampion != null)) {
             return goldenPlayer;
         } else if (goldenPlayer.getLegalMoves().isEmpty() ||
                 goldenPlayer.getRabbits().isEmpty() ||
-                possibleSilverRabbitTheChampion != null &&
-                        (goldenPlayer != currentPlayer && (goldenPlayer.getMoveCount() < 2 &&
-                                possibleSilverRabbitTheChampion.isFrozen(this)))) {
+                possibleSilverRabbitTheChampion != null) {
             return silverPlayer;
         } else return null;
     }

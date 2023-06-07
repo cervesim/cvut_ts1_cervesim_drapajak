@@ -4,13 +4,16 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-public class Timer extends ActionEvent {
+public class Timer extends Thread {
+    protected Board board;
     public Label goldenPlayerTimer;
     public Label silverPlayerTimer;
     public int goldenPlayerTime = 0;
@@ -19,11 +22,35 @@ public class Timer extends ActionEvent {
     private Player silverPlayer;
     private Player currentPlayer;
     public Timer(Board board) {
+        this.board = board;
         setGoldenPlayer(board.getGoldenPlayer());
         setSilverPlayer(board.getSilverPlayer());
         setCurrentPlayer(board.getCurrentPlayer());
         this.goldenPlayerTimer = setPlayerTimer("g");
         this.silverPlayerTimer = setPlayerTimer("s");
+        start();
+    }
+    @Override
+    public void run(){
+        while (!board.gameEnded) {
+            if (getCurrentPlayer().equals(getGoldenPlayer())) {
+                Platform.runLater(() -> {
+                    goldenPlayerTimer.setText(getFormattedTime(++goldenPlayerTime));
+                });
+
+            }
+            else if (getCurrentPlayer().equals(getSilverPlayer())) {
+                Platform.runLater(() -> {
+                    silverPlayerTimer.setText(getFormattedTime(++silverPlayerTime));
+                });
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e){
+
+            }
+        }
     }
     public void setPlayers(Board board){
         this.setGoldenPlayer(board.getGoldenPlayer());
@@ -43,20 +70,14 @@ public class Timer extends ActionEvent {
     }
     public Label setPlayerTimer(String player){
         Label timerLabel = setLabel();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), second -> {
-            if (getCurrentPlayer().equals(getGoldenPlayer()) && player.equals("g")) {
-                goldenPlayerTime++;
-                timerLabel.setText(getFormattedTime(goldenPlayerTime));
-            }
-            else if (getCurrentPlayer().equals(getSilverPlayer()) && player.equals("s")) {
-                silverPlayerTime++;
-                timerLabel.setText(getFormattedTime(silverPlayerTime));
-            }
-        }));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-        return timerLabel;
+        if (getCurrentPlayer().equals(getGoldenPlayer()) && player.equals("g")) {
+            timerLabel.setText(getFormattedTime(goldenPlayerTime));
         }
+        else if (getCurrentPlayer().equals(getSilverPlayer()) && player.equals("s")) {
+            timerLabel.setText(getFormattedTime(silverPlayerTime));
+        }
+        return timerLabel;
+    }
 
 
     public Player getCurrentPlayer() {
