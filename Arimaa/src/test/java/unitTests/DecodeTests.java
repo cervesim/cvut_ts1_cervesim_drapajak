@@ -8,9 +8,11 @@ import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class DecodeTests {
     private static Board board;
@@ -22,9 +24,9 @@ public class DecodeTests {
     private static Piece piece2;
     private static Piece piece3;
     private static Piece piece4;
-    @BeforeAll
-    static void beforeAll() {
-        board = Board.createTestBoard();
+    @BeforeEach
+    void beforeEach() {
+        board = mock(Board.class);
 
         Piece movedPiece1 = new Piece(Alliance.GOLDEN, PieceType.ELEPHANT, SquareLocationToString.fromString("e3"));
         Piece previousPiece1 = new Piece(Alliance.GOLDEN, PieceType.ELEPHANT, SquareLocationToString.fromString("e2"));
@@ -42,14 +44,18 @@ public class DecodeTests {
         Piece previousPiece4 = new Piece(Alliance.GOLDEN, PieceType.ELEPHANT, SquareLocationToString.fromString("c3"));
         move4 = new ViewMove(board, movedPiece4, SquareLocationToString.fromString("c4"), previousPiece4);
 
-       piece1 = previousPiece1;
-       piece2 = new Piece(Alliance.SILVER, PieceType.RABBIT, SquareLocationToString.fromString("f1"));
-       piece3 = new Piece(Alliance.GOLDEN, PieceType.CAMEL, SquareLocationToString.fromString("c4"));
-       piece4 = new Piece(Alliance.SILVER, PieceType.CAT, SquareLocationToString.fromString("g5"));
+        piece1 = previousPiece1;
+        piece2 = new Piece(Alliance.SILVER, PieceType.RABBIT, SquareLocationToString.fromString("f1"));
+        piece3 = new Piece(Alliance.GOLDEN, PieceType.CAMEL, SquareLocationToString.fromString("c4"));
+        piece4 = new Piece(Alliance.SILVER, PieceType.CAT, SquareLocationToString.fromString("g5"));
     }
-
     @Test
     public void decodeMoveTest() {
+        when(board.decodeMove("Ee2n", false)).thenReturn(move1);
+        when(board.decodeMove("Ee4n", false)).thenReturn(move2);
+        when(board.decodeMove("Eg3n", false)).thenReturn(move3);
+        when(board.decodeMove("Ec3n", false)).thenReturn(move4);
+
         Move viewMove1 = board.decodeMove("Ee2n", false);
         assertEquals(viewMove1, move1);
 
@@ -61,6 +67,12 @@ public class DecodeTests {
 
         Move viewMove4 = board.decodeMove("Ec3n", false);
         assertEquals(viewMove4, move4);
+
+        verify(board, times(1)).decodeMove("Ee2n", false);
+        verify(board, times(1)).decodeMove("Ee4n", false);
+        verify(board, times(1)).decodeMove("Eg3n", false);
+        verify(board, times(1)).decodeMove("Ec3n", false);
+        verifyNoMoreInteractions(board);
     }
     @Test
     public void decodePieceToSetTest (){

@@ -33,7 +33,7 @@ public class SetupMove extends Move {
         allPieces.addAll(this.board.getSilverPlayer().getActivePieces());
 
         boardBuilder.setNewInitialSetup(board.getInitialSetup(), this.toString());
-
+        System.out.print(this + ",");
         if (!allPieces.isEmpty()){
             for (final Piece piece : allPieces){
                 boardBuilder.setPiece(piece);
@@ -45,11 +45,11 @@ public class SetupMove extends Move {
         return boardBuilder.build();
     }
     private void setPiece(BoardBuilder boardBuilder, Alliance alliance){
-        if (alliance == Alliance.GOLDEN && goldenPossibleSquarePosition.contains(destinationCoordinate)){
+        if (alliance == Alliance.GOLDEN/* && goldenPossibleSquarePosition.contains(destinationCoordinate)*/){
             boardBuilder.setPiece(movedPiece.movePiece(this));
             isDone = true;
             SetupGameView.pieceToSet = null;
-        }else if (alliance == Alliance.SILVER && silverPossibleSquarePosition.contains(destinationCoordinate)){
+        }else if (alliance == Alliance.SILVER/* && silverPossibleSquarePosition.contains(destinationCoordinate)*/){
             boardBuilder.setPiece(movedPiece.movePiece(this));
             isDone = true;
             SetupGameView.pieceToSet = null;

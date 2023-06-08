@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="5 unit testu, z toho jeden parametrizovanej">
+      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/07_06_2023_12_06_03333.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/08_06_2023_19_45_07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/RandomBoardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/testIsFrozen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/gameEndedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/gameEndedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/08_06_2023_17_50_01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/08_06_2023_18_09_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/DecodeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/DecodeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +74,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/simon/CVUT/Summer_2023/TS_S_2023/homeworks/hw4_eshop",
+    "last_opened_file_path": "C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Arimaa/Arimaa/src/main/ArimaaGameHistory",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +92,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.setupGameView" />
       <recent name="cz.cvut.fel.sit.pjv.arimaa.model.players" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\simon\CVUT\Summer_2023\PJV_S_2023\Arimaa\Arimaa\src\main\ArimaaGameHistory" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView" />
@@ -123,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gameEndedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DecodeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -132,13 +144,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.DecodeTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gameEndedTest.testGameEndedOnRandomBoard (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DecodeTests.decodePieceToSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -147,24 +159,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
-      <option name="METHOD_NAME" value="testGameEndedOnRandomBoard(java.lang.String,boolean)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="gameEndedTest.testGameEndedOnRandomBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Arimaa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unitTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
-      <option name="METHOD_NAME" value="testGameEndedOnRandomBoard(java.util.ArrayList,boolean)" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.DecodeTests" />
+      <option name="METHOD_NAME" value="decodePieceToSetTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,13 +174,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testIsFrozen.isFrozenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Arimaa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitTests" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.testIsFrozen" />
+      <option name="METHOD_NAME" value="isFrozenTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.java in Arimaa" />
-        <item itemvalue="JUnit.gameEndedTest.testGameEndedOnRandomBoard (1)" />
+        <item itemvalue="JUnit.testIsFrozen.isFrozenTest" />
         <item itemvalue="Application.ArimaaGame_startMenu" />
-        <item itemvalue="JUnit.gameEndedTest.testGameEndedOnRandomBoard" />
-        <item itemvalue="JUnit.gameEndedTest" />
+        <item itemvalue="JUnit.DecodeTests" />
+        <item itemvalue="JUnit.DecodeTests.decodePieceToSetTest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,14 +243,7 @@
       <workItem from="1686172887688" duration="607000" />
       <workItem from="1686222260414" duration="3142000" />
       <workItem from="1686226131043" duration="665000" />
-      <workItem from="1686229733953" duration="12141000" />
-    </task>
-    <task id="LOCAL-00003" summary="classes added">
-      <created>1683152294137</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1683152294138</updated>
+      <workItem from="1686229733953" duration="21756000" />
     </task>
     <task id="LOCAL-00004" summary="updated Square and added interfaces">
       <created>1683201129168</created>
@@ -576,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686241196395</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="5 unit testu, z toho jeden parametrizovanej">
+      <created>1686242180992</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1686242180992</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

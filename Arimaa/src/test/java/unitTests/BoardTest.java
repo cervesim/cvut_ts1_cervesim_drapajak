@@ -1,8 +1,12 @@
 package unitTests;
 
+import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
+import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SimpleMove;
+import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
+import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -30,4 +34,15 @@ public class BoardTest {
         assertEquals(allPieces.size(), 32);
         assertFalse(board.gameEnded);
     }
+    @Test
+    public void testAfterMove(){
+        Board board = Board.createTestBoard();
+        Piece piece = new Piece(Alliance.GOLDEN, PieceType.ELEPHANT, SquareLocationToString.fromString("e2"));
+        Move simpleMove = new SimpleMove(board, piece, SquareLocationToString.fromString("e3"));
+        Board newBoard = simpleMove.execute();
+
+        assertEquals(newBoard.getCurrentPlayer().getLegalMoves().size(), 14);
+        assertEquals(newBoard.getCurrentPlayer().getOpponent().getLegalMoves().size(), 8);
+    }
+
 }
