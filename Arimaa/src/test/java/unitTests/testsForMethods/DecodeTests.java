@@ -1,4 +1,4 @@
-package unitTests;
+package unitTests.testsForMethods;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
