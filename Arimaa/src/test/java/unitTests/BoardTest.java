@@ -1,3 +1,5 @@
+package unitTests;
+
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
@@ -10,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BoardTest {
     @Test
     public void initialTestBoard() {
-
         final Board board = Board.createTestBoard();
         assertEquals(board.getCurrentPlayer().getLegalMoves().size(), 8);
         assertEquals(board.getCurrentPlayer().getOpponent().getLegalMoves().size(), 8);

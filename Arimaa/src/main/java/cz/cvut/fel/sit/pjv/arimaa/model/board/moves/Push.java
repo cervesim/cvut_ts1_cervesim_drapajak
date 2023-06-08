@@ -6,7 +6,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 /**
  *

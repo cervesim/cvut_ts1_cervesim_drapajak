@@ -6,7 +6,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 public abstract class Square {
     protected final int squareLocation;

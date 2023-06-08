@@ -2,7 +2,7 @@ package cz.cvut.fel.sit.pjv.arimaa.view.setupGameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;

@@ -19,7 +19,7 @@ public class SettingsStageView {
 
         Label label = new Label();
         label.setText("Settings");
-        Button exitButton = new Button("save and exit"); /*TODO save settings*/
+        Button exitButton = new Button("save and exit");
         exitButton.setOnAction(e -> settingsWindow.close());
 
         VBox layout = new VBox(10);

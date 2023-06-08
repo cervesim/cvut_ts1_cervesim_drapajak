@@ -10,12 +10,12 @@ import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.GoldenPlayer;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Player;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.SilverPlayer;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
 
 import java.util.*;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToDestinationCoordinate;
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.fromCharToPieceType;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.fromCharToDestinationCoordinate;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.fromCharToPieceType;
 
 public class Board {
     private int roundCounter;

@@ -2,9 +2,9 @@ package cz.cvut.fel.sit.pjv.arimaa.view.utils;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.BoardView;
 import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -30,7 +30,7 @@ public class MainSceneView {
         /*TOP menu*/
         Button gameSettingsButton = new Button("Settings");
         gameSettingsButton.setOnAction(e -> SettingsStageView.display());
-        VBox topSettingsButton = new VBox(gameSettingsButton); /*TODO change to differentLayout*/
+        VBox topSettingsButton = new VBox(gameSettingsButton);
         topSettingsButton.setPadding(new Insets(2, 5, 2, 2));
         topSettingsButton.setAlignment(Pos.TOP_RIGHT);
         /*TOP menu*/

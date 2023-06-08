@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;

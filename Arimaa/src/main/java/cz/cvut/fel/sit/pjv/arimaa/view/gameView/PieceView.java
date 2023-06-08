@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;

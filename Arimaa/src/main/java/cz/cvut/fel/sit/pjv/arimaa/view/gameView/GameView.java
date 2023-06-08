@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
@@ -8,8 +8,6 @@ import cz.cvut.fel.sit.pjv.arimaa.view.setupGameView.SetupGameView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.ConfirmBoxView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.MainSceneView;
 import cz.cvut.fel.sit.pjv.arimaa.view.utils.SettingsStageView;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

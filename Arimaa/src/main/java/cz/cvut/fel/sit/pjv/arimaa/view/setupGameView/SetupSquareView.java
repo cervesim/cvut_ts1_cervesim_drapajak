@@ -6,7 +6,7 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SetupMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.square.Square;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.PieceView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.PieceView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import java.util.Collection;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 public class SetupSquareView{
     int squarePosition;

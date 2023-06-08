@@ -4,10 +4,9 @@ import cz.cvut.fel.sit.pjv.arimaa.model.Alliance;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
-import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.BoardView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 public class AgainstRobotMouseController extends MouseClickController{
     /**

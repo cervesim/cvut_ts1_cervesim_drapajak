@@ -15,8 +15,10 @@ public class ViewMove extends Move{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof SimpleMove simpleMove)) return false;
-        return destinationCoordinate == simpleMove.destinationCoordinate && Objects.equal(board, simpleMove.board) && Objects.equal(movedPiece, simpleMove.movedPiece);
+        if (!(o instanceof ViewMove viewMove)) return false;
+        return destinationCoordinate == viewMove.destinationCoordinate &&
+                Objects.equal(movedPiece, viewMove.movedPiece) &&
+                Objects.equal(presentPiece, viewMove.presentPiece);
     }
     @Override
     public Board execute() {

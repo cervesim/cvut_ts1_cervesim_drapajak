@@ -4,9 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="done">
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="somehow completed, without tests">
+      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/08_06_2023_17_50_01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/08_06_2023_18_09_19.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/DecodeTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/gameEndedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/AgainstRobotMouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/AgainstRobotMouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/controller/MouseClickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/Push.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/ViewMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/GameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/modelUtils/NotationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/PieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/PieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/SquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/SquareView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupGameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/setupGameView/SetupSquareView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/GameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/GameUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/MainSceneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/SettingsStageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/utils/SettingsStageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/BoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,28 +78,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/CVUT/Summer_2023/PJV_S_2023/Lessons_Seredi/09_vlakna/09_vlakna/110&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/simon/CVUT/Summer_2023/TS_S_2023/homeworks/hw4_eshop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.4632184",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cz.cvut.fel.sit.pjv.arimaa.view.setupGameView" />
@@ -109,7 +130,7 @@
       <recent name="cz.cvut.fel.sit.pjv.arimaa.modelInterface" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ArimaaGame_startMenu">
+  <component name="RunManager" selected="JUnit.gameEndedTest.testGameEndedOnRandomBoard (1)">
     <configuration name="ArimaaGame_startMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cz.cvut.fel.sit.pjv.arimaa.ArimaaGame_startMenu" />
       <module name="Arimaa" />
@@ -123,45 +144,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="gameEndedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitTests" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.initialBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="gameEndedTest.testGameEndedOnRandomBoard (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="initialBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitTests" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
+      <option name="METHOD_NAME" value="testGameEndedOnRandomBoard(java.lang.String,boolean)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cz.cvut.fel.sit.pjv.arimaa in Arimaa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="gameEndedTest.testGameEndedOnRandomBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cz.cvut.fel.sit.pjv.arimaa.*" />
+          <option name="PATTERN" value="unitTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cz.cvut.fel.sit.pjv.arimaa" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="unitTests" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.gameEndedTest" />
+      <option name="METHOD_NAME" value="testGameEndedOnRandomBoard(java.util.ArrayList,boolean)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in Arimaa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Arimaa" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.gameEndedTest.testGameEndedOnRandomBoard (1)" />
         <item itemvalue="Application.ArimaaGame_startMenu" />
-        <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.BoardTest.initialBoard" />
-        <item itemvalue="JUnit.cz.cvut.fel.sit.pjv.arimaa in Arimaa" />
+        <item itemvalue="JUnit.gameEndedTest.testGameEndedOnRandomBoard" />
+        <item itemvalue="JUnit.java in Arimaa" />
+        <item itemvalue="JUnit.gameEndedTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,13 +250,9 @@
       <workItem from="1686163474641" duration="1250000" />
       <workItem from="1686165163037" duration="6705000" />
       <workItem from="1686172887688" duration="607000" />
-    </task>
-    <task id="LOCAL-00001" summary="repostiory refractoring">
-      <created>1683142792349</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1683142792349</updated>
+      <workItem from="1686222260414" duration="3142000" />
+      <workItem from="1686226131043" duration="665000" />
+      <workItem from="1686229733953" duration="10934000" />
     </task>
     <task id="LOCAL-00002" summary="deleted old arimaa">
       <created>1683142887756</created>
@@ -550,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686172489008</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="somehow completed, without tests">
+      <created>1686222370324</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1686222370324</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +642,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="board to set almost finished" />
     <MESSAGE value="SetupBoardView and other almost finished" />
     <MESSAGE value="SetupBoard completed" />
     <MESSAGE value="Small refactoring" />
@@ -620,7 +666,8 @@
     <MESSAGE value="slight changes" />
     <MESSAGE value="full" />
     <MESSAGE value="done" />
-    <option name="LAST_COMMIT_MESSAGE" value="done" />
+    <MESSAGE value="somehow completed, without tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="somehow completed, without tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -633,6 +680,16 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="29" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/gameView/GameView.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/unitTests/gameEndedTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -649,6 +706,10 @@
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="viewMove.destinationCoordinate" language="JAVA" />
+        <watch expression="viewMove.destinationCoordinate" language="JAVA" />
+      </configuration>
       <configuration name="Application">
         <watch expression="this.gameBoard.get(9)" />
         <watch expression="board.gameBoard" />

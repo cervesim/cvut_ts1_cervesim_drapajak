@@ -4,8 +4,8 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.Move;
 import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.SkipTurnsMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.players.Timer;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.BoardView;
-import cz.cvut.fel.sit.pjv.arimaa.view.GameView.GameView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.BoardView;
+import cz.cvut.fel.sit.pjv.arimaa.view.gameView.GameView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.util.logging.Logger;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 public class MouseClickController extends GameView {
     private static final Logger logger = Logger.getLogger(MouseClickController.class.getName());

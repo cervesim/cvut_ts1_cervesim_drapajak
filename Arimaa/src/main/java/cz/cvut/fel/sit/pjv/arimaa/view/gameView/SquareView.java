@@ -1,4 +1,4 @@
-package cz.cvut.fel.sit.pjv.arimaa.view.GameView;
+package cz.cvut.fel.sit.pjv.arimaa.view.gameView;
 
 import cz.cvut.fel.sit.pjv.arimaa.controller.AgainstRobotMouseController;
 import cz.cvut.fel.sit.pjv.arimaa.controller.MouseClickController;
@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.GameUtils.isTrapSquare;
+import static cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.NotationUtils.isTrapSquare;
 
 public class SquareView extends GameView{
     int squarePosition;
