@@ -7,7 +7,6 @@ import cz.cvut.fel.sit.pjv.arimaa.model.board.moves.ViewMove;
 import cz.cvut.fel.sit.pjv.arimaa.model.modelUtils.SquareLocationToString;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.Piece;
 import cz.cvut.fel.sit.pjv.arimaa.model.pieces.PieceType;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
