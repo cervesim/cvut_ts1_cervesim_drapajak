@@ -29,7 +29,6 @@ public class ArimaaGame_startMenu extends Application {
         this.mainWindow.setScene(mainSceneView.display());
         this.mainWindow.show();
 
-        logger.info("Application started");
     }
 
     private void configureLogger() throws IOException {
@@ -45,7 +44,6 @@ public class ArimaaGame_startMenu extends Application {
         if (ConfirmBoxView.display("Confirm exit", "Are you sure you want to exit?")) {
             mainWindow.close();
             System.exit(0);
-            logger.info("Application closed");
         }
     }
 

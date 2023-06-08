@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="full">
-      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/07_06_2023_12_06_02.txt" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/01_06_2023_20_42_05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/02_06_2023_18_03_16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/06_06_2023_23_04_38.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/06_06_2023_23_12_45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/Timer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/view/GameView/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +204,8 @@
       <workItem from="1686132502405" duration="2942000" />
       <workItem from="1686138373929" duration="4998000" />
       <workItem from="1686163474641" duration="1250000" />
-      <workItem from="1686165163037" duration="6389000" />
+      <workItem from="1686165163037" duration="6705000" />
+      <workItem from="1686172887688" duration="607000" />
     </task>
     <task id="LOCAL-00001" summary="repostiory refractoring">
       <created>1683142792349</created>
@@ -543,7 +536,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686127239049</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="done">
+      <created>1686172197195</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1686172197195</updated>
+    </task>
+    <task id="LOCAL-00049" summary="done">
+      <created>1686172489008</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1686172489008</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +595,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="just a cleanup" />
     <MESSAGE value="board to set almost finished" />
     <MESSAGE value="SetupBoardView and other almost finished" />
     <MESSAGE value="SetupBoard completed" />
@@ -613,7 +619,8 @@
     <MESSAGE value="robot done" />
     <MESSAGE value="slight changes" />
     <MESSAGE value="full" />
-    <option name="LAST_COMMIT_MESSAGE" value="full" />
+    <MESSAGE value="done" />
+    <option name="LAST_COMMIT_MESSAGE" value="done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
