@@ -1,17 +1,10 @@
 package cz.cvut.fel.sit.pjv.arimaa.model.players;
 
 import cz.cvut.fel.sit.pjv.arimaa.model.board.Board;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
-
 public class Timer extends Thread {
     protected Board board;
     public Label goldenPlayerTimer;

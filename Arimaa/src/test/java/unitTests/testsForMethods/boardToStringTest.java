@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class boardToStringTest {
-
     @Test
     public void testBoardConfiguration() {
         Board board = Board.createTestBoard();
