@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="almost 13 testu, z toho 1 vyuziva mockito, 1 je parametrizovanej a 4 procesni">
-      <change afterPath="$PROJECT_DIR$/application.log.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/12315463" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="14 testu, z toho 1 vyuziva mockito a 5 procesnich">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ArimaaGameHistory/07_06_2023_12_06_03333.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ArimaaGameHistory/07_06_2023_12_06_03333.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/moves/SetupMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/WinningMoveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/WinningMoveTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +112,7 @@
       <recent name="cz.cvut.fel.sit.pjv.arimaa.modelInterface" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in Arimaa">
+  <component name="RunManager" selected="JUnit.WinningMoveTest.winingMoveBySilverRabbitTest">
     <configuration name="ArimaaGame_startMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cz.cvut.fel.sit.pjv.arimaa.ArimaaGame_startMenu" />
       <module name="Arimaa" />
@@ -130,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestPlayerChange.testPlayerChange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WinningMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -139,9 +135,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.TestPlayerChange" />
-      <option name="METHOD_NAME" value="testPlayerChange" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.WinningMoveTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WinningMoveTest.winingMoveByRabbitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WinningMoveTest.winingMoveBySilverRabbitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -172,7 +167,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="unitTests" />
       <option name="MAIN_CLASS_NAME" value="unitTests.WinningMoveTest" />
-      <option name="METHOD_NAME" value="winingMoveByRabbitTest" />
+      <option name="METHOD_NAME" value="winingMoveBySilverRabbitTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WinningMoveTest.winingMoveBySilverRabbitTest" />
+        <item itemvalue="JUnit.WinningMoveTest" />
         <item itemvalue="JUnit.java in Arimaa" />
         <item itemvalue="JUnit.WinningMoveTest.winingMoveByNoLegalMoves" />
         <item itemvalue="Application.ArimaaGame_startMenu" />
-        <item itemvalue="JUnit.WinningMoveTest.winingMoveByRabbitTest" />
-        <item itemvalue="JUnit.TestPlayerChange.testPlayerChange" />
       </list>
     </recent_temporary>
   </component>
@@ -240,14 +235,7 @@
       <workItem from="1686222260414" duration="3142000" />
       <workItem from="1686226131043" duration="665000" />
       <workItem from="1686229733953" duration="32854000" />
-      <workItem from="1686305522781" duration="3322000" />
-    </task>
-    <task id="LOCAL-00008" summary="Piece almost done todo add frozen method">
-      <created>1683887976996</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1683887976996</updated>
+      <workItem from="1686305522781" duration="6213000" />
     </task>
     <task id="LOCAL-00009" summary="Player somehow done, moving on to make move">
       <created>1684000843483</created>
@@ -585,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686263481040</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="14 testu, z toho 1 vyuziva mockito a 5 procesnich">
+      <created>1686310104563</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1686310104563</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="small refactoring" />
     <MESSAGE value="gameView ready for timer" />
     <MESSAGE value="Notation almost done" />
     <MESSAGE value="Notation almost done 2" />
@@ -655,7 +649,8 @@
     <MESSAGE value="10 testu, z toho 1 vyuziva mocktio, 1 je parametrizovanej a 2 procesni" />
     <MESSAGE value="11 testu, z toho 1 vyuziva mocktio, 1 je parametrizovanej a 2 procesni" />
     <MESSAGE value="almost 13 testu, z toho 1 vyuziva mockito, 1 je parametrizovanej a 4 procesni" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost 13 testu, z toho 1 vyuziva mockito, 1 je parametrizovanej a 4 procesni" />
+    <MESSAGE value="14 testu, z toho 1 vyuziva mockito a 5 procesnich" />
+    <option name="LAST_COMMIT_MESSAGE" value="14 testu, z toho 1 vyuziva mockito a 5 procesnich" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
