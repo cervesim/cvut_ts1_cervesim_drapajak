@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="16 testu, z toho 1 vyuziva mockito a 7 procesnich">
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/TrapSquareTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/testsForMethods/createMoveTest.java" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="19 testu, z toho 1 vyuziva mockito a 7 procesnich">
+      <change afterPath="$PROJECT_DIR$/application.log.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.log.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/WinningMoveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/WinningMoveTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/RandomBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/RandomBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/TrapSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/TrapSquareTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,8 +114,8 @@
       <recent name="cz.cvut.fel.sit.pjv.arimaa.modelInterface" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.createMoveTest">
-    <configuration name="WinningMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TrapSquareTest">
+    <configuration name="TrapSquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -125,7 +124,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.WinningMoveTest" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.TrapSquareTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TrapSquareTest" />
+        <item itemvalue="JUnit.java in Arimaa" />
         <item itemvalue="JUnit.createMoveTest" />
         <item itemvalue="JUnit.createMoveTest.testCreateMoveWithPush" />
         <item itemvalue="JUnit.WinningMoveTest.winingMoveBySilverRabbitTest" />
-        <item itemvalue="JUnit.WinningMoveTest" />
-        <item itemvalue="JUnit.java in Arimaa" />
       </list>
     </recent_temporary>
   </component>
@@ -240,14 +239,7 @@
       <workItem from="1686222260414" duration="3142000" />
       <workItem from="1686226131043" duration="665000" />
       <workItem from="1686229733953" duration="32854000" />
-      <workItem from="1686305522781" duration="9429000" />
-    </task>
-    <task id="LOCAL-00010" summary="Moves somehow done now to gui">
-      <created>1685021050091</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1685021050091</updated>
+      <workItem from="1686305522781" duration="10903000" />
     </task>
     <task id="LOCAL-00011" summary="GUI started">
       <created>1685096126186</created>
@@ -585,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686316164417</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="19 testu, z toho 1 vyuziva mockito a 7 procesnich">
+      <created>1686320541905</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1686320541906</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +629,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Notation almost done" />
     <MESSAGE value="Notation almost done 2" />
     <MESSAGE value="timer and notation somehow done" />
     <MESSAGE value="undoMove" />
@@ -655,7 +653,8 @@
     <MESSAGE value="almost 13 testu, z toho 1 vyuziva mockito, 1 je parametrizovanej a 4 procesni" />
     <MESSAGE value="14 testu, z toho 1 vyuziva mockito a 5 procesnich" />
     <MESSAGE value="16 testu, z toho 1 vyuziva mockito a 7 procesnich" />
-    <option name="LAST_COMMIT_MESSAGE" value="16 testu, z toho 1 vyuziva mockito a 7 procesnich" />
+    <MESSAGE value="19 testu, z toho 1 vyuziva mockito a 7 procesnich" />
+    <option name="LAST_COMMIT_MESSAGE" value="19 testu, z toho 1 vyuziva mockito a 7 procesnich" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
