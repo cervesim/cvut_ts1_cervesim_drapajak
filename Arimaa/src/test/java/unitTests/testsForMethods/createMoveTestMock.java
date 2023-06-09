@@ -34,7 +34,6 @@ public class createMoveTestMock {
         @Test
         public void resultShouldBeInstanceOfSimpleMove(){
             when(currentPlayer.createMove(eq(piece1), isNull(), anyInt())).thenReturn(mock(SimpleMove.class));
-
             Move move = board.getCurrentPlayer().createMove(piece1, null, SquareLocationToString.fromString("d4"));
             assertTrue(move instanceof SimpleMove);
         }

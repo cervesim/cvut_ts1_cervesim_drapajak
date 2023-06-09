@@ -43,7 +43,6 @@ public class TrapSquare extends Square{
                 }
             }
         }
-        if (!Board.pushOrPullNoted) System.out.print(this); /*TODO destroy*/
         return false;
     }
 

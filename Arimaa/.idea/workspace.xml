@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="20 testu, z toho 1 vyuziva mockito a 8 procesnich">
-      <change afterPath="$PROJECT_DIR$/src/test/java/unitTests/testsForMethods/createMoveTestMock.java" afterDir="false" />
+    <list default="true" id="1301f07c-5ad4-4b7d-9242-5d5928599fe5" name="Changes" comment="20 testu, z toho 4 vyuziva mockito a 8 procesnich">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/GameView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/board/square/TrapSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/unitTests/testsForMethods/createMoveTestMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/unitTests/testsForMethods/createMoveTestMock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,22 +113,7 @@
       <recent name="cz.cvut.fel.sit.pjv.arimaa.modelInterface" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.createMoveTestMock">
-    <configuration name="TrapSquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Arimaa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unitTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unitTests" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.TrapSquareTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.createMoveTest">
     <configuration name="createMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
@@ -144,7 +129,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="createMoveTestMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="createMoveTestMock.resultShouldBeInstanceOfPush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -154,12 +139,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="unitTests.testsForMethods" />
       <option name="MAIN_CLASS_NAME" value="unitTests.testsForMethods.createMoveTestMock" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="resultShouldBeInstanceOfPush" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="createMoveTest.testCreateMoveWithPush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="createMoveTestMock.resultShouldBeInstanceOfSimpleMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <extension name="coverage">
         <pattern>
@@ -168,28 +154,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unitTests.testsForMethods" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.testsForMethods.createMoveTest" />
-      <option name="METHOD_NAME" value="testCreateMoveWithPush" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.testsForMethods.createMoveTestMock" />
+      <option name="METHOD_NAME" value="resultShouldBeInstanceOfSimpleMove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in Arimaa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="gameEndedTest.testGameEndedOnTestBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Arimaa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unitTests.testsForMethods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unitTests.testsForMethods" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.testsForMethods.gameEndedTest" />
+      <option name="METHOD_NAME" value="testGameEndedOnTestBoard" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="unitTests in Arimaa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Arimaa" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
+      <dir value="$PROJECT_DIR$/src/test/java/unitTests" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.createMoveTestMock" />
-        <item itemvalue="JUnit.TrapSquareTest" />
-        <item itemvalue="JUnit.java in Arimaa" />
         <item itemvalue="JUnit.createMoveTest" />
-        <item itemvalue="JUnit.createMoveTest.testCreateMoveWithPush" />
+        <item itemvalue="JUnit.createMoveTestMock.resultShouldBeInstanceOfPush" />
+        <item itemvalue="JUnit.createMoveTestMock.resultShouldBeInstanceOfSimpleMove" />
+        <item itemvalue="JUnit.gameEndedTest.testGameEndedOnTestBoard" />
+        <item itemvalue="JUnit.unitTests in Arimaa" />
       </list>
     </recent_temporary>
   </component>
@@ -237,14 +239,8 @@
       <workItem from="1686222260414" duration="3142000" />
       <workItem from="1686226131043" duration="665000" />
       <workItem from="1686229733953" duration="32854000" />
-      <workItem from="1686305522781" duration="11694000" />
-    </task>
-    <task id="LOCAL-00012" summary="Pieces on Board!! (somehow)">
-      <created>1685130228629</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1685130228629</updated>
+      <workItem from="1686305522781" duration="11880000" />
+      <workItem from="1686323228768" duration="1054000" />
     </task>
     <task id="LOCAL-00013" summary="Pieces are Moving!!">
       <created>1685190339056</created>
@@ -582,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686322196238</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="20 testu, z toho 4 vyuziva mockito a 8 procesnich">
+      <created>1686323029301</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1686323029301</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +630,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="timer and notation somehow done" />
     <MESSAGE value="undoMove" />
     <MESSAGE value="moves to past works" />
     <MESSAGE value="moves to past and to future works" />
@@ -652,7 +654,8 @@
     <MESSAGE value="16 testu, z toho 1 vyuziva mockito a 7 procesnich" />
     <MESSAGE value="19 testu, z toho 1 vyuziva mockito a 7 procesnich" />
     <MESSAGE value="20 testu, z toho 1 vyuziva mockito a 8 procesnich" />
-    <option name="LAST_COMMIT_MESSAGE" value="20 testu, z toho 1 vyuziva mockito a 8 procesnich" />
+    <MESSAGE value="20 testu, z toho 4 vyuziva mockito a 8 procesnich" />
+    <option name="LAST_COMMIT_MESSAGE" value="20 testu, z toho 4 vyuziva mockito a 8 procesnich" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,11 +668,6 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="29" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/cz/cvut/fel/sit/pjv/arimaa/model/players/Player.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
