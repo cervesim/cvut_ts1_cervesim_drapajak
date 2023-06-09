@@ -64,7 +64,6 @@ public class WinningMoveTest {
         Assertions.assertTrue(board.gameEnded);
         Assertions.assertEquals(board.getSilverPlayer(), board.hasWon());
     }
-
     @Test
     public void winingMoveByNoLegalMoves () {
         for (String pieceNotation : piecesToSetList2) {
